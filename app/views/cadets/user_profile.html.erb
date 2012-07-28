@@ -1,0 +1,31 @@
+  <div class="row">
+    <div class="span3">
+        <div id="profileimage">
+          <%= gravatar_image_tag(@user.email) %>
+        </div>
+        <div id="profileinfo">
+          <ul>
+            <li>user name: <%= "#{@user.user_profile.first_name} #{@user.user_profile.last_name}" %></li>
+            <li>email address" <%= "#{@user.email}" %></li>
+            <li>date joined: <%= "#{@user.created_at}" %></li>
+            <li>date of birth: <%= "#{@user.user_profile.birth_day}" %></li>
+            <li>gender: <%= "#{@user.user_profile.gender}" %></li>
+            <li>website: </li>
+            <li>favorite strains: <%= "#{@user.user_profile.favorite_strains}" %></li>
+            <br>
+            <a data-toggle="modal" href="#editmodal-user-profile" class="btn btn-glow btn-success">Edit Profile</a>
+          </ul>
+        </div>
+      </div>
+      <div class="span7" id="profilerecent">
+        <ul>
+          <!--recent user posts and reviews feed-->
+          <li><img src="http://placehold.it/700x300"></li>
+          <li><img src="http://placehold.it/700x300"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- modals -->
+<%= render "modals/edit_profile" %>

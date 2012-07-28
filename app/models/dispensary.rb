@@ -1,0 +1,110 @@
+class Dispensary < ActiveRecord::Base
+  attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :dispensary_review,
+									:glass_sale, :whole_sale, :match_coupons
+
+	#Relations
+	has_many :dispensary_comments
+	has_one :dispensary_review
+  belongs_to :user
+	
+	#Filters and call backs	
+
+	#Regular Expressions
+	name_reg = /^([[:alnum:]\-\_\'\,]+ ?)*$/i
+	address_reg = /^([[:alnum:]\.\'[0-9]]+ ?)*$/i
+	zip_reg = /^\d{5}([\-]\d{4})?$/
+	phone_reg = /^\d{3}\-\d{3}\-\d{4}$/
+
+	#Validations
+	#name
+	validates_format_of :name, with: name_reg
+	validates_format_of :street_address, with: address_reg
+	validates_format_of :zip_code, with: zip_reg
+	validates_format_of :phone_number, with: phone_reg
+
+  def short_name
+    (name.size > 20) ? "#{name[0..19]}..." : name
+  end
+
+  def city_state_zip
+    "#{city}, #{state}, #{zip_code}"
+  end
+  
+  #########################################################
+  
+  def self.search( query )
+    where do
+      (name =~ "%#{query}%") | (city =~ "%#{query}%")  
+    end  
+  end 
+  
+  
+  #########################################################
+	
+	def review( uid, r_bud_tenders, r_selection, r_atmosphere )
+		if self.dispensary_review.nil?
+			self.dispensary_review = DispensaryReview.create( dispensary_id: self.id )
+			UserDispensaryReview.create( user_id: uid, dispensary_id: self.id,
+																		bud_tenders: r_bud_tenders, selection: r_selection,
+																 		atmosphere: r_atmosphere )
+		else
+			udr = UserDispensaryReview.where( user_id: uid, dispensary_id: self.id ).first
+			if udr.nil?
+				UserDispensaryReview.create( user_id: uid, dispensary_id: self.id,
+																			bud_tenders: r_bud_tenders, selection: r_selection,
+																			atmosphere: r_atmosphere )
+			else
+				udr.update_attributes( user_id: uid, dispensary_id: self.id, bud_tenders: r_bud_tenders, 
+															selection: r_selection, atmosphere: r_atmosphere )
+			end
+		end
+		self.dispensary_review.update_review_values
+	end
+	
+	def average_rating
+	   dispensary_review.average_rating
+  end
+
+################### OVERRIDES
+
+  def featured=(input)
+	  featured = ((input == "yes") ? true : false )
+    write_attribute(:featured, featured)
+  end
+  
+  def featured
+    featured = read_attribute(:featured)
+    featured ? "yes" : "no"
+  end
+
+  def glass_sale=(input)
+	  glass_sale = ((input == "yes") ? true : false )
+    write_attribute(:glass_sale, glass_sale)
+  end
+  
+  def glass_sale
+    glass_sale = read_attribute(:glass_sale)
+    glass_sale ? "yes" : "no"
+  end
+
+  def whole_sale=(input)
+	  whole_sale = ((input == "yes") ? true : false )
+    write_attribute(:whole_sale, whole_sale)
+  end
+  
+  def whole_sale
+    whole_sale = read_attribute(:whole_sale)
+    whole_sale ? "yes" : "no"
+  end
+
+  def match_coupons=(input)
+	  match_coupons = ((input == "yes") ? true : false )
+    write_attribute(:match_coupons, match_coupons)
+  end
+  
+  def match_coupons
+    match_coupons = read_attribute(:match_coupons)
+    match_coupons ? "yes" : "no"
+  end
+
+end

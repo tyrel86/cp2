@@ -1,0 +1,2 @@
+module UserStrainWikisHelper
+end

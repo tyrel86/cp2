@@ -1,0 +1,7 @@
+<%= simple_form_for comment do |f| %>
+    <%= f.input :body, :label => 'Comment' %>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%= f.button :submit %>
+  </div>
+<% end %>

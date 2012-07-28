@@ -1,0 +1,12 @@
+<%= simple_form_for wiki do |f| %>
+    <%= f.input :flavors %>
+    <%= f.input :effect %>
+    <%= f.input :health_benefits %>
+    <%= f.input :sativa_indica, :collection => (1..100).to_a %>
+    <%= f.input :ideal_growing_conditions %>
+    <%= f.input :origin %>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%= f.button :submit %>
+  </div>
+<% end %>

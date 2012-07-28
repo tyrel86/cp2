@@ -1,0 +1,46 @@
+<%= render "shared/sub_news" %>
+
+ <div class="row">
+        <div class="span2">
+            <div class="cbnewstopicon"><%= image_tag "dispatches.png" %></div>
+        </div>
+        <div class="span7">
+            <div class="cbdispatchtext"><%= image_tag "dispatchestext-01.png" %></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+            <div class=cbnewstextsubone><h4>Volume <%= @volume.id %></h4></div>
+        </div>
+        <div class="span2 offset3">
+            <div class=cbnewstextsubone><h4><%= @volume.created_at.to_date %></h4></div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="span3">
+            <div class="cbnewstextleft">
+              <% @col_array[0].each do |a| %>
+                <%= render "articles/article_exerpt", article: a %>
+              <% end %>  
+            </div>
+        </div>
+        <div class="span6">
+            <div class="cbnewstextmiddle" style="font-family: sans-serif">
+                <center>
+                  <%= image_tag @volume.photo_url, width: "300", height: "300" %>
+                <br>
+                  <% @col_array[1].each do |a| %>
+                    <%= render "articles/article_exerpt", article: a %>
+                  <% end %> 
+                </center>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="cbnewstextright">
+              <% @col_array[2].each do |a| %>
+                <%= render "articles/article_exerpt", article: a %>
+              <% end %> 
+            </div>
+        </div>
+    </div>

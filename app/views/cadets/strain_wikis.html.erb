@@ -1,0 +1,10 @@
+<div class="manage-index"> 
+  <ul>
+    <% @strain_wikis.each do |wiki| %>
+    <% strain = Strain.find( wiki.strain_id ) %>
+        <li>
+          <%= render "user_strain_wikis/user_strain_wiki", wiki: wiki, strain: strain %>
+        </li>
+    <% end %>
+  </ul>
+</div>

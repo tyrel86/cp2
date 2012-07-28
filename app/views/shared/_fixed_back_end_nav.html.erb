@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="span3" id="backendlogomaster"><%= image_tag "masterbackend-01.png"%></div>
+    <div class="span3 offset4" id="backend-search">
+      <form class="navbar-search pull-left">
+	<input type="text" class="search-query" placeholder="Search Reviews and Comments">
+      </form>
+    </div>
+</div>
+  <div class="row">
+    <div class="span2">
+      <ul class="nav nav-pills nav-stacked" id="navalign">
+        <li class="active">
+          <a href="/">Home</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle"
+             data-toggle="dropdown"
+             href="#">
+              Your Account
+              <b class="caret"></b>
+            </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cadets/user_profile">Profile</a></li>
+            <li><a href="/cadets/payment_method">Payment Methods</a></li>
+          </ul>
+        </li>
+            <li class="dropdown">
+          <a class="dropdown-toggle"
+             data-toggle="dropdown"
+             href="">
+              Articles
+              <b class="caret"></b>
+            </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "News Posts", cadets_news_posts_path %></li>
+            <li><%= link_to "Critiques", cadets_critiques_path %></li>
+            <li><%= link_to "News Comments", cadets_news_comments_path %></li>
+            <li><%= link_to "Volumes", cadets_volumes_path %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Strains<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/cadets/strain_reviews">Reviews</a></li>
+            <li><a href="/cadets/strain_wikis">Wiki Proposals</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dispensaries<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./backend_manage_review.php">Reviews</a></li>
+            <li><a href="./backend_manage_comment.php">Comments</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Listings<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "manage", cadets_dispensaries_path %></li>
+          </ul>
+        </li>
+        <li class="">
+          <%= link_to "The Path", "#the-path", "data-toggle" => "modal" %>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Daily Specials<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Create Daily Special</a></li>
+            <li><a href="#">Manage Daily Special</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>

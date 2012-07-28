@@ -1,0 +1,15 @@
+<% off = ((on < 5) ? (5 - on) : 0) %>
+
+<div class="span2" id="featured-rating">
+
+  <% on.times do %>
+    <i class="icon-star icon-white"></i>
+  <% end %>
+  <% off.times do %>
+    <i class="icon-star-empty icon-white"></i>
+  <% end %>
+
+  <h3>Fans: 20</h3>
+  <h3>Last Updated: <%= dispensary.updated_at %></h3>
+
+</div>

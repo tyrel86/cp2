@@ -1,0 +1,22 @@
+<%= render "shared/sub_news" %>
+<div class="row">
+  <div class="span12 archive">
+    <% @volumes.each do |v| %>
+    <% next if v.articles.empty? %>
+    <div class="row">
+      <div class="span6">
+      <%= link_to "Volume #{v.id}", v %>
+      <ul>
+        <% v.articles.each do |a| %>
+          <li><%= link_to a.title, a %></li>
+        <% end %>
+      </ul>
+      </div>
+      <div class="span6">
+        <%= "Created : #{v.created_at.to_date}" %><br />
+        <%= image_tag v.photo_url, width: "150", height: "150" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

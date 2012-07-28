@@ -1,0 +1,19 @@
+ApplicationName: CannaPages
+
+Purpose: To provide a verry enjoyable very profitable awsome cannibus news,
+comuntiy, directory and listing service
+	
+--------------------------
+Included Packages
+--------------------------
+BaseRails: This is a github repo under tyrel86 to replace rails new name -mysql
+Includes: rspec-cucumber testing swuit
+StepsToInitiate:
+	- edit database.yml
+	$ bundle install
+	$ rails g rspec:install
+	- edit lib/tasks/tyrel-dev.rake
+	- edit shema.rb
+	$ rake database:reset
+	$ RAILS_ENV=test rake database:reset
+

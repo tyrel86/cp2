@@ -1,0 +1,40 @@
+<%= render "shared/sub_nav" %>
+<div class="row">
+	<div class="row">
+		<div class="span12">
+			<div class="cbnewstextsubtwoo"><p><h1>STRAINCYCLOPEDIA</h1></p><p><h4>the cannawiki</h4></p></div>
+	</div>
+</div>
+<% @strains.each do |strain| %>
+<% wiki = strain.strain_wiki %>
+<div class="row">
+	<div class="span3"><img src="http://placehold.it/350x150"></div>
+	<div class="span9">
+		<h3><%= strain.name %></h3>
+		<div class="row">
+			<div class="span3">Flavours:</div>
+			<div class="span9"><%= wiki.flavors %></div>
+		</div>
+		<div class="row">
+			<div class="span3">Effect:</div>
+			<div class="span9"><%= wiki.effect %></div>
+		</div>
+		<div class="row">
+			<div class="span3">Health Benefits:</div>
+			<div class="span9"><%= wiki.health_benefits %></div>
+		</div>
+		<div class="row">
+			<div class="span3">sativa_indica:</div>
+			<div class="span9"><%= wiki.sativa_indica %></div>
+		</div>
+		<div class="row">
+			<div class="span3">Ideal Growing Conditions:</div>
+			<div class="span9"><%= wiki.ideal_growing_conditions %></div>
+		</div>
+		<div class="row">
+			<div class="span3">Origin:</div>
+			<div class="span9"><%= wiki.origin %></div>
+		</div>
+	</div>
+</div>
+<% end%>

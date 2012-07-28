@@ -1,0 +1,9 @@
+<div id="create_article_modal" class="modal hide fade" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h3>Create Article</h3>
+    </div>
+    <div class="modal-body">
+        <%= render "articles/form", article: Article.new %>
+    </div>
+</div>

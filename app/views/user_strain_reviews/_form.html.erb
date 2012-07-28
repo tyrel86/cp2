@@ -1,0 +1,8 @@
+<%= simple_form_for review do |f| %>
+    <%= f.input :couch_lock, :collection => (1..10).to_a %>
+    <%= f.input :creativity, :collection => (1..10).to_a %>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%= f.button :submit %>
+  </div>
+<% end %>

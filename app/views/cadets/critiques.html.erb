@@ -1,0 +1,12 @@
+<a data-toggle="modal" href="#create_critique_modal" class="btn btn-glow btn-success new-btn">Create New Critique</a>
+<div class="manage-index"> 
+ <ul>  
+    <% @critiques.each do |critique| %>
+      <li>
+        <%= render "critiques/critique", critique: critique  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "modals/create_critique" %>

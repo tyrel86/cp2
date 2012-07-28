@@ -1,0 +1,10 @@
+<div class="manage-index"> 
+  <ul>
+    <% @strain_reviews.each do |review| %>
+      <% strain = Strain.find( review.strain_id ) %>
+        <li>
+          <%= render "user_strain_reviews/user_strain_review", strain: strain, review: review %>
+        </li>
+    <% end %>
+  </ul>
+</div>

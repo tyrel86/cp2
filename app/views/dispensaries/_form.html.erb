@@ -1,0 +1,15 @@
+<%= simple_form_for dispensary do |f| %>
+    <%= f.input :name %>
+    <%= f.input :street_address %>
+    <%= f.input :city %>
+    <%= f.input :state, :collection => LEGAL_STATE_ARRAY %>
+    <%= f.input :zip_code %>
+    <%= f.input :phone_number %>
+    <%= f.input :glass_sale, :collection => YESNO %>
+    <%= f.input :whole_sale, :collection => YESNO %>
+    <%= f.input :match_coupons, :collection => YESNO %>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%= f.button :submit %>
+  </div>
+<% end %>

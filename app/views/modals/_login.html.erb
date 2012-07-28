@@ -1,0 +1,24 @@
+<div id="editmodal-login" class="modal hide fade" style="display: none;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">X</button>
+    <h3>Log In</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      <%= form_tag sessions_path do %>
+        <div class="field">
+          <%= label_tag :user_name %><br />
+          <%= text_field_tag :user_name, params[:user_name] %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %><br />
+          <%= password_field_tag :password %>
+        </div>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <div class="actions"><%= submit_tag "Log In" %></div>
+      <% end %>
+      <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>

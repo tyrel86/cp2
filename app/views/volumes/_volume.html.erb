@@ -1,0 +1,14 @@
+<div class="row manage-single-review">
+  <div class="span6">
+    <h5><%= volume.id %></h5>
+    <p>Current: <%= volume.current %></p>
+  </div>
+  <div class="span2 backendbtns">  
+    <a data-toggle="modal" href="#editmodal<%= volume.id %>" class="btn btn-glow btn-success">Edit</a>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', volume, :method => :delete %></div>
+    <div class="btn btn-glow btn-success"><%= link_to 'Set as Current', set_current_volume_path( volume.id ), 
+                                                                                  :method => :post %></div>
+  </div>
+</div>
+
+ <%= render "modals/edit_volume.html.erb", volume: volume, articles: Article.all %>

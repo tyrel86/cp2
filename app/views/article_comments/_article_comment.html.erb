@@ -1,0 +1,11 @@
+<div class="row manage-single-review">
+  <div class="span6">
+    <p><%= comment.body %></p>
+  </div>
+  <div class="span2 backendbtns">  
+    <a data-toggle="modal" href="#editmodal<%= comment.id %>" class="btn btn-glow btn-success">Edit</a>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', comment, :method => :delete %></div>
+  </div>
+</div>
+
+ <%= render "modals/edit_article_comment.html.erb", comment: comment %>

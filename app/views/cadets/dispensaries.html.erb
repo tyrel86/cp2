@@ -1,0 +1,12 @@
+<a data-toggle="modal" href="#create_dispensary" class="btn btn-glow btn-success new-btn">Create Dispensary</a>
+<div class="manage-index"> 
+ <ul>  
+    <% @dispensaries.each do |dispensary| %>
+      <li>
+        <%= render "dispensaries/backend_dispensary", dispensary: dispensary  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "modals/create_dispensary" %>
