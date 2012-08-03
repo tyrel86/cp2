@@ -1,5 +1,3 @@
-rails_env = 'production'
-
 worker_processes 4
 working_directory "/home/CannaPages/"
 
