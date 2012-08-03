@@ -1,4 +1,6 @@
-worker_processes 2
+rails_env = 'production'
+
+worker_processes 4
 working_directory "/home/CannaPages/"
 
 # This loads the application in the master process before forking
