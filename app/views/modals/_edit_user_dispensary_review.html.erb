@@ -1,0 +1,9 @@
+<div id="editmodal<%= review.id %>" class="modal hide fade" style="display: none;">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          <h3>Edit Dispensary Review</h3>
+      </div>
+      <div class="modal-body">
+          <%= render "user_dispensary_reviews/form", review: review %>
+      </div>
+</div>

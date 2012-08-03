@@ -1,0 +1,10 @@
+<%= simple_form_for review do |f| %>
+  <%= f.input :bud_tenders, :collection => 1..10 %>
+  <%= f.input :selection, :collection => 1..10 %>
+  <%= f.input :atmosphere, :collection => 1..10 %>
+  <%= f.hidden_field :dispensary_id, value: review.dispensary_id %>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%= f.button :submit %>
+  </div>
+<% end %>

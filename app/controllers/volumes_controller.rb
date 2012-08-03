@@ -1,7 +1,12 @@
 class VolumesController < ApplicationController
-  
-  def archive
-    @volumes = Volume.all
+
+  def manage
+    @volumes = Volume.all(:order => 'created_at DESC')
+    render layout: 'cadets'
+  end
+
+  def index
+    @volumes = Volume.all(:order => 'created_at DESC')
   end
   
   def show
@@ -11,12 +16,12 @@ class VolumesController < ApplicationController
   
   def create
     Volume.create( current: false )
-    redirect_to cadets_volumes_path
+    redirect_to manage_volumes_path
   end
   
   def set_as_current
     Volume.find( params[:id] ).set_as_current
-    redirect_to cadets_volumes_path
+    redirect_to manage_volumes_path
   end
 
   def update
@@ -27,11 +32,12 @@ class VolumesController < ApplicationController
     end
     volume.photo_url = params[:volume][:photo_url]
     volume.save
-    redirect_to cadets_volumes_path
+    redirect_to manage_volumes_path
   end
 
   def destroy
     Volume.find( params[:id] ).destroy
-    redirect_to cadets_volumes_path
+    redirect_to manage_volumes_path
   end
+  
 end

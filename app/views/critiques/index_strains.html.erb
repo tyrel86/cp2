@@ -1,0 +1,15 @@
+<%= render "shared/sub_critiques" %>
+
+<div class="row">
+	    <div class="span2">
+		<div class="cbnewstopicon"><%= image_tag "cannacritiqueslogo-02.png" %></div>
+	    </div>
+	    <div class="span7">
+		<div class="cbdispatchtext"><%= image_tag "cannacritiqueslogo-01.png" %></div>
+	    </div>
+</div>
+
+	
+	<% @critiques.each do |c| %>
+    <%= render "critiques/critique_exerpt", critique: c %>
+  <% end %>

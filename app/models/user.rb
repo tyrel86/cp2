@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	# Relational Asociations
 	has_one :user_profile
 	has_many :dispensary_comments
+	has_many :user_dispensary_reviews
 	has_many :user_strain_wikis #AKA user strain wiki proposals
 	has_many :user_strain_reviews
 	has_many :articles
@@ -25,9 +26,9 @@ class User < ActiveRecord::Base
 	#Global
 		validates :user_name, :password, :password_confirmation, :email, presence: true
 	#User name
-		validates_uniqueness_of :user_name
-		validates_format_of :user_name, with: user_name_reg
-		validates :user_name, :length => { :in => 5..15 }
+		#validates_uniqueness_of :user_name
+		#validates_format_of :user_name, with: user_name_reg
+		#validates :user_name, :length => { :in => 5..15 }
 	#Email
 		validates_uniqueness_of :email
 		validates_format_of :email, with: email_reg

@@ -5,11 +5,15 @@ module ApplicationHelper
   
   def login_or_backend
     if current_user?
-      link_to "CannCadets", cadets_user_profile_path
+      link_to "CannCadets", user_profile_path( current_user )
     else
       link_to "CannCadets", "#editmodal-login", "data-toggle" => "modal"
-    end
-    
+    end    
+  end
+  
+  def current_volume_path
+    v = Volume.the_current
+    (v ? volume_path( v ) : "#")
   end
   
 end

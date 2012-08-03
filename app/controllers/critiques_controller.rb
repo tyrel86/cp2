@@ -1,22 +1,52 @@
 class CritiquesController < ApplicationController
+
+  def user_index
+    @user = current_user
+    @critiques = @user.critiques
+    render layout: 'cadets'
+  end
+  
+  def index
+    @critiques = Critique.all
+    @critiques ||= []
+  end
+  
+  def index_strains
+    @critiques = Critique.where( critique_type: false )
+    @critiques ||= []
+  end
+  
+  def index_dispensaries
+    @critiques = Critique.where( critique_type: true )
+    @critiques ||= []    
+  end
+
+  def dispensary_index
+    @critiques = Critique.where( critique_type: true )  
+  end
+  
+  def strain_index
+    @critiques = Critique.where( critique_type: false )  
+  end
+  
   def create
     c = Critique.create( params[:critique] )
     current_user.critiques << c
-    redirect_to cadets_critiques_path
+    redirect_to user_critiques_path( current_user )
   end
 
   def update
     critique = current_user.critiques.where( id: params[:id] ).first
     if critique.update_attributes( params[:critique] )
-      redirect_to "/cadets/critiques", notice: 'Article was successfully updated.'
+      redirect_to user_critiques_path( current_user ), notice: 'Article was successfully updated.'
     else
-      redirect_to "/cadets/critiques", alert: 'Invalid paramiters for article'
+      redirect_to user_critiques_path( current_user ), alert: 'Invalid paramiters for article'
     end
   end
 
   def destroy
     current_user.critiques.find( params[:id] ).destroy
-    redirect_to "/cadets/critiques", alert: 'Article Destroyd'
+    redirect_to user_critiques_path( current_user ), alert: 'Article Destroyd'
   end
   
 end

@@ -1,45 +1,41 @@
 class Dispensary < ActiveRecord::Base
-  attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :dispensary_review,
-									:glass_sale, :whole_sale, :match_coupons
+  attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :glass_sale, 
+                           :whole_sale, :match_coupons
 
-	#Relations
+######   Relations
 	has_many :dispensary_comments
 	has_one :dispensary_review
   belongs_to :user
 	
-	#Filters and call backs	
+#######    Filters and call backs	
 
-	#Regular Expressions
+######  Regular Expressions
 	name_reg = /^([[:alnum:]\-\_\'\,]+ ?)*$/i
 	address_reg = /^([[:alnum:]\.\'[0-9]]+ ?)*$/i
 	zip_reg = /^\d{5}([\-]\d{4})?$/
 	phone_reg = /^\d{3}\-\d{3}\-\d{4}$/
 
-	#Validations
-	#name
+#######  Validations
 	validates_format_of :name, with: name_reg
 	validates_format_of :street_address, with: address_reg
 	validates_format_of :zip_code, with: zip_reg
 	validates_format_of :phone_number, with: phone_reg
-
-  def short_name
-    (name.size > 20) ? "#{name[0..19]}..." : name
-  end
-
-  def city_state_zip
-    "#{city}, #{state}, #{zip_code}"
-  end
   
-  #########################################################
+#######  Query Methods
   
   def self.search( query )
     where do
       (name =~ "%#{query}%") | (city =~ "%#{query}%")  
     end  
-  end 
+  end
+  
+  def self.featured( zip_code )
+    possible_listings = self.search( zip_code )
+    possible_listings.where( featured: true )
+  end
   
   
-  #########################################################
+########  Proceedural Methods
 	
 	def review( uid, r_bud_tenders, r_selection, r_atmosphere )
 		if self.dispensary_review.nil?
@@ -60,34 +56,36 @@ class Dispensary < ActiveRecord::Base
 		end
 		self.dispensary_review.update_review_values
 	end
-	
-	def average_rating
-	   dispensary_review.average_rating
-  end
-
-################### OVERRIDES
-
-  def featured=(input)
-	  featured = ((input == "yes") ? true : false )
-    write_attribute(:featured, featured)
-  end
   
-  def featured
-    featured = read_attribute(:featured)
-    featured ? "yes" : "no"
+################### Data Manipulation Methods
+
+	def average_rating
+	   r = dispensary_review.average_rating if dispensary_review
+	   r ||= 0
+	   r
   end
 
-  def glass_sale=(input)
+  def short_name
+    (name.size > 20) ? "#{name[0..19]}..." : name
+  end
+
+  def city_state_zip
+    "#{city}, #{state}, #{zip_code}"
+  end
+
+################### Getter Setter OVERRIDES
+
+	def glass_sale=(input)
 	  glass_sale = ((input == "yes") ? true : false )
     write_attribute(:glass_sale, glass_sale)
   end
   
   def glass_sale
-    glass_sale = read_attribute(:glass_sale)
+    glass_sale = read_attribute(:gender)
     glass_sale ? "yes" : "no"
   end
-
-  def whole_sale=(input)
+  
+	def whole_sale=(input)
 	  whole_sale = ((input == "yes") ? true : false )
     write_attribute(:whole_sale, whole_sale)
   end
@@ -97,7 +95,7 @@ class Dispensary < ActiveRecord::Base
     whole_sale ? "yes" : "no"
   end
 
-  def match_coupons=(input)
+	def match_coupons=(input)
 	  match_coupons = ((input == "yes") ? true : false )
     write_attribute(:match_coupons, match_coupons)
   end

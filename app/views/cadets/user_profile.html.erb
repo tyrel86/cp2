@@ -1,3 +1,4 @@
+<% if @user_profile.respond_to? :first_name %>
   <div class="row">
     <div class="span3">
         <div id="profileimage">
@@ -17,6 +18,7 @@
           </ul>
         </div>
       </div>
+
       <div class="span7" id="profilerecent">
         <ul>
           <!--recent user posts and reviews feed-->
@@ -28,4 +30,6 @@
   </div>
 
 <!-- modals -->
-<%= render "modals/edit_profile" %>
+  <%= render "modals/edit_profile" %>
+  
+        <% end %>

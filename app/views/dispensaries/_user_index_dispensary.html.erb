@@ -1,0 +1,11 @@
+<div class="row manage-single-review">
+  <div class="span6">
+    <h5><%= listing.name %></h5>
+  </div>
+  <div class="span2 backendbtns">  
+    <a data-toggle="modal" href="#editmodal<%= listing.id %>" class="btn btn-glow btn-success">Edit</a>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', listing, :method => :delete, :confirm => 'Are you sure?' %></div>
+  </div>
+</div>
+
+ <%= render "modals/edit_listing", listing: listing %>

@@ -1,42 +1,42 @@
 <div id="header">
-<div class="row">
-	<div class="span">
-		<ul class="nav nav-tabs">
-		  <li class="active">
-		    <%= link_to "CannaEngine", root_path %>
-		  </li>
-		  <li><%= link_to "CannaCritiques", critiques_path %></li>
-		  <li><%= link_to "Dispatches", news_path %></li>
-		  <li><%= link_to "Strain Wiki", "#strain-wiki", "data-toggle"=> :modal %></li>
-		  <li><%= image_tag "savergirl2.png", id: :savergirl %></li>
-		  <li id="saverspace"><a href="./cannasaver.php">Canna$aver</a></li>
-		  <li id="cadettab"><%= login_or_backend %></li>
-		  
-		</ul>
-        </div>
-        <!--
-	<div class="span5" id="topbutton">
-		<div class="btn btn-glow btn-success"><a href="#">Advertise With Us</a></div><div class="btn btn-glow btn-success"><a href="#">Submit a Free Listing</a></div>
-	</div>
-	-->
-</div>
-<div class="row" id="searchbar">
-	<div class="span3 mbwrapperlogo">
-             <a id="mblogo1" class="green-button" href="./index.php/"><%= image_tag "cannaloglow-02.png" %></a>
-             <a id="mblogo2" href="./index.php"><%= image_tag "cannaloglow-01.png" %></a>
-        </div>
-	<div class="span6" id="cannaenginebar">
-	<!--
-		<form class="form-search">
-			<input type="text" class="input-medium search-query" id="cannaenginetext">
-			<button type="submit" class="btn-custom">FIND</button>
-		</form>
-		-->
-		<%= form_tag dispensary_search_path, :method => :put, class: "form-search" do %>
+  <div class="row">
+  
+  	<div class="span">
+  		<ul class="nav nav-tabs">
+  		  <li class="active">
+  		    <%= link_to "CannaEngine", root_path %>
+  		  </li>
+  		  <li><%= link_to "CannaCritiques", critiques_path %></li>
+  		  <li><%= link_to "Dispatches", current_volume_path %></li>
+  		  <li><%= link_to "Strain Wiki", "#strain-wiki", "data-toggle"=> :modal %></li>
+  		  <li><%= image_tag "savergirl2.png", id: :savergirl %></li>
+  		  <li id="saverspace"><%= link_to "Canna$aver", "#cannasaver", "data-toggle" => :modal %></li>
+  		  <li id="cadettab"><%= login_or_backend %></li>		  
+		  </ul>
+    </div>
+	  
+	  <div class="span5" id="topbutton">
+	  	<div class="btn btn-glow btn-success" id="join-btn"><a href="/users/new">Join</a></div>
+	  </div>
+  </div>
+
+  <div class="row" id="searchbar">
+	  <div class="span3 mbwrapperlogo">
+      <a id="mblogo1" class="green-button" href="./index.php/"><%= image_tag "cannaloglow-02.png" %></a>
+      <a id="mblogo2" href="./index.php"><%= image_tag "cannaloglow-01.png" %></a>
+    </div>
+	  <div class="span6" id="cannaenginebar">
+	    <!--
+		    <form class="form-search">
+			    <input type="text" class="input-medium search-query" id="cannaenginetext">
+			    <button type="submit" class="btn-custom">FIND</button>
+		    </form>
+		    -->
+		  <%= form_tag dispensary_search_path, :method => :put, class: "form-search" do %>
       <%= text_field_tag :search_term, "", :placeholder => "City State Zip or Name", :class => "input-medium search-query", 
                                     :id => "cannaenginetext" %>
       <button type="submit" class="btn-custom">FIND</button>
-    <% end %>
+      <% end %>
 	</div>
 	<div class="span2" id="searchoptions">
 		<form class="form-horizontal">

@@ -1,5 +1,5 @@
 class Volume < ActiveRecord::Base
-  attr_accessible :current
+  attr_accessible :current, :photo_url
   
   has_many :articles
 

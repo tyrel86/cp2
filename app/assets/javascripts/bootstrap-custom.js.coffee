@@ -6,4 +6,3 @@ $(document).ready ->
   $('.dropdown-toggle').dropdown()
   $('.alert').alert()
   $(".collapse").collapse()
-  $('.carousel').carousel()

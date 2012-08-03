@@ -6,8 +6,9 @@
 			<a class="dropdown-toggle" data-toggle="dropdown">Main site<b class="caret"></b></a>
 			<%= render "shared/sub_sub_nav" %>
 		        </li>
-		      <li><%= link_to "Dispensary Reviews", critiques_type_path( "dispensary" )%></li>
-		      <li><%= link_to "Strain Reviews", critiques_type_path( "strain" )%></li>
+		      <li><%= link_to "All Critiques", critiques_path %></li>
+		      <li><%= link_to "Dispensary Reviews", critiques_dispensaries_path %></li>
+		      <li><%= link_to "Strain Reviews", critiques_strains_path %></li>
 		    </ul>
 		  </div>
 	</div>

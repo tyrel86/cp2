@@ -1,17 +1,17 @@
 class Search < ActiveRecord::Base
-  attr_protected
+  attr_accessible :search_term, :num_of_searches, :search_type
 
-  def self.create_or_inc( check_search_term )
-    previous = Search.find_by_search_term( check_search_term )
+  def self.create_or_inc( search_term, search_type )
+    previous = Search.find_by_search_term( search_term )
     unless previous
-      Search.create( search_term: check_search_term, num_of_searches: 1 )
+      Search.create( search_term: search_term, num_of_searches: 1, search_type: search_type )
     else
       previous.num_of_searches += 1
       previous.save
     end
   end
   
-  def type=(input)
+  def search_type=(input)
 	  type = case input
       when :listing
 	      0
@@ -24,14 +24,16 @@ class Search < ActiveRecord::Base
       when :coupon
         4
 	  end
-	  write_attribute(:type, type)
+	  write_attribute(:search_type, type)
   end
   
-  def type
-    type = read_attribute(:gender)
+  def search_type
+    type = read_attribute(:search_type)
     case type
+      when 0
+	      :listing
       when 1
-        :listing
+        :critique
       when 2
         :dispatch
       when 3

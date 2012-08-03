@@ -1,20 +1,17 @@
 <div class="listingbox row">
-
   <div class="span12">
-
-  <div class="row">
-	  <div class="span2" id="listinglocation"><h5><%= dispensary.city_state_zip %></h5></div>
-	  <!-- <div class="span1 offset5" id="listdistance"><h5>1.2 MILES</h5></div> -->
-  </div>
-  
-  <div class="row">
-      <h1 class="listingname"><%= dispensary.short_name %></h1>
-  </div>
-  
-  <div class="row">
-      <%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
-  </div>    
-  
+    <div class="row">
+	    <div class="span2" id="listinglocation"><h5><%= dispensary.city_state_zip %></h5></div>
+	    <!-- <div class="span1 offset5" id="listdistance"><h5>1.2 MILES</h5></div> -->
+    </div>
+    <div class="row">
+        <h1 class="listingname"><%= dispensary.short_name %></h1>
+    </div>
+   <% if dispensary.average_rating %>
+    <div class="row">
+          <%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
+    </div>    
+  <% end %>
   <div class="row">
 	    <div class="span3" id="listingicons">
 			    <%= image_tag "menuicons-01.png" %>
@@ -22,11 +19,8 @@
 			    <%= image_tag "menuicons-03.png" %>
 			    <%= image_tag "menuicons-04.png" %> 
 	    </div>
-	    <a href="/dispensaries/<%= dispensary.id %>
 	      <button class="span1 btn btn-large btn-success listbtn">See Full Listing</button>
-      </a>
   </div>
-
-  </div>
-
 </div>
+</div>
+

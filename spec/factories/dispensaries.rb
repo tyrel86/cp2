@@ -7,6 +7,7 @@ FactoryGirl.define do
 		zip_code "80021"
 		state "CO"
 		city "Denver"
+		featured false
 		phone_number do
 			area_code = Random.rand(0..1) == 0 ? "303" : "720"
 			dig3 = ""

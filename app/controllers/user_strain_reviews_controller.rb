@@ -1,5 +1,10 @@
 class UserStrainReviewsController < ApplicationController
   
+  def user_index
+    @user = current_user
+    @strain_reviews = @user.user_strain_reviews
+  end
+  
   def update
     review = current_user.user_strain_reviews.find( params[:id] )
     strain = Strain.find( review.strain_id )

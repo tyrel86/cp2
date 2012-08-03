@@ -1,4 +1,4 @@
-<div class="row mbwrapper2">
+<div class="row">
 	<div class="span2">
 		<div class="cbnewstopicon"><%= image_tag "cannaenginetitle-02.png" %></div>
 	</div>
@@ -6,20 +6,15 @@
 		<div class="cbenginetext"><%= image_tag "cannaenginetitle-01.png" %></div>
 	</div>
 </div>
-<div class="row">
-  
+
+<div class="row">  
   <div class="span8">
-    <%= render "dispensaries/featured", dispensary: @featured %>
-    <%= render "dispensaries/featured", dispensary: @first_sub_featured %>
+    <% #render "dispensaries/featured", dispensary: @featured %>
+    <% #render "dispensaries/featured", dispensary: @first_sub_featured %>
     <% @dispensaries.each do |d| %>
             <%= render "dispensaries/dispensary", dispensary: d %>
     <% end %>
   </div>
-
-  <div class="span3">
-    <% @sub_featured.each do |d| %>
-      <%= render "dispensaries/sub_featured", dispensary: d %>
-    <% end %>
-  </div>  
+</div>
 
 </div>

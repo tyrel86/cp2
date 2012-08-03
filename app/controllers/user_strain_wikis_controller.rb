@@ -1,5 +1,10 @@
 class UserStrainWikisController < ApplicationController
  
+  def user_index
+    @user = current_user
+    @strain_wikis = @user.user_strain_wikis
+  end
+ 
   def update
     wiki = current_user.user_strain_wikis.find( params[:id] )
     wiki.update_attributes( params[:user_strain_wiki] )

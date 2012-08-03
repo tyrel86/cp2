@@ -1,0 +1,12 @@
+<a data-toggle="modal" href="#create_listing_modal" class="btn btn-glow btn-success new-btn">Create New Listing</a>
+<div class="manage-index"> 
+ <ul>  
+    <% @dispensaries.each do |listing| %>
+      <li>
+        <%= render "dispensaries/user_index_dispensary", listing: listing  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "modals/create_listing" %>

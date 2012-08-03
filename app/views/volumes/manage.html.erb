@@ -1,0 +1,11 @@
+<%= link_to "Create New Volume", create_volume_path, method: :post, class: "btn btn-glow btn-success new-btn",
+                                                  "data-toggle" => :modal %>
+<div class="manage-index"> 
+ <ul>  
+    <% @volumes.each do |volume| %>
+      <li>
+        <%= render "volumes/volume", volume: volume  %>
+      </li>
+    <% end %>
+  </ul>
+</div>

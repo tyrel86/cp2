@@ -1,0 +1,9 @@
+<div class="manage-index"> 
+  <ul>  
+    <% @dispensary_reviews.each do |review| %>
+      <li>
+        <%= render "user_dispensary_reviews/user_dispensary_review", review: review %>
+      </li>
+    <% end %>
+  </ul>
+</div>

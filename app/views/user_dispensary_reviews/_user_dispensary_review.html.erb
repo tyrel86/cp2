@@ -1,0 +1,15 @@
+<div class="row manage-single-review">
+  <div class="span6">
+    <h4>Your review for <%= review.dispensary.name %></h4>
+    <ul>
+      <li>bud_tenders: <%= review.bud_tenders %></li>
+      <li>selection: <%= review.selection %></li>
+      <li>atmosphere: <%= review.atmosphere %></li>
+  </div>
+  <div class="span2 backendbtns">  
+    <a data-toggle="modal" href="#editmodal<%= review.id %>" class="btn btn-glow btn-success">Edit</a>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', review, :method => :delete, :confirm => 'Are you sure?' %></div>
+  </div>
+</div>
+
+ <%= render "modals/edit_user_dispensary_review.html.erb", review: review %>

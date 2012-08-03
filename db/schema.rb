@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20120725165159) do
   create_table "searches", :force => true do |t|
     t.string  "search_term"
     t.integer "num_of_searches"
-    t.integer "type"
+    t.integer "search_type"
   end
 
   create_table "strain_reviews", :force => true do |t|
@@ -166,7 +166,7 @@ ActiveRecord::Schema.define(:version => 20120725165159) do
   
   create_table "critiques", :force => true do |t|
     t.string  "title"
-    t.string "content"
+    t.text "content"
     t.string "photo_url"
     t.integer "user_id"
     t.boolean "critique_type"

@@ -1,0 +1,12 @@
+<a data-toggle="modal" href="#create_article_modal" class="btn btn-glow btn-success new-btn">Create New Article</a>
+<div class="manage-index"> 
+ <ul>  
+    <% @articles.each do |article| %>
+      <li>
+        <%= render "articles/article", article: article  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "modals/create_article" %>

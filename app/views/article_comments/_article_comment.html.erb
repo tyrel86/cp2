@@ -4,7 +4,7 @@
   </div>
   <div class="span2 backendbtns">  
     <a data-toggle="modal" href="#editmodal<%= comment.id %>" class="btn btn-glow btn-success">Edit</a>
-    <div class="btn btn-glow btn-success"><%= link_to 'Delete', comment, :method => :delete %></div>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', comment, :method => :delete, :confirm => 'Are you sure?' %></div>
   </div>
 </div>
 

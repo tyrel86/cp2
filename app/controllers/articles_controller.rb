@@ -1,7 +1,14 @@
 class ArticlesController < ApplicationController
 
+  def index
+    @articles = Article.all
+    @articles ||= []
+  end
+  
   def user_index
-    @articles = current_user.articles
+    @user = current_user
+    @articles = @user.articles
+    render layout: 'cadets'
   end
   
   def show
@@ -11,9 +18,9 @@ class ArticlesController < ApplicationController
   def update
     article = current_user.articles.where( id: params[:id] ).first
     if article.update_attributes( params[:article] )
-      redirect_to "/cadets/news_posts", notice: 'Article was successfully updated.'
+      redirect_to user_articles_path( current_user ), notice: 'Article was successfully updated.'
     else
-      redirect_to "/cadets/news_posts", alert: 'Invalid paramiters for article'
+      redirect_to user_articles_path( current_user ), alert: 'Invalid paramiters for article'
     end
   end
 
@@ -23,16 +30,16 @@ class ArticlesController < ApplicationController
   
   def destroy
     current_user.articles.find( params[:id] ).destroy
-    redirect_to "/cadets/news_posts", alert: 'Article Destroyd'
+    redirect_to user_articles_path( current_user ), alert: 'Article Destroyd'
   end
 
   def create
     article =  Article.new( params[:article] )
     current_user.articles << article
     if article.user_id == current_user.id
-      redirect_to "/cadets/news_posts", alert: 'Article Created'
+      redirect_to user_articles_path( current_user ), alert: 'Article Created'
     else
-      redirect_to "/cadets/news_posts", alert: 'Article Could not be created'
+      redirect_to user_articles_path( current_user ), alert: 'Article Could not be created'
     end
   end
   

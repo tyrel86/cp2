@@ -1,0 +1,12 @@
+<div class="row manage-single-review">
+  <div class="span6">
+    <h3><%= comment.dispensary.name %></h3>
+    <p><%= comment.body %></p>
+  </div>
+  <div class="span2 backendbtns">  
+    <a data-toggle="modal" href="#editmodal<%= comment.id %>" class="btn btn-glow btn-success">Edit</a>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', comment, :method => :delete, :confirm => 'Are you sure?' %></div>
+  </div>
+</div>
+
+ <%= render "modals/edit_dispensary_comment.html.erb", comment: comment %>

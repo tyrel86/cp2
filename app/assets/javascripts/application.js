@@ -16,4 +16,5 @@
 //= require twitter/bootstrap
 //= require subnav
 //= require bootstrap-custom
+//= require confirm-delete-modal
 
