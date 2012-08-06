@@ -33,6 +33,7 @@ CannaPages::Application.routes.draw do
     post "volumes/create", to: "volumes#create", as: "create_volume"
     post "volumes/set_as_current/:id", to: "volumes#set_as_current", as: "set_current_volume"
     get "volumes/manage", to: "volumes#manage", as: "manage_volumes"
+    get "volumes/current", to: "volumes#current", as: "current_volume"
     resources :volumes
   resources :critiques
     get "critiques/user_index/:id", to: "critiques#user_index", as: :user_critiques

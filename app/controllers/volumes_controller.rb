@@ -1,5 +1,11 @@
 class VolumesController < ApplicationController
 
+  def current
+    @volume = Volume.the_current
+    @col_array = @volume.as_three_columns_array
+    render "show"
+  end
+
   def manage
     @volumes = Volume.all(:order => 'created_at DESC')
     render layout: 'cadets'
