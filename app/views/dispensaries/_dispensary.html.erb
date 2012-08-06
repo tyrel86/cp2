@@ -1,5 +1,5 @@
 <div class="listingbox row">
-  <div class="span12">
+  <div class="span8">
     <div class="row">
 	    <div class="span2" id="listinglocation"><h5><%= dispensary.city_state_zip %></h5></div>
 	    <!-- <div class="span1 offset5" id="listdistance"><h5>1.2 MILES</h5></div> -->
@@ -10,16 +10,13 @@
    <% if dispensary.average_rating %>
     <div class="row">
           <%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
-    </div>    
+          <%= render :partial => "icons" %>
+    </div>  
   <% end %>
   <div class="row">
-	    <div class="span3" id="listingicons">
-			    <%= image_tag "menuicons-01.png" %>
-			    <%= image_tag "menuicons-02.png" %>
-			    <%= image_tag "menuicons-03.png" %>
-			    <%= image_tag "menuicons-04.png" %> 
-	    </div>
-	      <button class="span1 btn btn-large btn-success listbtn">See Full Listing</button>
+	<% unless dispensary.average_rating %>
+	      <%= render :partial => "icons" %>
+	<% end %>
   </div>
 </div>
 </div>

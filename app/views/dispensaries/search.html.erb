@@ -4,15 +4,14 @@
 	</div>
 	<div class="span7">
 		<div class="cbenginetext"><%= image_tag "cannaenginetitle-01.png" %></div>
-	</div>
+  </div>
 </div>
-
 <div class="row">  
   <div class="span8">
     <% unless @featured.nil? %>
       <%= render( "dispensaries/featured", dispensary: @featured ) %>
     <% end %>
-    <% unless @featured.nil? %>
+    <% unless @first_sub_featured.nil? %>
       <%= render( "dispensaries/featured", dispensary: @first_sub_featured ) %>
     <% end %>
     <% @dispensaries.each do |d| %>
@@ -20,5 +19,4 @@
     <% end %>
   </div>
 </div>
-
 </div>

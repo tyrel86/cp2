@@ -26,7 +26,9 @@
           <%= render "shared/header" %>
           <div id="content">
             <%= render "shared/flash", flash: flash %>
+          <div class="row" id="home-content">
             <%= yield %>
+          </div>
           </div>
       </div>
     </div>
