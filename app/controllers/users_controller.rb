@@ -10,6 +10,8 @@ class UsersController < ApplicationController
                           password_confirmation: user_params[:password_confirmation] }
     @user = User.new(value_hash)
     if @user.save
+      @user.roles << Role.where( name: "anonymous" ).first
+      @user.roles << Role.where( name: "base" ).first
       redirect_to root_url, notice: "Thank you for signing up!"
     else
       render "new"

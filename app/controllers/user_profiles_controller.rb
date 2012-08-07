@@ -7,10 +7,6 @@ class UserProfilesController < ApplicationController
     render :layout => 'cadets'
   end
 
-  def edit
-    @user_profile = UserProfile.find( params[:id] )
-  end
-
   def update
     @user_profile = UserProfile.find( params[:id] )
     if @user_profile.update_attributes( params[:user_profile] )

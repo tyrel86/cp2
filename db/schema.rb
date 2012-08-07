@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725165159) do
+ActiveRecord::Schema.define(:version => 20120806233109) do
 
   create_table "article_comments", :force => true do |t|
     t.integer  "article_id"
@@ -29,6 +29,23 @@ ActiveRecord::Schema.define(:version => 20120725165159) do
     t.boolean  "editorial"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "assingments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "critiques", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "photo_url"
+    t.integer  "user_id"
+    t.boolean  "critique_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "dispensaries", :force => true do |t|
@@ -67,6 +84,26 @@ ActiveRecord::Schema.define(:version => 20120725165159) do
     t.float    "atmosphere"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "grants", :force => true do |t|
+    t.integer  "right_id"
+    t.integer  "role_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rights", :force => true do |t|
+    t.string   "resource"
+    t.string   "operation"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "searches", :force => true do |t|
@@ -162,16 +199,6 @@ ActiveRecord::Schema.define(:version => 20120725165159) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "photo_url"
-  end
-  
-  create_table "critiques", :force => true do |t|
-    t.string  "title"
-    t.text "content"
-    t.string "photo_url"
-    t.integer "user_id"
-    t.boolean "critique_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end

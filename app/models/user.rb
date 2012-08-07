@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 	attr_accessible :user_name, :password, :password_confirmation, :email
 
 	# Relational Asociations
+  has_many :assingments
+  has_many :roles, through: :assingments
 	has_one :user_profile
 	has_many :dispensary_comments
 	has_many :user_dispensary_reviews
@@ -35,6 +37,10 @@ class User < ActiveRecord::Base
 	#Password
 		validates :password, :length => { :in => 8..20 }
 		validates_format_of :password, with: password_reg
+
+  def can?(action, resource)
+    roles.includes(:rights).for(action, resource).any?
+  end
 
 	def write_dispensary_comment( dispensary, body )
 		d = DispensaryComment.create 	body: body
