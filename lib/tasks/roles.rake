@@ -118,6 +118,12 @@ namespace :roles do
     volume_manage = Right.create( resource: "volumes", operation: "MANAGE" ) 
       editor.rights << volume_manage
       
+    #Sessions
+    session_delete = Right.create( resource: "volumes", operation: "DELETE" ) 
+      base.rights << session_delete
+    session_create = Right.create( resource: "sessions", operation: "CREATE" )
+      annonomous.rights << session_create
+      
 	end
 
   desc "Makes all current users base and annonomous and sets up annoumous user"
