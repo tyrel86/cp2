@@ -126,7 +126,8 @@ namespace :roles do
 		  u.roles << Role.where( name: "Anonymous" )
 		  u.roles << Role.where( name: "Base" )
     end
-    User.where( user_name: "anonymous" ).first.destroy
+    u = User.where( user_name: "anonymous" ).first
+    u.destroy if u
     u = User.create( user_name: "anonymous", email: "dontbother@somewhere.com", 
                               password: "%TGBnhy6&UJ", password_confirmation: "%TGBnhy6&UJ" )
     u.roles << Role.where( name: "Anonymous" )
