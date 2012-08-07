@@ -122,7 +122,7 @@ namespace :roles do
     session_delete = Right.create( resource: "volumes", operation: "DELETE" ) 
       base.rights << session_delete
     session_create = Right.create( resource: "sessions", operation: "CREATE" )
-      annonomous.rights << session_create
+      anonymous.rights << session_create
       
 	end
 
