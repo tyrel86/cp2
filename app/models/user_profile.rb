@@ -1,6 +1,11 @@
 class UserProfile < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :birth_day, :gender, :favorite_strains
 
+  before_validation :populate_with_defaults
+  def populate_with_defaults
+    birth_day ||= Date.today - 21.years
+  end
+
 	#Regular expressions
 	name_reg = /\A[a-z\']*\z/i
 

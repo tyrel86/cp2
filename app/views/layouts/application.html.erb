@@ -28,6 +28,7 @@
             <%= render "shared/flash", flash: flash %>
           <div class="row" id="home-content">
             <%= yield %>
+            <%= render "shared/footer" %>
           </div>
           </div>
       </div>
@@ -35,6 +36,8 @@
     
   <!-- modals -->
   <%= render "modals/login" %>
+  <%= render "modals/create_user" %>
+  <%= render "modals/cadets_helper" %>
   <%= render "modals/strain_wiki_placeholder" %>
   <%= render "modals/cannasaver_placeholder" %>  
   </body>

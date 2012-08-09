@@ -6,6 +6,11 @@ namespace :roles do
 		Right.destroy_all
 		Assingment.destroy_all
 	end
+	
+	task partial_clear: :environment do
+		Role.destroy_all
+		Right.destroy_all
+	end
 
 	desc "Populates roles and auth data from lib/tasks/roles.rake"
 	task populate: :environment do
@@ -21,7 +26,17 @@ namespace :roles do
 		#Static pages
 		home_page_view = Right.create( resource: "pages", operation: "HOME" )
 		  anonymous.rights << home_page_view
-		  
+
+		#Users
+		user_create = Right.create( resource: "users", operation: "CREATE" )
+		  anonymous.rights << user_create
+		user_read = Right.create( resource: "users", operation: "READ" )
+		  base.rights << user_read
+		user_update = Right.create( resource: "users", operation: "UPDATE" )
+		  base.rights << user_update
+		user_delete = Right.create( resource: "users", operation: "DELETE" )
+		  base.rights << user_delete
+
 		#User profiles
 		user_profile_create = Right.create( resource: "user_profiles", operation: "CREATE" )
 		  base.rights << user_profile_create
@@ -144,6 +159,12 @@ namespace :roles do
 		Rake::Task["roles:clear"].execute
 		Rake::Task["roles:populate"].execute
 		Rake::Task["roles:initialize"].execute
+	end
+
+  desc "Clears and then recreates roles and auth data from lib/tasks/roles.rake"
+	task update_keep_assignments: :environment do
+		Rake::Task["roles:partial_clear"].execute
+		Rake::Task["roles:populate"].execute
 	end
 
   desc "If you only want to add a right or two do it here and rewrite in the global obove to avoid momentary lapse"

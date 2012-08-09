@@ -1,7 +1,7 @@
 <div id="header">
-  <div class="row">
   
-  	<div class="span">
+  <div class="row">
+  	<div class="span12">
   		<ul class="nav nav-tabs">
   		  <li class="active">
   		    <%= link_to "CannaEngine", root_path %>
@@ -11,13 +11,13 @@
   		  <li><%= link_to "Strain Wiki", "#strain-wiki", "data-toggle"=> :modal %></li>
   		  <li><%= image_tag "savergirl2.png", id: :savergirl %></li>
   		  <li id="saverspace"><%= link_to "Canna$aver", "#cannasaver", "data-toggle" => :modal %></li>
-  		  <li id="cadettab"><%= login_or_backend %></li>		  
+  		  <li id="cadettab"><%= login_or_backend %></li>
+          <% unless loged_in? %>
+      		  <li id="cadethelptab"><%= link_to "CannaCadets?", "#cadets-help", "data-toggle" => :modal %></li>
+      		  <li id="jointab"><%= link_to "Join", "#create_user_modal", "data-toggle" => :modal %></li>
+	        <% end %>
 		  </ul>
     </div>
-	  
-	  <div class="span5" id="topbutton">
-	  	<div class="btn btn-glow btn-success" id="join-btn"><a href="/users/new">Join</a></div>
-	  </div>
   </div>
 
   <div class="row" id="searchbar">
@@ -38,23 +38,6 @@
       <button type="submit" class="btn-custom">FIND</button>
       <% end %>
 	</div>
-	<div class="span2" id="searchoptions">
-		<form class="form-horizontal">
-		<div class="controls">
-              <label class="radio">
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Dispensaries
-              </label>
-              <label class="radio">
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Smoke Shops
-              </label>
-	        <label class="radio">
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Grow Stores
-              </label>
-		</div>
-		</form>
-	</div>
-</div>
+    <%= render :partial => "shared/business_type_select" unless true %>
+  </div>
 </div>

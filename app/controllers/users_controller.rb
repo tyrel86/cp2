@@ -8,11 +8,13 @@ class UsersController < ApplicationController
     value_hash = { user_name: user_params[:user_name], email: user_params[:email],
                           password: user_params[:password], 
                           password_confirmation: user_params[:password_confirmation] }
-    @user = User.new(value_hash)
+    @user = User.new( value_hash )
     if @user.save
       @user.roles << Role.where( name: "anonymous" ).first
       @user.roles << Role.where( name: "base" ).first
-      redirect_to root_url, notice: "Thank you for signing up!"
+      @user.build_user_profile
+      session[:user_id] = @user.id
+      redirect_to user_profile_path( current_user ), notice: "Thank you for signing up!"
     else
       render "new"
     end
