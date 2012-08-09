@@ -1,6 +1,10 @@
 class DispensariesController < ApplicationController
   before_filter :authorize, only: [:user_index, :create, :update, :destroy]
 
+  def show
+    @dispensary = Dispensary.find(params[:id])
+  end
+
   def user_index
     @dispensaries = current_user.dispensaries
     render layout: 'cadets'

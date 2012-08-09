@@ -1,0 +1,35 @@
+<div id="single-dispensary" class="row">
+
+  <div class="span2" id="single-dispensary-inner-left">
+    <div class="row"><%= image_tag @dispensary.safe_photo_url, size: "150x150" %></div>
+    <div class="row">
+      <ul class="nav nav-pills nav-stacked" id="navalign">
+          <li><a href="./listingsingle_map.php">View Map</a></li>
+          <li><a href="./listingsingle_menu.php">View Live Menu</a></li>
+          <li><a href="./listingsingle_menu.php">Write Review</a></li>
+          <li><a href="./listingsingle_menu.php">Write Comment</a></li>
+      </ul>
+    </div>
+  </div>
+
+<div class="span3 listingtitle" id="single-dispensary-inner-center">
+  <div class="row">
+    <h2><%= @dispensary.name %></h2>
+    <br>
+    <h4><%= @dispensary.street_address %></h4>
+    <br>
+    <h3><%= @dispensary.formated_phone_number %></h3>
+  </div>
+  <div class="row">
+    <%= render "shared/five_star", on: @dispensary.average_rating %>
+  </div>
+</div>
+
+<div class="span5"  id="single-dispensary-inner-right">
+  <div class="row">
+    <h3>Commetns</h3>
+  </div>
+</div>
+
+</div>
+

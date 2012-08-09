@@ -37,6 +37,14 @@ class Dispensary < ActiveRecord::Base
   
 ########  Proceedural Methods
 	
+  def safe_photo_url
+    photo_url || "http://placekitten.com/150/150"  
+  end
+  
+  def formated_phone_number
+    "(#{phone_number[0..2]})-#{phone_number[3..6]}-#{phone_number[0..9]}"
+  end
+
 	def review( uid, r_bud_tenders, r_selection, r_atmosphere )
 		if self.dispensary_review.nil?
 			self.dispensary_review = DispensaryReview.create( dispensary_id: self.id )
