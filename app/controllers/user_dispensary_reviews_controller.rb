@@ -1,4 +1,14 @@
 class UserDispensaryReviewsController < ApplicationController
+  
+  def create
+    dispensary = Dispensary.find( params[:user_dispensary_review][:dispensary_id] )
+    user = current_user
+    dispensary.review( user.id, params[:user_dispensary_review][:bud_tenders], 
+                                  params[:user_dispensary_review][:selection], 
+                                  params[:user_dispensary_review][:atmosphere] )
+    redirect_to dispensary
+  end
+  
   def update
     dispensary = Dispensary.find( params[:user_dispensary_review][:dispensary_id] )
     user = current_user

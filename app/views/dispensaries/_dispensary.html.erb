@@ -10,12 +10,12 @@
    <% if dispensary.average_rating %>
     <div class="row">
           <%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
-          <%= render :partial => "icons" %>
+          <%= render "icons", dispensary: dispensary %>
     </div>  
   <% end %>
   <div class="row">
 	<% unless dispensary.average_rating %>
-	      <%= render :partial => "icons" %>
+	      <%= render "icons", dispensary: dispensary %>
 	<% end %>
   </div>
 </div>

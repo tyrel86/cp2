@@ -1,0 +1,9 @@
+<div id="createmodalcomment" class="modal hide fade" style="display: none;">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          <h3>Review Dispensary</h3>
+      </div>
+      <div class="modal-body">
+          <%= render "dispensary_comments/form", comment: DispensaryComment.new, dispensary: dispensary %>
+      </div>
+</div>

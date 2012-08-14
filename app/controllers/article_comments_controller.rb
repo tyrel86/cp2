@@ -1,4 +1,14 @@
 class ArticleCommentsController < ApplicationController
+
+  def create
+    @user = current_user
+    @comment = ArticleComment.new 
+    @comment.article_id = params[:article_comment][:article_id]
+    @comment.body = params[:article_comment][:body]
+    @comment.user_id = @user.id
+    @comment.save
+    redirect_to Article.find(@comment.article_id)
+  end
   
   def user_index
     @user = current_user

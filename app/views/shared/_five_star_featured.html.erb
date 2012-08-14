@@ -12,5 +12,7 @@
   <h5>Fans: 20</h5>
   <h5>Last Updated: <%= dispensary.updated_at %></h5>
   
-		<button class="btn btn-large" id="featuredlist-button">See Full Listing</button>
+		<button class="btn btn-large" id="featuredlist-button">
+      <%= link_to "See Full Listing", dispensary_path( dispensary ) %>
+		</button>
 </div>

@@ -5,6 +5,7 @@ class Dispensary < ActiveRecord::Base
 ######   Relations
 	has_many :dispensary_comments
 	has_one :dispensary_review
+	has_many :user_dispensary_reviews
   belongs_to :user
 	
 #######    Filters and call backs	
@@ -36,6 +37,14 @@ class Dispensary < ActiveRecord::Base
   
   
 ########  Proceedural Methods
+
+  def map_link
+    "http://maps.google.com/?q=#{street_address}, #{city_state_zip}"
+  end
+  
+  def num_of_reviews
+    user_dispensary_reviews.size
+  end
 	
   def safe_photo_url
     photo_url || "http://placekitten.com/150/150"  

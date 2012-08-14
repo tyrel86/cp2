@@ -1,5 +1,15 @@
 class DispensaryCommentsController < ApplicationController
-def user_index
+  
+  def create
+    @user = current_user
+    @comment = DispensaryComment.new( body: params[:dispensary_comment][:body] )
+    @comment.dispensary_id = params[:dispensary_comment][:dispensary_id]
+    @comment.user_id = @user.id
+    @comment.save
+    redirect_to Dispensary.find( params[:dispensary_comment][:dispensary_id] )
+  end
+  
+  def user_index
     @user = current_user
     @comments = @user.dispensary_comments
     render layout: 'cadets'

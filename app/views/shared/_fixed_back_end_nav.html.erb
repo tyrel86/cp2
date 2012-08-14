@@ -33,12 +33,13 @@
               <b class="caret"></b>
             </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Articles", user_articles_path( current_user ) %></li>
-            <li><%= link_to "Critiques", user_critiques_path( current_user ) %></li>
+            <li><%= link_to "Articles", user_articles_path( current_user ) if current_user.can?("create", "articles") %></li>
+            <li><%= link_to "Critiques", user_critiques_path( current_user ) if current_user.can?("create", "critiques") %></li>
             <li><%= link_to "News Comments", user_article_comments_path( current_user ) %></li>
-            <li><%= link_to "Volumes", manage_volumes_path %></li>
+            <li><%= link_to "Volumes", manage_volumes_path if current_user.can?("create", "volumes") %></li>
           </ul>
         </li>
+        <!--
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Strains<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -46,6 +47,7 @@
             <li><a href="/cadets/strain_wikis">Wiki Proposals</a></li>
           </ul>
         </li>
+        -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dispensaries<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -62,6 +64,7 @@
         <li class="">
           <%= link_to "The Path", "#the-path", "data-toggle" => "modal" %>
         </li>
+        <!--
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Daily Specials<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -69,5 +72,6 @@
             <li><a href="#">Manage Daily Special</a></li>
           </ul>
         </li>
+        -->
       </ul>
     </div>
