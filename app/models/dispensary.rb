@@ -46,6 +46,13 @@ class Dispensary < ActiveRecord::Base
 		self.save
 	end
 
+	def self.do_lat_lng_all
+		self.all.each do |d|
+			d.get_lat_lng_from_address
+			sleep(1)
+		end
+	end
+
   def map_link
     "http://maps.google.com/?q=#{street_address}, #{city_state_zip}"
   end
