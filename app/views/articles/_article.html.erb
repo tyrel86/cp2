@@ -1,8 +1,8 @@
 <div class="row manage-single-review">
   <div class="span6">
-    <h5><%= article.title %></h5>
+    <h3><%= article.title %></h3>
     <p><%= article.content %></p>
-    <p><h5># of replies..?</h5></p>
+		<p><h5><%= article.article_comments.size %> comments</h5></p>
   </div>
   <div class="span2 backendbtns">  
     <a data-toggle="modal" href="#editmodal<%= article.id %>" class="btn btn-glow btn-success">Edit</a>

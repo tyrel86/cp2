@@ -1,6 +1,6 @@
 <%= simple_form_for article do |f| %>
     <%= f.input :title, :label => 'Title' %>
     <%= f.input :content, :label => 'Content' %>
+    <%= f.button :submit, class: "btn-success" %>
     <%= link_to "Close", "#", class: :btn, "data-dismiss" => "modal" %>
-    <%= f.button :submit %>
 <% end %>

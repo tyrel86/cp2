@@ -8,8 +8,6 @@
     <%= f.input :glass_sale, :collection => YESNO %>
     <%= f.input :whole_sale, :collection => YESNO %>
     <%= f.input :match_coupons, :collection => YESNO %>
-  <div class="modal-footer">
+    <%= f.button :submit, class: "btn-success" %>
     <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <%= f.button :submit %>
-  </div>
 <% end %>

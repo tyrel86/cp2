@@ -5,9 +5,9 @@ module ApplicationHelper
   
   def login_or_backend
     if current_user?
-      link_to "CannCadets", user_profile_path( current_user )
+      link_to "CannaCadets", user_profile_path( current_user )
     else
-      link_to "CannCadets", "#editmodal-login", "data-toggle" => "modal"
+      link_to "CannaCadets", "#editmodal-login", "data-toggle" => "modal"
     end    
   end
   

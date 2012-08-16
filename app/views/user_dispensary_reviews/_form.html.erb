@@ -3,8 +3,6 @@
   <%= f.input :selection, :collection => 1..10 %>
   <%= f.input :atmosphere, :collection => 1..10 %>
   <%= f.hidden_field :dispensary_id, value: dispensary.id %>
-  <div class="modal-footer">
+    <%= f.button :submit, class: "btn-success" %>
     <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <%= f.button :submit %>
-  </div>
 <% end %>

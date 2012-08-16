@@ -5,8 +5,6 @@
     <%= f.input :sativa_indica, :collection => (1..100).to_a %>
     <%= f.input :ideal_growing_conditions %>
     <%= f.input :origin %>
-  <div class="modal-footer">
+    <%= f.button :submit, class: "btn-success" %>
     <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <%= f.button :submit %>
-  </div>
 <% end %>

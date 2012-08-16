@@ -1,9 +1,13 @@
 class VolumesController < ApplicationController
 
   def current
-    @volume = Volume.the_current
-    @col_array = @volume.as_three_columns_array
-    render "show"
+		@volume = Volume.the_current
+		if @volume
+      @col_array = @volume.as_three_columns_array
+      render "show"
+		else
+			redirect_to root_path
+		end
   end
 
   def manage

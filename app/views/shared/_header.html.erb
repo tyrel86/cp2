@@ -7,7 +7,7 @@
   		    <%= link_to "CannaEngine", root_path %>
   		  </li>
   		  <li><%= link_to "CannaCritiques", critiques_path %></li>
-  		  <li><%= link_to "Dispatches", current_volume_path %></li>
+  		  <li><%= link_to "Dispatches", "/volumes/current" %></li>
   		  <li><%= link_to "Strain Wiki", "#strain-wiki", "data-toggle"=> :modal %></li>
   		  <li><%= image_tag "savergirl2.png", id: :savergirl %></li>
   		  <li id="saverspace"><%= link_to "Canna$aver", "#cannasaver", "data-toggle" => :modal %></li>
@@ -23,7 +23,7 @@
   <div class="row" id="searchbar">
 	  <div class="span3 mbwrapperlogo">
       <a id="mblogo1" class="green-button" href="./index.php/"><%= image_tag "cannaloglow-02.png" %></a>
-      <a id="mblogo2" href="./index.php"><%= image_tag "cannaloglow-01.png" %></a>
+      <a id="mblogo2" href="/"><%= image_tag "cannaloglow-01.png" %></a>
     </div>
 	  <div class="span6" id="cannaenginebar">
 	    <!--

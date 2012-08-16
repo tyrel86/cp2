@@ -7,8 +7,6 @@
                                                             :order => [:month, :day, :year] %>
       <%= f.input :gender, :collection => [:male, :female] %>
     </div>
-    <div class="modal-footer">
+      <%= f.button :submit, class: "btn-success" %>
       <a href="#" class="btn" data-dismiss="modal">Close</a>
-      <%= f.button :submit %>
-    </div>
   <% end %>

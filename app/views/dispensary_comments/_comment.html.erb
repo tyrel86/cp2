@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="span4">
-    <%= gravatar_image_tag(comment.user.email) %>
-    <%= comment.user.user_name %>
+  <div class="span7">
+		<div class="gravitar span2"><%= gravatar_image_tag(comment.user.email) %></div>
+		<h3><%= comment.user.user_name %></h3>
   </div>
   <div class="span5">
     <p><%= comment.body %></p>
