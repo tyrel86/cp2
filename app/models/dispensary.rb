@@ -36,6 +36,12 @@ class Dispensary < ActiveRecord::Base
   
 ########  Proceedural Methods
 
+	def self.get_all_invalids
+		self.all.inject([]) do |r,e|
+			e.valid? ? r : r << e
+		end
+	end
+
 	def full_address
 		"#{self.street_address} #{self.city}, #{self.state} #{self.zip_code}"
 	end
