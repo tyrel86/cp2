@@ -1,6 +1,6 @@
 <div id="header">
   
-  <div class="row">
+  <div class="row" id="tr-navbar">
   	<div class="span12">
   		<ul class="nav nav-tabs">
   		  <li class="active">
@@ -12,10 +12,12 @@
   		  <li><%= image_tag "savergirl2.png", id: :savergirl %></li>
   		  <li id="saverspace"><%= link_to "Canna$aver", "#cannasaver", "data-toggle" => :modal %></li>
   		  <li id="cadettab"><%= login_or_backend %></li>
-          <% unless loged_in? %>
+        <!--  
+					<% unless loged_in? %>
       		  <li id="cadethelptab"><%= link_to "CannaCadets?", "#cadets-help", "data-toggle" => :modal %></li>
       		  <li id="jointab"><%= link_to "Join", "#create_user_modal", "data-toggle" => :modal %></li>
 	        <% end %>
+				-->
 		  </ul>
     </div>
   </div>

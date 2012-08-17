@@ -5,3 +5,4 @@ $(document).ready ->
   $('.alert').alert()
   $('.dropdown-toggle').dropdown()
   $(".collapse").collapse()
+  $(".carousel").carousel()
