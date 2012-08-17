@@ -38,8 +38,11 @@ class Dispensary < ActiveRecord::Base
   
 ########  Proceedural Methods
 
+	def full_address
+		"#{self.street_address} #{self.city}, #{self.state} #{self.zip_code}"
+	end
+
 	def get_lat_lng_from_address
-		addr = "#{street_address} #{city}, #{state} #{zip_code}" 
 		geo = Geokit::Geocoders::YahooGeocoder.geocode addr
 		self.lat = geo.lat
 		self.lng = geo.lng
