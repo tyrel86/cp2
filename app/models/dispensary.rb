@@ -41,7 +41,7 @@ class Dispensary < ActiveRecord::Base
 	end
 
 	def get_lat_lng_from_address
-		geo = Geokit::Geocoders::YahooGeocoder.geocode addr
+		geo = Geokit::Geocoders::YahooGeocoder.geocode self.full_address
 		self.lat = geo.lat
 		self.lng = geo.lng
 		self.save
