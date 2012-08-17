@@ -11,13 +11,11 @@ class Dispensary < ActiveRecord::Base
 #######    Filters and call backs	
 
 ######  Regular Expressions
-	name_reg = /^([[:alnum:]\-\_\'\,]+ ?)*$/i
 	address_reg = /^([[:alnum:]\.\'[0-9]]+ ?)*$/i
 	zip_reg = /^\d{5}([\-]\d{4})?$/
 	phone_reg = /^\d{3}\-\d{3}\-\d{4}$/
 
 #######  Validations
-	validates_format_of :name, with: name_reg
 	validates_format_of :street_address, with: address_reg
 	validates_format_of :zip_code, with: zip_reg
 	validates_format_of :phone_number, with: phone_reg
