@@ -55,6 +55,10 @@ class Dispensary < ActiveRecord::Base
 		else
 			self.street_address = ((tmp_address.split(",").size > 1) ? tmp_address.split(",")[0] : tmp_address)
 		end
+		tmp_phone = self.phone_number
+		if tmp_phone.split('.').size > 1
+			self.phone_number = tmp_phone.gsub('.','-')
+		end
 		self.save
 	end
 
