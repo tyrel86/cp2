@@ -43,9 +43,13 @@ class Dispensary < ActiveRecord::Base
 ########  Proceedural Methods
 
 	def fix
-		a=Geokit::Geocoders::YahooGeocoder.geocode "#{self.street_address} #{self.state}"
-		self.zip_code = a.zip[0..4]
 		tmp_address = self.street_address
+		if tmp_address.split(",").size > 1
+			a=Geokit::Geocoders::YahooGeocoder.geocode "#{self.street_address} #{self.state}"
+		else
+			a=Geokit::Geocoders::YahooGeocoder.geocode "#{self.street_address}, #{self.city} #{self.state}"
+		end
+		self.zip_code = a.zip[0..4]
 		if tmp_address.empty?
 			self.destroy
 		else
