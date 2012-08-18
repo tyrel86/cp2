@@ -21,6 +21,12 @@ class Dispensary < ActiveRecord::Base
 	validates_format_of :phone_number, with: phone_reg
   
 #######  Query Methods
+
+	def self.next_invalid
+		self.all.each do |d|
+			return d unless d.valid?
+		end
+	end
   
   def self.search( query )
     where do
@@ -35,6 +41,20 @@ class Dispensary < ActiveRecord::Base
   
   
 ########  Proceedural Methods
+
+	class Dispensary
+		def fix
+			a=Geokit::Geocoders::YahooGeocoder.geocode "#{self.street_address} #{self.state}"
+			self.zip_code = a.zip[0..4]
+			tmp_address = self.street_address
+			if tmp_address.empty
+				self.destroy
+			else
+				self.street_address = ((tmp_address.split(",").size > 1) ? tmp_address.split(",")[0] : tmp_address)
+			end
+			self.save
+		end
+	end
 
 	def self.get_all_invalids
 		self.all.inject([]) do |r,e|
