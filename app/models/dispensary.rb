@@ -32,7 +32,7 @@ class Dispensary < ActiveRecord::Base
 		self.all.each do |d|
 			next if @@good_array.include? d.id
 			if d.valid?
-				@good_array.push d.id
+				@@good_array.push d.id
 			else
 				return d
 			end
