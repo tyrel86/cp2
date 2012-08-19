@@ -76,7 +76,12 @@ class Dispensary < ActiveRecord::Base
 		
 		self.phone_number = PhoneNumberWithLetters.translate(self.phone_number)
 		self.phone_number = self.phone_number.strip
-		self.save
+		if self.valid? 
+			self.save
+		else
+			self.destroy
+			return :destroy
+		end
 	end
 
 	def self.get_all_invalids
