@@ -23,8 +23,14 @@ class Dispensary < ActiveRecord::Base
 #######  Query Methods
 
 	def self.next_invalid
+		@@good_array ||= []
 		self.all.each do |d|
-			return d unless d.valid?
+			next if @@good_array.include? d.id
+			if d.valid?
+				@@good_array.push d.id
+			else
+				return d
+			end
 		end
 	end
   
