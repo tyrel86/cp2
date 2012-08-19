@@ -30,7 +30,11 @@ class DispensariesController < ApplicationController
 		dispensary_array = Dispensary.all
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
-			r.push(d) if Dispensary.distance_between( user_location, d ) <= 10
+			dist = Dispensary.distance_between( user_location, d ) 
+			if dist <= 10
+				r.push( d )
+				d.distance = dist
+			end
 			r
 		end
 		render "search"

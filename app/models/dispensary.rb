@@ -8,6 +8,8 @@ class Dispensary < ActiveRecord::Base
   attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :glass_sale, 
                            :whole_sale, :match_coupons
 
+	attr_accessor :distance
+
 ######   Relations
 	has_many :dispensary_comments
 	has_one :dispensary_review
