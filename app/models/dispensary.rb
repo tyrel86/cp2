@@ -17,7 +17,7 @@ class Dispensary < ActiveRecord::Base
 #######    Filters and call backs	
 
 ######  Regular Expressions
-	address_reg = /^([[:alnum:]\-\/\.\'\#[0-9]]+ ?)*$/i
+	address_reg = /^([[:alnum:]\&\-\/\.\'\#[0-9]]+ ?)*$/i
 	zip_reg = /^\d{5}([\-]\d{4})?$/
 	phone_reg = /^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/
 
