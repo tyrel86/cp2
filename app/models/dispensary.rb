@@ -1,4 +1,10 @@
 class Dispensary < ActiveRecord::Base
+#####   Globals
+
+	@@good_array = []
+
+##### Acsessors getters and protection for attributes
+
   attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :glass_sale, 
                            :whole_sale, :match_coupons
 
@@ -23,11 +29,10 @@ class Dispensary < ActiveRecord::Base
 #######  Query Methods
 
 	def self.next_invalid
-		@@good_array ||= []
 		self.all.each do |d|
 			next if @@good_array.include? d.id
 			if d.valid?
-				@@good_array.push d.id
+				@good_array.push d.id
 			else
 				return d
 			end
