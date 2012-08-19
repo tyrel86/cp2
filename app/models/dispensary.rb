@@ -73,14 +73,8 @@ class Dispensary < ActiveRecord::Base
 		if tmp_phone.split('.').size > 1
 			self.phone_number = tmp_phone.gsub('.','-')
 		end
-		if self.phone_number.split('-')[2] == "MEDS"
-			tmp = self.phone_number.split('-')
-			self.phone_number = "#{tmp[0]}-#{tmp[1]}-6337"
-		end
-		if self.phone_number.split('-')[2] == "WEED"
-			tmp = self.phone_number.split('-')
-			self.phone_number = "#{tmp[0]}-#{tmp[1]}-9333"
-		end
+		
+		self.phone_number = PhoneNumberWithLetters.translate(self.phone_number)
 		self.phone_number = self.phone_number.strip
 		self.save
 	end
