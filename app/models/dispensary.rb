@@ -30,6 +30,7 @@ class Dispensary < ActiveRecord::Base
 
 	def self.next_invalid
 		self.all.each do |d|
+			puts @@good_array
 			next if @@good_array.include? d.id
 			if d.valid?
 				@@good_array.push d.id
