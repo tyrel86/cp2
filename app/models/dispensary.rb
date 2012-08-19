@@ -61,16 +61,21 @@ class Dispensary < ActiveRecord::Base
 			a=Geokit::Geocoders::YahooGeocoder.geocode "#{self.street_address}, #{self.city} #{self.state}"
 		end
 		self.zip_code = a.zip[0..4]
-		self.destroy if self.zip_code.empty?
+		(self.destroy and return :destroy) if self.zip_code.empty?
 		if tmp_address.empty?
 			self.destroy
+			return :destroy
 		else
 			self.street_address = ((tmp_address.split(",").size > 1) ? tmp_address.split(",")[0] : tmp_address)
 		end
 		tmp_phone = self.phone_number
-		self.destroy if tmp_phone.empty?
+		(self.destroy and return :destroy) if tmp_phone.empty?
 		if tmp_phone.split('.').size > 1
 			self.phone_number = tmp_phone.gsub('.','-')
+		end
+		if self.phone_number.split('-')[3] == "MEDS"
+			tmp = self.phone_number.split('-')
+			self.phone_number = "#{tmp[0]}-#{tmp[1]}-6337"
 		end
 		self.save
 	end
