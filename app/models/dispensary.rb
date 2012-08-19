@@ -81,6 +81,7 @@ class Dispensary < ActiveRecord::Base
 			tmp = self.phone_number.split('-')
 			self.phone_number = "#{tmp[0]}-#{tmp[1]}-9333"
 		end
+		self.phone_number = self.phone_number.strip
 		self.save
 	end
 
