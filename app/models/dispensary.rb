@@ -30,6 +30,13 @@ class Dispensary < ActiveRecord::Base
   
 #######  Query Methods
 
+	def self.distance_between( user_location, dispensary )
+		distance = DistanceHelper.distance_between  user_location.lat, user_location.lng,
+																								dispensary.lat, dispensary.lng, 
+																								:mi
+		distance.round(1)
+	end
+
 	def self.next_invalid
 		self.all.each do |d|
 			next if @@good_array.include? d.id

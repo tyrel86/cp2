@@ -21,7 +21,21 @@ class DispensariesController < ApplicationController
     @first_sub_featured = @sub_featured.sample
     @sub_featured -= [@first_sub_featured]
   end
-  
+ 
+	def nearyou
+		client_ip = request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip
+		#For development environment
+		client_ip = "71.208.115.67" if client_ip == '127.0.0.1'
+		user_location = UserLocation.new_from_ip( client_ip )
+		dispensary_array = Dispensary.all
+		@dispensaries = dispensary_array.inject([]) do |r,d|
+			r ||= []
+			r.push(d) if Dispensary.distance_between( user_location, d ) <= 10
+			r
+		end
+		render "search"
+	end
+ 
   def create
     p = params[:dispensary]
     d = Dispensary.new( p )

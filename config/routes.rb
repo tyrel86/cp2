@@ -1,7 +1,7 @@
 CannaPages::Application.routes.draw do
 
 #Base application routes
-  root :to => 'pages#home'  
+  root :to => 'dispensaries#nearyou'  
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'login', to: 'sessions#new', as: 'login'
   get 'signup', to: 'users#new', as: 'signup'
@@ -12,7 +12,8 @@ CannaPages::Application.routes.draw do
   match "critiques/strains" => "critiques#index_strains", as: "critiques_strains"
  
 #Resource deffinitions
-  resources :dispensaries
+  	get "dispensaries/nearyou", to: "dispensaries#nearyou"
+	resources :dispensaries
     get "dispensaries/user_index/:id", to: "dispensaries#user_index", as: :user_dispensaries
     put "search/dispensaries" => "dispensaries#search", as: "dispensary_search"
   resources :dispensary_comments
