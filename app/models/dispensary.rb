@@ -15,6 +15,8 @@ class Dispensary < ActiveRecord::Base
   belongs_to :user
 	
 #######    Filters and call backs	
+	before_save :get_lat_lng_from_address
+
 
 ######  Regular Expressions
 	address_reg = /^([[:alnum:]\&\-\/\.\'\#[0-9]]+ ?)*$/i
@@ -98,7 +100,6 @@ class Dispensary < ActiveRecord::Base
 		geo = Geokit::Geocoders::YahooGeocoder.geocode self.full_address
 		self.lat = geo.lat
 		self.lng = geo.lng
-		self.save
 	end
 
 	def self.do_lat_lng_all
