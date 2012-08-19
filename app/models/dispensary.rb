@@ -73,7 +73,7 @@ class Dispensary < ActiveRecord::Base
 		if tmp_phone.split('.').size > 1
 			self.phone_number = tmp_phone.gsub('.','-')
 		end
-		if self.phone_number.split('-')[3] == "MEDS"
+		if self.phone_number.split('-')[2] == "MEDS"
 			tmp = self.phone_number.split('-')
 			self.phone_number = "#{tmp[0]}-#{tmp[1]}-6337"
 		end
