@@ -77,6 +77,10 @@ class Dispensary < ActiveRecord::Base
 			tmp = self.phone_number.split('-')
 			self.phone_number = "#{tmp[0]}-#{tmp[1]}-6337"
 		end
+		if self.phone_number.split('-')[2] == "WEED"
+			tmp = self.phone_number.split('-')
+			self.phone_number = "#{tmp[0]}-#{tmp[1]}-9333"
+		end
 		self.save
 	end
 
