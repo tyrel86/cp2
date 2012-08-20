@@ -20,20 +20,20 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-  <body>
-    <div class="container">
-      <div id="inner-container">
-          <%= render "shared/header" %>
-          <div id="content">
-            <%= render "shared/flash", flash: flash %>
-          <div class="row" id="home-content">
-            <%= yield %>
-            <%= render "shared/footer" %>
-          </div>
-          </div>
-      </div>
-    </div>
-    
+<body>
+	<div class="container">
+		<div id="inner-container">
+			<%= render "shared/newheader" %>
+			<div id="content">
+				<div class="row" id="home-content">
+					<%= render "shared/flash", flash: flash %>
+					<%= yield %>
+				</div>
+					<%= render "shared/footer" %>
+			</div>
+		</div>
+	</div>
+			
   <!-- modals -->
   <%= render "modals/login" %>
   <%= render "modals/create_user" %>

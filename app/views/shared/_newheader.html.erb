@@ -1,0 +1,78 @@
+<div id="header">
+
+	<div class="row">
+		<div class="span7 offset5">
+			<ul class="top-links">
+  			<li><%= login_or_backend %>
+						<%= link_to "Advertise with us", "#" %>
+						<%= link_to "Submit Free Listing", "#" %></li>
+			</ul>
+		</div>
+	</div>
+
+  <div class="row" id="searchbar">
+  	<div class="span3">
+			<%= image_tag "top-logo.png" %>
+		</div>
+		<div class="span9">
+
+			<div class="row">
+					<%= form_tag dispensary_search_path, :method => :put, class: "form-search", id: "main-search-container" do %>
+				<div class="span4">
+					<%= text_field_tag :search_term, "", :placeholder => "Name or category (e.g. The Grow House, dispensary, etc)",
+																							 :class => "input-medium search-query", :id => "cannaenginetext-big" %>
+				</div>
+				<div class="spane1">
+					<span id="near-text">near</span>
+				</div>
+				<div class="span2">
+						<%= text_field_tag :search_from, "", :placeholder => "City State Zip or Name", :class => "input-medium search-query", 
+																					:id => "cannaenginetext-small" %>
+				</div>
+				<div class="span1">
+						<button type="submit" class="btn-custom" id="main-find-btn">FIND</button>
+				</div>
+					<% end %>
+			</div>
+
+			<div class="row" id="search-bottom">
+				<div class="span3">
+					<p>Hello</p>
+				</div>
+				<div class="span5" id="header-links">
+
+					<% if params[:controller] == "dispensaries" %>
+						<%= link_to( image_tag( "icons/engine-top-clicked.png", class: "canna-link-active" ), root_path ) %>
+					<% else %>
+						<%= link_to( image_tag( "icons/engine-top.png", class: "canna-link" ), root_path ) %>
+					<% end %>
+
+					<% if (params[:controller] == "volumes") || (params[:controller] == "articles") || (params[:controller] == "rss") %>
+						<%= link_to( image_tag( "icons/news-top-clicked.png", class: "canna-link-active" ), current_volume_path ) %>
+					<% else %>
+						<%= link_to( image_tag( "icons/news-top.png", class: "canna-link" ), current_volume_path ) %>
+					<% end %>
+
+					<% if params[:controller] == "critiques" %>
+						<%= link_to( image_tag( "icons/critiques-top-clicked.png", class: "canna-link-active" ), critiques_path ) %>
+					<% else %>
+						<%= link_to( image_tag( "icons/critiques-top.png", class: "canna-link" ), critiques_path ) %>
+					<% end %>
+
+					<% if current_user? %>
+						<%= link_to( image_tag( "icons/cadets-top.png", class: "canna-link" ), user_profile_path( current_user )) %>
+					<% else %>
+						<%= link_to( image_tag( "icons/cadets-top.png", class: "canna-link" ), "#create_user_modal", 
+																		"data-toggle" => :modal ) %>
+					<% end %>
+					
+					<%= link_to( image_tag( "icons/wiki-top.png", class: "canna-link" ), "#strain-wiki", "data-toggle"=> :modal ) %>
+					<%= link_to( image_tag( "icons/saver-top.png", class: "canna-link" ), "#cannasaver", "data-toggle" => :modal ) %>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

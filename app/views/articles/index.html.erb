@@ -1,7 +1,5 @@
 <%= render "shared/sub_news" %>
 
 <% @articles.each do |a| %>
-  <div class="row articles-index">    
-    <%= render "articles/single_for_index", article: a %>
-  </div>
+	<%= render "articles/single_for_index", article: a %>
 <% end %>
