@@ -994,9 +994,13 @@ body{font-family:'Open Sans',sans-serif;}
 #listingsingle-map{margin-top:20px;}
 .menutable{margin-top:20px;}.menutable td{font-size:14pt;padding:10px;line-height:30px;}
 .menutable th{margin-bottom:10px;font-size:20pt;line-height:30px;}
+#main-find-btn{left:55px;position:relative;}
 #searchoptions{margin-left:27px;margin-top:12px;z-index:-99;}
-#cannaenginetext-small{width:200px;height:40px;font-size:16pt;font-weight:400;}
-#cannaenginetext-big{width:300px;height:40px;font-size:16pt;font-weight:400;}
+#cannaenginetext-small{width:204px;height:40px;font-size:16pt;font-weight:400;position:relative;top:5px;}
+#main-search-container{height:100%;padding-top:17px;}
+#near-text{color:white;position:relative;top:20px;font-weight:bold;left:7px;}
+#header-links{padding-top:28px;}
+#cannaenginetext-big{width:320px;height:40px;font-size:16pt;font-weight:400;position:relative;top:5px;}
 .backendwrap{width:1170px;margin:auto;}
 .cannavideo{margin-top:20px;}.cannavideo h1{padding-bottom:20px;}
 .listingphotos{margin-top:20px;}.listingphotos li{border-width:1px;border-color:#DDDDDD;border-style:solid;}

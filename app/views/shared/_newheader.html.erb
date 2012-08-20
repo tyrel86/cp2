@@ -42,32 +42,32 @@
 				<div class="span5" id="header-links">
 
 					<% if params[:controller] == "dispensaries" %>
-						<%= link_to( image_tag( "icons/engine-top-clicked.png", class: "canna-link-active" ), root_path ) %>
+						<%= link_to( image_tag( "/images/icons/engine-top-clicked.png", class: "canna-link-active" ), root_path ) %>
 					<% else %>
-						<%= link_to( image_tag( "icons/engine-top.png", class: "canna-link" ), root_path ) %>
+						<%= link_to( image_tag( "/images/icons/engine-top.png", class: "canna-link" ), root_path ) %>
 					<% end %>
 
 					<% if (params[:controller] == "volumes") || (params[:controller] == "articles") || (params[:controller] == "rss") %>
-						<%= link_to( image_tag( "icons/news-top-clicked.png", class: "canna-link-active" ), current_volume_path ) %>
+						<%= link_to( image_tag( "/images/icons/news-top-clicked.png", class: "canna-link-active" ), current_volume_path ) %>
 					<% else %>
-						<%= link_to( image_tag( "icons/news-top.png", class: "canna-link" ), current_volume_path ) %>
+						<%= link_to( image_tag( "/images/icons/news-top.png", class: "canna-link" ), current_volume_path ) %>
 					<% end %>
 
 					<% if params[:controller] == "critiques" %>
-						<%= link_to( image_tag( "icons/critiques-top-clicked.png", class: "canna-link-active" ), critiques_path ) %>
+						<%= link_to( image_tag( "/images/icons/critiques-top-clicked.png", class: "canna-link-active" ), critiques_path ) %>
 					<% else %>
-						<%= link_to( image_tag( "icons/critiques-top.png", class: "canna-link" ), critiques_path ) %>
+						<%= link_to( image_tag( "/images/icons/critiques-top.png", class: "canna-link" ), critiques_path ) %>
 					<% end %>
 
 					<% if current_user? %>
-						<%= link_to( image_tag( "icons/cadets-top.png", class: "canna-link" ), user_profile_path( current_user )) %>
+						<%= link_to( image_tag( "/images/icons/cadets-top.png", class: "canna-link" ), user_profile_path( current_user )) %>
 					<% else %>
-						<%= link_to( image_tag( "icons/cadets-top.png", class: "canna-link" ), "#create_user_modal", 
+						<%= link_to( image_tag( "/images/icons/cadets-top.png", class: "canna-link" ), "#create_user_modal", 
 																		"data-toggle" => :modal ) %>
 					<% end %>
 					
-					<%= link_to( image_tag( "icons/wiki-top.png", class: "canna-link" ), "#strain-wiki", "data-toggle"=> :modal ) %>
-					<%= link_to( image_tag( "icons/saver-top.png", class: "canna-link" ), "#cannasaver", "data-toggle" => :modal ) %>
+					<%= link_to( image_tag( "/images/icons/wiki-top.png", class: "canna-link" ), "#strain-wiki", "data-toggle"=> :modal ) %>
+					<%= link_to( image_tag( "/images/icons/saver-top.png", class: "canna-link" ), "#cannasaver", "data-toggle" => :modal ) %>
 
 				</div>
 			</div>
