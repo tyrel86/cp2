@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   private
 		def update_user_loation
 			if ((not session[:user_location].nil?) and (params[:search_from].nil?))
+				params[:last_location] = session[:user_location].max_info_string
 				return		
 			end
 			unless params[:search_from].nil?
