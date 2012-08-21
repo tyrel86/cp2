@@ -21,12 +21,12 @@ class ApplicationController < ActionController::Base
 			#For development environment
 				client_ip = "71.208.115.67" if client_ip == '127.0.0.1'
 			session[:user_location] = UserLocation.new_from_ip( client_ip )
-			session[:search_for] = session[:user_location].max_info_string
+			params[:last_location] = session[:user_location].max_info_string
 		end
 
 		def derive_location_from_input
 			session[:user_location] = UserLocation.new_from_location( params[:search_from] )
-			session[:search_for] = session[:user_location].max_info_string
+			params[:last_location] = session[:user_location].max_info_string
 		end
     
 		def current_user

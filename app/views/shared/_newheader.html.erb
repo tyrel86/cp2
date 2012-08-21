@@ -26,11 +26,11 @@
 					<span id="near-text">near</span>
 				</div>
 				<div class="span2">
-						<%= text_field_tag :search_from, "", :placeholder => last_from_text, :class => "input-medium search-query", 
+						<%= text_field_tag :search_from, "", :placeholder => params[:last_location], :class => "input-medium search-query", 
 																					:id => "cannaenginetext-small" %>
 				</div>
 				<div class="span1">
-						<button type="submit" class="btn-custom" id="main-find-btn">FIND</button>
+						<button type="submit" class="btn-custom" id="main-find-btn"><%= image_tag "/images/icons/magglass.png" %></button>
 				</div>
 					<% end %>
 			</div>
