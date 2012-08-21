@@ -14,7 +14,7 @@
       </div>
       <div class="span6">
         <%= "Created : #{v.created_at.to_date}" %><br />
-        <%= image_tag v.photo_url, width: "150", height: "150" %>
+        <%= image_tag v.photo.url(:small) %>
       </div>
     </div>
     <% end %>

@@ -6,7 +6,7 @@ class Dispensary < ActiveRecord::Base
 ##### Acsessors getters and protection for attributes
 
   attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :glass_sale, 
-                           :whole_sale, :match_coupons
+                           :whole_sale, :match_coupons, :photo
 
 	attr_accessor :distance
 
@@ -15,6 +15,7 @@ class Dispensary < ActiveRecord::Base
 	has_one :dispensary_review
 	has_many :user_dispensary_reviews
   belongs_to :user
+	has_attached_file :photo, :styles => { :large => "300x300#", :small => "150x150#" }
 	
 #######    Filters and call backs	
 	before_save :get_lat_lng_from_address

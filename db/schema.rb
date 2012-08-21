@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816011558) do
+ActiveRecord::Schema.define(:version => 20120821103616) do
 
   create_table "article_comments", :force => true do |t|
     t.integer  "article_id"
@@ -44,8 +44,12 @@ ActiveRecord::Schema.define(:version => 20120816011558) do
     t.string   "photo_url"
     t.integer  "user_id"
     t.boolean  "critique_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "dispensaries", :force => true do |t|
@@ -65,11 +69,15 @@ ActiveRecord::Schema.define(:version => 20120816011558) do
     t.boolean  "whole_sale"
     t.boolean  "match_coupons"
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "photo_url"
     t.float    "lat"
     t.float    "lng"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "dispensary_comments", :force => true do |t|
@@ -113,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20120816011558) do
     t.string  "search_term"
     t.integer "num_of_searches"
     t.integer "search_type"
+    t.string  "search_from"
   end
 
   create_table "strain_reviews", :force => true do |t|
@@ -199,9 +208,13 @@ ActiveRecord::Schema.define(:version => 20120816011558) do
 
   create_table "volumes", :force => true do |t|
     t.boolean  "current"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "photo_url"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

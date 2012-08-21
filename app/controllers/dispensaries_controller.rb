@@ -12,7 +12,8 @@ class DispensariesController < ApplicationController
 
   def search
     s = params[:search_term]
-    Search.create_or_inc( s, :listing ) 
+		f = params[:search_from]
+    Search.create_or_inc( s, f, :listing ) 
     @dispensaries = Dispensary.search( s )
     @dispensaries.sort! { |a,b| a.average_rating <=> b.average_rating }
     @dispensaries.reverse!

@@ -1,7 +1,8 @@
 class Volume < ActiveRecord::Base
-  attr_accessible :current, :photo_url
+  attr_accessible :current, :photo
   
   has_many :articles
+	has_attached_file :photo, :styles => { :large => "300x300#", :small => "150x150#" }
 
   def self.the_current
     where( current: true ).first

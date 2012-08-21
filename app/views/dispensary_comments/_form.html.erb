@@ -1,6 +1,10 @@
 <%= simple_form_for comment do |f| %>
     <%= f.input :body, :label => 'Comment' %>
-    <%= f.hidden_field :dispensary_id, value: comment.dispensary.id %>
+		<% if dispensary %>
+    	<%= f.hidden_field :dispensary_id, value: dispensary.id %>
+		<% else %>
+    	<%= f.hidden_field :dispensary_id, value: comment.dispensary.id %>
+		<% end %>
     <%= f.button :submit, class: "btn-success" %>
     <a href="#" class="btn" data-dismiss="modal">Close</a>
 <% end %>

@@ -28,7 +28,7 @@
         <div class="span6">
             <div class="cbnewstextmiddle" style="font-family: sans-serif">
                 <center>
-                  <%= image_tag @volume.photo_url, width: "300", height: "300" %>
+                  <%= image_tag @volume.photo.url, width: "300", height: "300" %>
                 <br>
                   <% @col_array[1].each do |a| %>
                     <%= render "articles/article_exerpt", article: a %>

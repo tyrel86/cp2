@@ -8,7 +8,7 @@
 		</div>
 		<%= render "shared/five_star_featured", on: dispensary.average_rating, dispensary: dispensary %>
 			<div class="span2" id="featured-thumb">
-			<%= image_tag "http://placekitten.com/170/170" %>	
+			<%= image_tag dispensary.photo.url(:small) %>	
 		</div>
 	</div>
 </div>

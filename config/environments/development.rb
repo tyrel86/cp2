@@ -35,4 +35,7 @@ CannaPages::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 	config.serve_static_assets = true
+
+	#Image majic and paperclip configuration
+	Paperclip.options[:command_path] = "/usr/bin/"
 end

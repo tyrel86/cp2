@@ -1,7 +1,7 @@
 <div id="single-dispensary" class="row">
 
   <div class="span2" id="single-dispensary-inner-left">
-    <div class="row"><%= image_tag @dispensary.safe_photo_url, size: "150x150", class: "business-avatar" %></div>
+    <div class="row"><%= image_tag @dispensary.photo.url(:small) %></div>
     <div class="row">
       <ul class="nav nav-pills nav-stacked" id="navalign">
           <li><%= link_to "View Map", @dispensary.map_link, target: "_blank" %></li>
@@ -30,7 +30,7 @@
     <% @dispensary.dispensary_comments.reverse.each do |c| %>
       <%= render "dispensary_comments/comment", comment: c %>
     <% end %>
-    <%= "<p>No comments have been writen for this listing as of yet... be the first</p>" if @dispensary.dispensary_comments.size == 0 %>
+    <%= "No comments have been writen for this listing as of yet... be the first" if @dispensary.dispensary_comments.size == 0 %>
 </div>
 
 </div>

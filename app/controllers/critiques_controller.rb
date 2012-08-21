@@ -9,16 +9,19 @@ class CritiquesController < ApplicationController
   def index
     @critiques = Critique.all
     @critiques ||= []
+		@critiques.reverse!
   end
   
   def index_strains
     @critiques = Critique.where( critique_type: false )
     @critiques ||= []
+		@critiques.reverse!
   end
   
   def index_dispensaries
     @critiques = Critique.where( critique_type: true )
     @critiques ||= []    
+		@critiques.reverse!
   end
 
   def dispensary_index

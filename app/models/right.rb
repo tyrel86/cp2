@@ -16,6 +16,8 @@ class Right < ActiveRecord::Base
     "search" => "READ",
 		"nearyou" => "READ",
 		"current" => "READ",
+		"index_dispensaries" => "READ",
+		"index_strains" => "READ",
     "user_index" => "MANAGE",
     "backend_show" => "MANAGE",
     "backend_search" => "MANAGE",

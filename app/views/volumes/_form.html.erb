@@ -1,6 +1,6 @@
-<%= simple_form_for volume do |f| %>
+<%= simple_form_for volume, :html => { :multipart => true } do |f| %>
     <%= f.association :articles, :collection => Article.all(:order => 'created_at DESC'), :as => :check_boxes %>
-    <%= f.input :photo_url, label: "Headline Photo URL" %>
+		<%= f.file_field :photo %>
     <%= f.button :submit, class: "btn-success" %>
     <a href="#" class="btn" data-dismiss="modal">Close</a>
 <% end %>

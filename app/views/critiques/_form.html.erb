@@ -1,8 +1,8 @@
-<%= simple_form_for critique do |f| %>
+<%= simple_form_for critique, :html => { :multipart => true } do |f| %>
     <%= f.input :title, :label => 'Title' %>
     <%= f.input :content, :label => 'Content' %>
     <%= f.input :critique_type, :collection => ["dispensary", "strain"] %>
-    <%= f.input :photo_url, label: "Headline Photo URL" %>
+		<%= f.file_field :photo %>
     <%= f.button :submit, class: "btn-success" %>
     <a href="#" class="btn" data-dismiss="modal">Close</a>
 <% end %>

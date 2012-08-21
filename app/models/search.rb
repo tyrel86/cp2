@@ -1,10 +1,10 @@
 class Search < ActiveRecord::Base
-  attr_accessible :search_term, :num_of_searches, :search_type
+  attr_accessible :search_term, :search_from, :num_of_searches, :search_type
 
-  def self.create_or_inc( search_term, search_type )
-    previous = Search.find_by_search_term( search_term )
+  def self.create_or_inc( search_term, search_from, search_type )
+    previous = Search.where( search_term: search_term, search_from: search_from ).first
     unless previous
-      Search.create( search_term: search_term, num_of_searches: 1, search_type: search_type )
+      Search.create( search_term: search_term, search_from: search_from, num_of_searches: 1, search_type: search_type )
     else
       previous.num_of_searches += 1
       previous.save
