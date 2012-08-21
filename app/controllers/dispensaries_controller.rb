@@ -16,27 +16,25 @@ class DispensariesController < ApplicationController
     @dispensaries = Dispensary.search( s )
     @dispensaries.sort! { |a,b| a.average_rating <=> b.average_rating }
     @dispensaries.reverse!
-    @featured = Dispensary.where( featured: true ).first
-    @sub_featured = Dispensary.where( sub_featured: true )
-    @first_sub_featured = @sub_featured.sample
-    @sub_featured -= [@first_sub_featured]
+		@dispensaries.each do |d|
+			dist = Dispensary.distance_between( session[:user_location], d )
+			d.distance = dist
+		end
+    @featured = @dispensaries.select{|d| d.featured == true }
   end
  
 	def nearyou
-		client_ip = request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip
-		#For development environment
-		client_ip = "71.208.115.67" if client_ip == '127.0.0.1'
-		user_location = UserLocation.new_from_ip( client_ip )
 		dispensary_array = Dispensary.all
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
-			dist = Dispensary.distance_between( user_location, d ) 
+			dist = Dispensary.distance_between( session[:user_location], d ) 
 			if dist <= 5
 				r.push( d )
 				d.distance = dist
 			end
 			r
 		end
+    @featured = @dispensaries.select{|d| d.featured == true }
 		render "search"
 	end
  

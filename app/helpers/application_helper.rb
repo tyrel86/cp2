@@ -1,4 +1,8 @@
 module ApplicationHelper
+	def last_from_text
+		session[:search_from] ? session[:search_from] : "Your location"
+	end
+
   def active?(sym)
     @active == sym ? "class=active" : ""  
   end
