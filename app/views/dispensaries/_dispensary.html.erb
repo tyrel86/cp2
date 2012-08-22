@@ -5,17 +5,19 @@
 	    <div class="span1 offset4" id="listdistance"><h5>Apx <%= dispensary.distance %> miles</h5></div>
     </div>
     <div class="row">
-        <h1 class="listingname"><%= dispensary.short_name %></h1>
+			<h1 class="listingname"><%= dispensary.short_name %></h1>
     </div>
    <% if dispensary.average_rating %>
     <div class="row">
-          <%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
-          <%= render "icons", dispensary: dispensary %>
+			<%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
+			<%= render "icons", dispensary: dispensary %>
+			<%= render "see_btn", dispensary: dispensary %>
     </div>  
   <% end %>
   <div class="row">
 	<% unless dispensary.average_rating %>
-	      <%= render "icons", dispensary: dispensary %>
+		<%= render "icons", dispensary: dispensary %>
+		<%= render "see_btn", dispensary: dispensary %>
 	<% end %>
   </div>
 </div>
