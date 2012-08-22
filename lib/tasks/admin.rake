@@ -18,11 +18,18 @@ namespace :admin do
 		Rake::Task["assets:precompile"].execute
 	end
 
-
 	desc "Hard reset of web server"
 	task hrsws: :environment do
 		Rake::Task["admin:rac"].execute
 		Rake::Task["admin:rsws"].execute
+	end
+
+	
+	desc "Full update from github with hard reset"
+	task update_site: :environment do
+		system( "cd /home/CannaPages" )
+		system( "get pull" )
+		Rake::Task["admin:hrsws"].execute
 	end
 
 end
