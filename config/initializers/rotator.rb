@@ -8,5 +8,4 @@ class Rotator
   def incriment
     (@val == @max) ? (@val = @min) : (@val += 1)
   end
-  
 end
