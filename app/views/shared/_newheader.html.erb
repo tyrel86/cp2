@@ -12,7 +12,10 @@
 
   <div class="row" id="searchbar">
   	<div class="span3">
-			<%= image_tag "top-logo.png" %>
+			<div id="cat-container">
+				<%= image_tag "top-logo.png" %>
+				<p id="cat-text">Browse <span id="cat-text-value">All Categories</span></p>
+			</div>
 		</div>
 		<div class="span9">
 
@@ -28,6 +31,7 @@
 				<div class="span2">
 						<%= text_field_tag :search_from, "", :placeholder => params[:last_location], :class => "input-medium search-query", 
 																					:id => "cannaenginetext-small" %>
+						<%= hidden_field_tag :category, "All", id: "send-cat" %>
 				</div>
 				<div class="span1">
 						<button type="submit" class="btn-custom" id="main-find-btn"><%= image_tag "/images/icons/magglass.png" %></button>
@@ -37,7 +41,18 @@
 
 			<div class="row" id="search-bottom">
 				<div class="span3">
-					<p>Hello</p>
+					<div class="dropdown">
+					<%= link_to( image_tag( "/images/icons/browse-top.png", id: "cat-select" ),
+																	"#", class: "dropdown-toggle" ) %>
+						<ul class="dropdown-menu cat-select-menu" role="menu" aria-labelledby="dLabel">
+							<li class="cat-select-btn"><p>All Categories</p></li>
+							<li class="cat-select-btn"><p>Dispensaires</p></li>
+							<li class="cat-select-btn"><p>Grow Stores</p></li>
+							<li class="cat-select-btn"><p>Head Shops</p></li>
+							<li class="cat-select-btn"><p>Kind Doctors</p></li>
+							<li class="cat-select-btn"><p>Kind Landlords</p></li>
+						</ul>
+					</div>	
 				</div>
 				<div class="span5" id="header-links">
 

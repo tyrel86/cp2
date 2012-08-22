@@ -1,4 +1,5 @@
 $(document).ready( function() {
+
 	function linkOn() {
 		var checkReg = /hover/
 		var oldSrc = this.src
@@ -7,6 +8,7 @@ $(document).ready( function() {
 			this.src = newSrc
 		}
 	}
+
 	function linkOff() {
 		var checkReg = /hover/
 		var oldSrc = this.src
@@ -15,5 +17,16 @@ $(document).ready( function() {
 			this.src = newSrc	
 		}
 	}
+
 	$('.canna-link').hover( linkOn, linkOff )
+  $('#cat-select').hover( linkOn, linkOff )
+	
+	function changeCategory(){
+		var value = this.children[0].innerHTML
+		$('#send-cat')[0].value = value
+		$('#cat-text-value').html(value)
+	}
+
+	$('.cat-select-btn').click( changeCategory )
+
 })

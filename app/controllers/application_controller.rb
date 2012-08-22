@@ -1,9 +1,29 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :check_authorization, :update_user_loation
+  before_filter :check_authorization, :update_user_loation, :transform_category
 
   private
+		def transform_category
+			params[:category] ||= :all
+			params[:category] = case params[:category]
+				when "All Categories"
+					:all
+				when "Dispensaries"
+					'Dispensary'
+				when "Grow Stores"
+					'Grow Store'
+				when "Head Shops"
+					'Head Shop'
+				when "Kind Doctors"
+					'Kind Doctor'
+				when "Kind Landlords"
+					'Kind Land Lord'
+ 				else
+					:all
+			end
+		end
+	
 		def update_user_loation
 			if ((not session[:user_location].nil?) and (params[:search_from].nil? or (params[:search_from] == "")) )
 				params[:last_location] = session[:user_location].max_info_string

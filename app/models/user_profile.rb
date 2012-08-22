@@ -19,7 +19,7 @@ class UserProfile < ActiveRecord::Base
 	#Data acsess and prosessing methods
 	def full_name
 	  "#{first_name} #{last_name}"
- end
+	end
 	
 	def age
 		now = Time.now.utc.to_date

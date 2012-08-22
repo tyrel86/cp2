@@ -15,6 +15,9 @@ class DispensariesController < ApplicationController
 		f = params[:search_from]
     Search.create_or_inc( s, f, :listing ) 
     @dispensaries = Dispensary.search( s )
+		unless params[:category] == :all
+			@dispensaries.select! { |d| d.business_type == params[:category] }
+		end 
     @dispensaries.sort! { |a,b| a.average_rating <=> b.average_rating }
     @dispensaries.reverse!
 		@dispensaries.each do |d|

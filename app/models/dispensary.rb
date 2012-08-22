@@ -6,7 +6,7 @@ class Dispensary < ActiveRecord::Base
 ##### Acsessors getters and protection for attributes
 
   attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :glass_sale, 
-                           :whole_sale, :match_coupons, :photo
+                           :whole_sale, :match_coupons, :photo, :business_type
 
 	attr_accessor :distance
 
@@ -30,7 +30,45 @@ class Dispensary < ActiveRecord::Base
 	validates_format_of :street_address, with: address_reg
 	validates_format_of :zip_code, with: zip_reg
 	validates_format_of :phone_number, with: phone_reg
+
+#######  Data Mappings
+		
+	def business_type=(input)
+	  new_type = case input
+			when ( 'Dispensary' )
+				1
+			when ( 'Grow Store' )
+				2
+			when ( 'Head Shop' )
+				3
+			when ( 'Kind Doctor' )
+				4
+			when ( 'Kind Land Lord' )
+				5
+			else
+				0
+		end
+    write_attribute(:business_type, new_type)
+  end
   
+  def business_type
+    bt = read_attribute(:business_type)
+    case bt
+			when 1
+				'Dispensary'
+			when 2
+				'Grow Store'
+			when 3
+				'Head Shop'
+			when 4
+				'Kind Doctor'
+			when 5
+				'kind Land Lord'
+			else
+				:unclasified
+		end
+  end
+
 #######  Query Methods
 
 	def self.distance_between( user_location, dispensary )
@@ -107,9 +145,13 @@ class Dispensary < ActiveRecord::Base
 	end
 
 	def get_lat_lng_from_address
-		geo = Geokit::Geocoders::YahooGeocoder.geocode self.full_address
-		self.lat = geo.lat
-		self.lng = geo.lng
+		old_d = Dispensary.find( self.id )
+		if( ( old_d.nil? ) or ( self.lat.nil? ) or ( lng.nil? ) or ( self.street_address != old_d.street_address ) or \
+			( self.city != old_d.city ) or ( self.state != old_d.state) or ( self.zip_code != old_d.zip_code ) )
+			geo = Geokit::Geocoders::YahooGeocoder.geocode self.full_address
+			self.lat = geo.lat
+			self.lng = geo.lng
+		end
 	end
 
 	def self.do_lat_lng_all

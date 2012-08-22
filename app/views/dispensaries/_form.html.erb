@@ -1,5 +1,6 @@
 <%= simple_form_for dispensary, :html => { :multipart => true } do |f| %>
     <%= f.input :name %>
+    <%= f.input :business_type, :collection => BUSINESS_TYPE_ARRAY %>
 		<%= f.file_field :photo %>
     <%= f.input :street_address %>
     <%= f.input :city %>

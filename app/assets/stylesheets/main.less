@@ -5,8 +5,37 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 /* begin header */
 
+#cat-container {
+	position: relative;
+	width: 715px;
+}
+
+#cat-text {
+	position: absolute;
+	left: 284px;
+  top: 90px;
+	color: white;
+	font-weight: bold;
+}
+
 #search-results-container {
 	padding-left: 7px;
+}
+
+.dropdown-menu.cat-select-menu {
+	top: 21px;
+	left: 32px;
+	border: 0px;
+	p {
+		color: white;
+		font-size: 100%;
+		font-weight: bold;
+		border: 0px;
+		background-color: #06700B;
+		&:hover {
+			background-color: #006012;
+		}
+	}
 }
 
 .top-links {
