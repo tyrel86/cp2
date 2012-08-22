@@ -3,7 +3,7 @@ namespace :admin do
 	desc "Restarts the Web Server asumes you are root"
 	task rsws: :environment do
 		sys_ps_dump = `ps -e | grep ruby`
-	  reg = /[0-9]/	
+	  reg = /(\d+)/
 		parrent_ruby_ps_id = sys_ps_dump.match( reg )[0]
 		puts "Found master ruby ps as #{parrent_ruby_ps_id}"
 		system( "kill #{parrent_ruby_ps_id}" )
