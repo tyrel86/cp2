@@ -16,7 +16,7 @@ namespace :admin do
 	end
 
 	desc "Resets the asset cache by removing old and recompiling"
-	task :rac
+	task rac: :environment do
 		system( "cd /home/CannaPages" )
 		system( "rm -r public/assets" )
 		Rake::Task["assets:precompile"].execute
@@ -24,7 +24,7 @@ namespace :admin do
 
 
 	desc "Hard reset of web server"
-	task :hrsws
+	task hrsws: :environment do
 		Rake::Task["admin:rac"].execute
 		Rake::Task["admin:rsws"].execute
 	end
