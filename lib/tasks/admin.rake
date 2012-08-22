@@ -5,7 +5,7 @@ namespace :admin do
 		sys_ps_dump = `ps -e | grep ruby`
 	  reg = /[0-9]/	
 		parrent_ruby_ps_id = sys_ps_dump.match( reg )[0]
-		if( system( "kill #{parrent_ruby_ps_id}" )
+		if( system( "kill #{parrent_ruby_ps_id}" ) )
 			puts "Shuting down ruby unicorn demon"
 		else
 			puts "RSWS rake task failed run with --trace for more info"
