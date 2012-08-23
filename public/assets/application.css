@@ -946,7 +946,7 @@ ul.icons li .icon-large:before,ul.icons li .icon-large:before{vertical-align:ini
 .icon-umbrella:before{content:"\f0e9";}
 .icon-paste:before{content:"\f0ea";}
 .icon-user-md:before{content:"\f200";}
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent;}
 body{line-height:1;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
 nav ul{list-style:none;}
@@ -960,10 +960,14 @@ abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}
 table{border-collapse:collapse;border-spacing:0;}
 hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}
 input,select{vertical-align:middle;}
+#cat-container{position:relative;width:500px;}
+#cat-text{position:absolute;left:284px;top:90px;color:white;font-weight:bold;}
 #search-results-container{padding-left:7px;}
-.dropdown-menu.cat-select-menu{top:21px;left:32px;border:0px;}.dropdown-menu.cat-select-menu p{color:white;font-size:120%;font-weight:bold;border:0px;background-color:#06700B;}.dropdown-menu.cat-select-menu p:hover{background-color:#006012;}
+.dropdown-menu.cat-select-menu{top:21px;left:32px;border:0px;background-color:#129100;}.dropdown-menu.cat-select-menu p{color:white;font-size:100%;font-weight:bold;border:0px;}
+.dropdown-menu.cat-select-menu li{padding:5px;}
 .top-links{list-style:none;float:left;display:inline;}.top-links a{margin-right:1em;color:#005505;font-weight:bold;}
 .top-links a.left-marg{margin-left:1em;}
+.critiques-container{border-bottom:thin solid gray;padding-top:10px;padding-bottom:10px;}
 .comment{margin-bottom:1em;}
 .home-add-right{margin:auto;width:250px;padding-top:.7em;}
 #business-comments-header{margin-bottom:20px;}
@@ -997,12 +1001,15 @@ body{font-family:'Open Sans',sans-serif;}
 .menutable{margin-top:20px;}.menutable td{font-size:14pt;padding:10px;line-height:30px;}
 .menutable th{margin-bottom:10px;font-size:20pt;line-height:30px;}
 #main-find-btn{left:55px;position:relative;}
+#main2-find-btn{left:-22px;position:relative;}
 #searchoptions{margin-left:27px;margin-top:12px;z-index:-99;}
 #cannaenginetext-small{width:204px;height:40px;font-size:16pt;font-weight:400;position:relative;top:5px;}
 #main-search-container{height:100%;padding-top:24px;}
 #near-text{color:white;position:relative;top:20px;font-weight:bold;left:7px;}
 #header-links{padding-top:14px;}
-#cannaenginetext-big{width:320px;height:40px;font-size:16pt;font-weight:400;position:relative;top:5px;}
+#cannaenginetext-big{height:40px;font-size:16pt;font-weight:400;position:relative;top:5px;}
+.med-search{width:320px;}
+.big-search{width:547px;}
 .backendwrap{width:1170px;margin:auto;}
 .cannavideo{margin-top:20px;}.cannavideo h1{padding-bottom:20px;}
 .listingphotos{margin-top:20px;}.listingphotos li{border-width:1px;border-color:#DDDDDD;border-style:solid;}
@@ -1177,7 +1184,7 @@ a:hover{color:BCFFAE;}
 #createwiki .form-horizontal{background-color:rgba(0, 0, 0, 0.2);}
 .archive{color:black;}.archive a{color:black;}
 .articles-index{color:black;margin-left:1em;}.articles-index a{color:black;}
-.article-title{font-size:2em;line-height:2em;border-bottom:1px black solid;}
+.article-title{font-size:2em;line-height:2em;border-bottom:1px black solid;color:black;}
 .article-exerpt-container{border-bottom:1px solid #A8A8A8;padding-bottom:10px;padding-top:10px;word-wrap:break-word;}.article-exerpt-container p{font-size:.7em;}
 .article_exerpt_header{color:#096B00;font-size:1.7em;font-weight:bold;line-height:.7em;}.article_exerpt_header a:hover{color:#0FC000;}
 a:hover{color:#0FC000;}

@@ -8,4 +8,11 @@ class Article < ActiveRecord::Base
   def exerpt
     "#{(content.size > 250) ? content[0..250] : content}..."
   end
+
+		
+  def self.search( query )
+    where do
+      (title =~ "%#{query}%") | (content =~ "%#{query}%")  
+    end  
+  end
 end

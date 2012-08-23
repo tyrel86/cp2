@@ -4,6 +4,14 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @articles ||= []
   end
+
+	def search
+    s = params[:search_term]
+		f = params[:search_from]
+    Search.create_or_inc( s, f, :listing ) 
+		@articles = Article.search( s )
+		render "index"
+	end
   
   def user_index
     @user = current_user

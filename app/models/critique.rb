@@ -14,5 +14,10 @@ class Critique < ActiveRecord::Base
     type = read_attribute(:critique_type)
     type ? "dispensary" : "strain"
   end
-  
+
+  def self.search( query )
+    where do
+      (title =~ "%#{query}%") | (content =~ "%#{query}%")  
+    end  
+  end
 end

@@ -1,0 +1,23 @@
+<div class="row">
+	<%= form_tag dispensary_search_path, method: :put, class: "form-search", 
+																				id: "main-search-container" do %>
+		<div class="span4">
+			<%= text_field_tag :search_term, "", 
+											 placeholder: "Name or category (e.g. The Grow House, dispensary, etc)", 
+											 :class => "input-medium search-query med-search", :id => "cannaenginetext-big" %>
+		</div>
+		<div class="spane1">
+			<span id="near-text">near</span>
+		</div>
+		<div class="span2">
+			<%= text_field_tag :search_from, "", :placeholder => params[:last_location], 
+													:class => "input-medium search-query", id: "cannaenginetext-small" %>
+			<%= hidden_field_tag :category, "All", id: "send-cat" %>
+		</div>
+		<div class="span1">
+			<button type="submit" class="btn-custom" id="main-find-btn">
+				<%= image_tag "/images/icons/magglass.png" %>
+			</button>
+		</div>
+	<% end %>
+</div>

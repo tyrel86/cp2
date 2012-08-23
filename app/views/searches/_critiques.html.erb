@@ -1,0 +1,17 @@
+<div class="row">
+	<%= form_tag critique_search_path, method: :put, class: "form-search", 
+																				id: "main-search-container" do %>
+		<div class="span7">
+			<%= text_field_tag :search_term, "", 
+											 placeholder: "Name, Author or Body Search", 
+											 :class => "input-medium search-query big-search", :id => "cannaenginetext-big" %>
+
+			<%= hidden_field_tag :category, "All", id: "send-cat" %>
+		</div>
+		<div class="span1">
+			<button type="submit" class="btn-custom" id="main2-find-btn">
+				<%= image_tag "/images/icons/magglass.png" %>
+			</button>
+		</div>
+	<% end %>
+</div>

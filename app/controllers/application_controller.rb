@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :check_authorization, :update_user_loation, :transform_category
+  before_filter :check_authorization, :update_user_loation, :transform_category, :set_search_partial
+
+	def set_search_partial
+		@search_partial = "searches/#{params[:controller]}"
+	end
 
   private
 		def transform_category

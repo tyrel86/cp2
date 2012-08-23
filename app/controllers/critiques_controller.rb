@@ -12,6 +12,14 @@ class CritiquesController < ApplicationController
 		@critiques.reverse!
   end
   
+	def search
+    s = params[:search_term]
+		f = params[:search_from]
+    Search.create_or_inc( s, f, :critique ) 
+		@critiques = Critique.search( s )
+		render "index"
+	end
+
   def index_strains
     @critiques = Critique.where( critique_type: false )
     @critiques ||= []
