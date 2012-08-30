@@ -42,6 +42,8 @@ module DistanceHelper
 				dFeet
 			when :m
 				dMeters
+			else
+				dMi
 		end
 	
 	end
