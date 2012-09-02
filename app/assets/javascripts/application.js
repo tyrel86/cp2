@@ -18,5 +18,4 @@
 //= require bootstrap-custom
 //= require confirm-delete-modal
 //= require canna-links 
-
-
+//= require roachy

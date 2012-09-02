@@ -76,7 +76,82 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 /* end critiques */
 
+/* scroller definitions */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+/* End scroller */
+
 /* begin misc unsorted */
+
+#btobad {
+	margin-top: -70px;
+	margin-left: 420px;
+}
+
+#home-top-right {
+	margin-left: 40px;
+}
+
+#roachy {
+	width: 712px;
+	height: 300px;
+	border: solid;
+	border-color: #006012;
+	border-width: 8px;
+	background-color: white;
+	margin-left: -20px;
+	img {
+		float: left;
+		margin-right: 20px;
+	}
+	h3 {
+		margin-bottom: 10px;
+	}
+	ul.roachy-text {
+		overflow-y: scroll;
+		height: 227px;
+		padding-right: 5px;
+	}
+	ul.roachy-inactive {
+		display: none;
+	}
+	ul.roachy-active {
+		display: block;
+	}
+	ul#roachy-links {
+		margin: 0px;
+		position: relative;
+		top: 12px;
+		left: -12px;
+		color: white;
+		li {
+			display: inline;
+			background-color: #139E2D;
+			font-size: 24px;
+			border: solid;
+			border-color: #006012;
+			border-width: 3px;
+			padding: 2px;
+			&:hover {
+				background-color: #1df244;
+				color: black;
+			}
+		}
+	}
+}
 
 .comment {
 	margin-bottom: 1em;

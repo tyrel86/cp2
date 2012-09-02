@@ -1,5 +1,6 @@
 <% if @user_profile.respond_to? :first_name %>
   <div class="row">
+
     <div class="span3">
         <div id="profileimage">
           <%= gravatar_image_tag(@user.email) %>
@@ -20,15 +21,41 @@
       </div>
 
       <div class="span7" id="profilerecent">
-        <ul>
-          <!--recent user posts and reviews feed-->
-          <li><img src="http://placehold.it/700x300"></li>
-          <li><img src="http://placehold.it/700x300"></li>
-        </ul>
-      </div>
+				<div id="roachy">
+					<%= image_tag "/images/site/roachy-large.jpg" %>
+					<h3>Hello I'm Roachy Clippits lesser known brother</h3>
+					<ul id="roachy-lesson-1" class="roachy-text roachy-active">
+						<li><h3>Subject: Roachy Basics</h3></li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>You can dismis my lectures once you learn them</li>
+					</ul>
+					<ul id="roachy-text-2" class="roachy-text roachy-inactive">
+						<li><h3>Subject: Managing Comments and reviews</h3></li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>You can dismis my lectures once you learn them</li>
+					</ul>
+					<ul id="roachy-text-3" class="roachy-text roachy-inactive">
+						<li><h3>Subject: Creating Articles</h3></li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>You can dismis my lectures once you learn them</li>
+					</ul>
+					<ul id="roachy-links">
+						<li id="roachy-btn-previous">Previous</li>
+						<li id="roachy-btn-next">Next</li>
+						<li id="roachy-btn-index">List Subjects</li>
+						<li id="roachy-btn-hit">Take a hit</li>
+					</ul>
+				</div>
     </div>
-  </div>
 
+  </div>
+	
 <!-- modals -->
   <%= render "modals/edit_profile" %>
   

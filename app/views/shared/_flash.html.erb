@@ -1,23 +1,44 @@
 <% unless flash[:notice].blank? %>
   <div class="alert alert-info">
     <a class="close" data-dismiss="alert" href="#">×</a>
-    <h4 class="alert-heading">Notice</h4>
-    <%= content_tag :div, flash[:notice] %>
+		<div class="row">
+			<div class="span3">
+				<%= image_tag "/images/site/roachy-small.jpg" %>
+			</div>
+			<div class="span7">
+				<h4 class="alert-heading">Roachy's Notice</h4>
+				<%= content_tag :div, flash[:notice] %>
+			</div>
+		</div>
   </div>
 <% end %>
 
 <% unless flash[:error].blank? %>
   <div class="alert alert-error">
-  <a class="close" data-dismiss="alert" href="#">×</a>
-    <h4 class="alert-heading">Error!</h4>
-    <%= content_tag :div, flash[:error] %>
+    <a class="close" data-dismiss="alert" href="#">×</a>
+		<div class="row">
+			<div class="span3">
+				<%= image_tag "/images/site/roachy-small.jpg" %>
+			</div>
+			<div class="span7">
+				<h4 class="alert-heading">Roachy's Error</h4>
+				<%= content_tag :div, flash[:error] %>
+			</div>
+		</div>
   </div>
 <% end %>
 
 <% unless flash[:alert].blank? %>
   <div class="alert alert-warning">
-  <a class="close" data-dismiss="alert" href="#">×</a>
-    <h4 class="alert-heading">Alert</h4>
-    <%= content_tag :div, flash[:alert] %>
+    <a class="close" data-dismiss="alert" href="#">×</a>
+		<div class="row">
+			<div class="span3">
+				<%= image_tag "/images/site/roachy-small.jpg" %>
+			</div>
+			<div class="span7">
+				<h4 class="alert-heading">Roachy's Alert</h4>
+				<%= content_tag :div, flash[:alert] %>
+			</div>
+		</div>
   </div>
 <% end %>
