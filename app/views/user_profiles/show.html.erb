@@ -1,6 +1,4 @@
 <% if @user_profile.respond_to? :first_name %>
-  <div class="row">
-
     <div class="span3">
         <div id="profileimage">
           <%= gravatar_image_tag(@user.email) %>
@@ -24,37 +22,57 @@
 				<div id="roachy">
 					<%= image_tag "/images/site/roachy-large.jpg" %>
 					<h3>Hello I'm Roachy Clippits lesser known brother</h3>
-					<ul id="roachy-lesson-1" class="roachy-text roachy-active">
+					<ul id="roachy-lesson-1" class="roachy-lesson roachy-active">
 						<li><h3>Subject: Roachy Basics</h3></li>
 						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>You can dismis my lectures once you learn them</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>You can dismis my lectures once you learn them</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>You can dismis my lectures once you learn them</li>
 					</ul>
-					<ul id="roachy-text-2" class="roachy-text roachy-inactive">
+					<ul id="roachy-lesson-2" class="roachy-lesson roachy-inactive">
 						<li><h3>Subject: Managing Comments and reviews</h3></li>
 						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>You can dismis my lectures once you learn them</li>
-						<li>You can dismis my lectures once you learn them</li>
-						<li>You can dismis my lectures once you learn them</li>
-					</ul>
-					<ul id="roachy-text-3" class="roachy-text roachy-inactive">
-						<li><h3>Subject: Creating Articles</h3></li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>You can dismis my lectures once you learn them</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+					</ul>
+					<ul id="roachy-lesson-3" class="roachy-lesson roachy-inactive">
+						<li><h3>Subject: Creating Articles</h3></li>
 						<li>You can dismis my lectures once you learn them</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
 						<li>You can dismis my lectures once you learn them</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>You can dismis my lectures once you learn them</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+						<li>Thinking from within this box I will guid you through the CannaPages journey</li>
+					</ul>
+					<ul id="roachy-index" class="roachy-lesson roachy-inactive">
+						<li><h3>Select a subject</h3></li>
+						<li id="roachy-index-link-1" class="roachy-index-link">Roachy Basics</li>
+						<li id="roachy-index-link-2" class="roachy-index-link">Managing Comments and reviews</li>
+						<li id="roachy-index-link-3" class="roachy-index-link">Creating Article</li>
+						<li id="roachy-index-link-1" class="roachy-index-link">Roachy Basics</li>
+						<li id="roachy-index-link-2" class="roachy-index-link">Managing Comments and reviews</li>
+						<li id="roachy-index-link-3" class="roachy-index-link">Creating Article</li>
+						<li id="roachy-index-link-1" class="roachy-index-link">Roachy Basics</li>
+						<li id="roachy-index-link-2" class="roachy-index-link">Managing Comments and reviews</li>
+						<li id="roachy-index-link-3" class="roachy-index-link">Creating Article</li>
 					</ul>
 					<ul id="roachy-links">
 						<li id="roachy-btn-previous">Previous</li>
 						<li id="roachy-btn-next">Next</li>
 						<li id="roachy-btn-index">List Subjects</li>
-						<li id="roachy-btn-hit">Take a hit</li>
 					</ul>
 				</div>
     </div>
-
-  </div>
 	
 <!-- modals -->
   <%= render "modals/edit_profile" %>

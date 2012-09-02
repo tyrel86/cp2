@@ -19,11 +19,15 @@
 <body>
   <div class="backendwrap">
     <%= render "shared/fixed_back_end_nav" %>
-    <div class=" span10 backendcontent">
-      <%= render "shared/flash", flash: flash %>
-      <%= yield %>
-    </div>
-		<%= image_tag "http://placekitten.com/728/90", id: "btobad" %>
+			<div class="row">
+				<div class="span12 backendcontent">
+					<%= render "shared/flash", flash: flash %>
+					<%= yield %>
+				</div>
+			</div>
+			<div class="row">
+				<%= image_tag "http://placekitten.com/728/90", id: "btobad" %>
+			</div>
   </div>
   
   <%= render "modals/the_path_placeholder" %>

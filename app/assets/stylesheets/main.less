@@ -97,8 +97,9 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 /* begin misc unsorted */
 
 #btobad {
-	margin-top: -70px;
-	margin-left: 420px;
+	position: relative;
+	left: 460px;
+	top: 17px;
 }
 
 #home-top-right {
@@ -107,7 +108,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 #roachy {
 	width: 712px;
-	height: 300px;
+	height: 376px;
 	border: solid;
 	border-color: #006012;
 	border-width: 8px;
@@ -119,11 +120,19 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	}
 	h3 {
 		margin-bottom: 10px;
+		font-size: 95%;
 	}
-	ul.roachy-text {
+	ul.roachy-lesson {
 		overflow-y: scroll;
-		height: 227px;
+		height: 255px;
 		padding-right: 5px;
+	}
+	ul#roachy-index {
+		li {
+			&:hover {
+				color: green;
+			}
+		}
 	}
 	ul.roachy-inactive {
 		display: none;
@@ -134,8 +143,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	ul#roachy-links {
 		margin: 0px;
 		position: relative;
-		top: 12px;
-		left: -12px;
+		top: 50px;
+		left: 35px;
 		color: white;
 		li {
 			display: inline;
