@@ -14,7 +14,7 @@ class DispensariesController < ApplicationController
     s = params[:search_term]
 		f = params[:search_from]
     Search.create_or_inc( s, f, :listing ) 
-    @dispensaries = Dispensary.search( s )
+    @dispensaries = Dispensary.search( s ).page( params[:page] ).per( 10 )
 		unless params[:category] == :all
 			@dispensaries.select! { |d| d.business_type == params[:category] }
 		end 

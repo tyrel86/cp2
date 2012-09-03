@@ -15,7 +15,7 @@ CannaPages::Application.routes.draw do
   	get "dispensaries/nearyou", to: "dispensaries#nearyou"
 	resources :dispensaries
     get "dispensaries/user_index/:id", to: "dispensaries#user_index", as: :user_dispensaries
-    put "search/dispensaries" => "dispensaries#search", as: "dispensary_search"
+    match "search/dispensaries" => "dispensaries#search", as: "dispensary_search"
   resources :dispensary_comments
   #Dispensary reviews
     get "dispensary_comments/user_index/:id", to: "dispensary_comments#user_index", as: :user_dispensary_comments

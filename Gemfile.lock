@@ -90,6 +90,9 @@ GEM
     jquery-rails-cdn (0.1.0)
       jquery-rails
     json (1.7.3)
+    kaminari (0.14.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.7.4)
     launchy (2.1.0)
       addressable (~> 2.2.6)
@@ -224,6 +227,7 @@ DEPENDENCIES
   guard-spork
   jquery-rails
   jquery-rails-cdn
+  kaminari
   launchy
   mysql2
   paperclip (~> 3.0)

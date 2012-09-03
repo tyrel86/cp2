@@ -1,5 +1,6 @@
 jQuery ->
 	class Roachy
+
 		constructor: ->
 			@indexMode = false
 			@current = 1
@@ -11,6 +12,7 @@ jQuery ->
 			@current = 1
 			@deactivate @lessons.eq( @numOfLessons - 1 )
 			@activate @lessons.eq( 0 )
+
 		next: ->
 			if @indexMode
 				@handleIndex()
@@ -25,16 +27,19 @@ jQuery ->
 			@deactivate @lessons.eq(@current - 1)
 			@decr()
 			@activate @lessons.eq(@current - 1)
+
 		incr: ->
 			@current = if @current == @numOfLessons - 1 then 1 else @current + 1
 		decr: ->
 			@current = if @current == 1 then @numOfLessons - 1 else @current - 1
+
 		activate: (lesson) ->
 			lesson.removeClass( 'roachy-inactive' )
 			lesson.addClass( 'roachy-active' )
 		deactivate: (lesson) ->
 			lesson.addClass( 'roachy-inactive' )
 			lesson.removeClass( 'roachy-active' )
+
 		index: ->
 			@deactivate @lessons.eq(@current - 1)
 			@activate @lessons.eq( @numOfLessons - 1 )

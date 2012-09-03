@@ -76,7 +76,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 /* end critiques */
 
-/* scroller definitions */
+/* scroller and pagination definitions */
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -92,7 +92,44 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
+.pagination {
+	height: 53px;
+	span.current {
+		float: left;
+		padding: 0 14px;
+		line-height: 34px;
+		text-decoration: none;
+		border: none;
+		color: #047725;
+		position: relative;
+		left: 154px;
+	}
+	a {
+		float: left;
+		padding: 0 14px;
+		line-height: 34px;
+		text-decoration: none;
+		border: none;
+		color: #2FD32F;
+		position: relative;
+		left: 154px;
+		&:hover {
+			color: #047725;
+		}
+	}
+}
+
 /* End scroller */
+
+/* Begin listings */
+
+.featured-view-btn {
+	position: relative;
+	top: 15px;
+	left: 138px;
+}
+
+/* End listings */
 
 /* begin misc unsorted */
 
@@ -219,8 +256,9 @@ a.modal-link {
 }
 
 #featured-thumb {
-	margin-left: 1em;
-	margin-top: 1em;
+	position: relative;
+	top: -15px;
+	left: 63px;
 }
 
 #featuredlist-button {
@@ -276,6 +314,7 @@ form {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006012', endColorstr='#4baf63',GradientType=0 ); /* IE6-9 */
 	border: 6px solid rgb(0,96,18);
 	margin-left: 10px;
+	min-height: 177px;
 }
 
 .listingbox{
@@ -1072,6 +1111,14 @@ old.spin div:hover{
 	float:right;
 	margin-right:60px;
 	margin-top: 28px;
+	&:hover{
+		-webkit-animation-name: findhover;
+		-webkit-animation-duration: 1s;
+		-webkit-animation-iteration-count: infinite;
+		-moz-animation-name: pulseHover;
+		-moz-animation-duration: 1s;
+		-moz-animation-iteration-count: infinite;
+	}
 }
 
 .listingicons {

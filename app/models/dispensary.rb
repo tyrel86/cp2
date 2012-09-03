@@ -92,7 +92,7 @@ class Dispensary < ActiveRecord::Base
   def self.search( query )
     where do
       (name =~ "%#{query}%") | (city =~ "%#{query}%")  
-    end  
+    end
   end
   
   def self.featured( zip_code )

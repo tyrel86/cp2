@@ -11,6 +11,7 @@ gem 'jquery-rails-cdn'
 gem 'simple_form'
 gem 'unicorn'
 gem "paperclip", "~> 3.0"
+gem 'kaminari'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
