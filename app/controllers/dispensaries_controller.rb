@@ -38,6 +38,7 @@ class DispensariesController < ApplicationController
 			end
 			r
 		end
+		@dispensaries = Kaminari::PaginatableArray.new( @dispensaries ).page(params[:page]).per(10)
     @featured = @dispensaries.select{|d| d.featured == true }
 		render "search"
 	end
