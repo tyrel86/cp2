@@ -1,6 +1,9 @@
+<% content_id = critique.id %>
+<% content_id ||= "create" %>
+
 <%= simple_form_for critique, :html => { :multipart => true } do |f| %>
     <%= f.input :title, :label => 'Title' %>
-    <%= f.input :content, :label => 'Content' %>
+    <%= f.input :content, :label => 'Content', input_html: {id: content_id, class: "tinymce" } %>
     <%= f.input :critique_type, :collection => ["dispensary", "strain"] %>
 		<%= f.file_field :photo %>
     <%= f.button :submit, class: "btn-success" %>

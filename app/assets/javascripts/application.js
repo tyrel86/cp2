@@ -19,3 +19,4 @@
 //= require confirm-delete-modal
 //= require canna-links 
 //= require roachy
+//= require tinymce-jquery

@@ -1,5 +1,5 @@
 <div class="article-exerpt-container">
   <%= link_to article.title, article, class: :article_exerpt_header %>
   <p>By: <%= UserProfile.find( article.user_id ).full_name %></p>
-  <p><%= article.exerpt %></p>
+  <p><%=raw article.exerpt %></p>
 </div>

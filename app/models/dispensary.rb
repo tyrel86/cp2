@@ -30,6 +30,7 @@ class Dispensary < ActiveRecord::Base
 	validates_format_of :street_address, with: address_reg
 	validates_format_of :zip_code, with: zip_reg
 	validates_format_of :phone_number, with: phone_reg
+	validates_presence_of :name, :street_address, :city, :state, :zip_code, :phone_number, :business_type
 
 #######  Data Mappings
 		
@@ -45,6 +46,12 @@ class Dispensary < ActiveRecord::Base
 				4
 			when ( 'Kind Land Lord' )
 				5
+			when ( 'Smoke Shop' )
+				6
+			when ( 'Kind Lawyer' )
+				7
+			when ( 'Grow Consultant' )
+				8
 			else
 				0
 		end
@@ -145,7 +152,7 @@ class Dispensary < ActiveRecord::Base
 	end
 
 	def get_lat_lng_from_address
-		old_d = Dispensary.find( self.id )
+		old_d = self.id.nil? ? nil? : Dispensary.find( self.id )
 		if( ( old_d.nil? ) or ( self.lat.nil? ) or ( lng.nil? ) or ( self.street_address != old_d.street_address ) or \
 			( self.city != old_d.city ) or ( self.state != old_d.state) or ( self.zip_code != old_d.zip_code ) )
 			geo = Geokit::Geocoders::YahooGeocoder.geocode self.full_address

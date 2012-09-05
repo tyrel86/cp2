@@ -1,7 +1,7 @@
 <div class="row manage-single-review">
   <div class="span6">
     <h3><%= article.title %></h3>
-    <p><%= article.content %></p>
+    <p><%=raw article.content %></p>
 		<p><h5><%= article.article_comments.size %> comments</h5></p>
   </div>
   <div class="span2 backendbtns">  

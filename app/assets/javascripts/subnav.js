@@ -1,6 +1,6 @@
 // fix sub nav on scroll
 $(document).ready( function() {
-	if(!( $('.subnav').size == 0 )) {
+	if( $('.subnav').size != 0 ) {
 		$(document).scroll(function(){
 				// If has not activated (has no attribute "data-top"
 				if (!$('.subnav').attr('data-top')) {

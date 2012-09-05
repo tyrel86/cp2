@@ -1,7 +1,7 @@
 <div class="row manage-single-review">
   <div class="span6">
     <h3><%= critique.title %></h3>
-    <p><%= critique.content %></p>
+    <p><%=raw critique.content %></p>
   </div>
   <div class="span2 backendbtns">  
     <a data-toggle="modal" href="#editmodal<%= critique.id %>" class="btn btn-glow btn-success">Edit</a>
