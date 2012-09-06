@@ -10,6 +10,7 @@ module DistanceHelper
 	Rmeters = Rkm * 1000    # radius in meters
 
 	def self.distance_between( lat1, lon1, lat2, lon2, type )
+		return "Unkown" if ( lat1.nil? or lon1.nil? or lat2.nil? or lon2.nil? )
 		dlon = lon2 - lon1
 		dlat = lat2 - lat1
 

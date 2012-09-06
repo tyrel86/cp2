@@ -61,6 +61,16 @@ namespace :roles do
 		article_manage = Right.create( resource: "articles", operation: "MANAGE" )
 		  author.rights << article_manage
 
+		#Articles
+		lesson_create = Right.create( resource: "lessons", operation: "CREATE" )
+		  admin.rights << lesson_create
+		lesson_update = Right.create( resource: "lessons", operation: "UPDATE" )
+		  admin.rights << lesson_update
+		lesson_delete = Right.create( resource: "lessons", operation: "DELETE" )
+		  admin.rights << lesson_delete
+		lesson_manage = Right.create( resource: "lessons", operation: "MANAGE" )
+		  admin.rights << lesson_manage
+
 		#Article Comments
 		article_comment_create = Right.create( resource: "article_comments", operation: "CREATE" )
 		  base.rights << article_comment_create
@@ -152,6 +162,13 @@ namespace :roles do
     u = User.create( user_name: "anonymous", email: "dontbother@somewhere.com", 
                               password: "%TGBnhy6&UJ", password_confirmation: "%TGBnhy6&UJ" )
     u.roles << Role.where( name: "Anonymous" )
+
+		#Admins and edditors
+		u = User.first
+		u.roles << Role.where( name: "Author" )
+		u.roles << Role.where( name: "Editor" )
+		u.roles << Role.where( name: "Moderator" )
+		u.roles << Role.where( name: "Admin" )
 	end
   
   desc "Clears and then recreates roles and auth data from lib/tasks/roles.rake"

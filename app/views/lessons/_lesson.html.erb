@@ -1,0 +1,12 @@
+<div class="row manage-single-review">
+  <div class="span6">
+    <h3><%= lesson.title %></h3>
+    <p><%=raw lesson.body %></p>
+  </div>
+  <div class="span2 backendbtns">  
+    <a data-toggle="modal" href="#editmodal<%= lesson.id %>" class="btn btn-glow btn-success">Edit</a>
+    <div class="btn btn-glow btn-success"><%= link_to 'Delete', lesson, :method => :delete, :confirm => 'Are you sure?' %></div>
+  </div>
+</div>
+
+ <%= render "modals/edit_lesson.html.erb", lesson: lesson %>

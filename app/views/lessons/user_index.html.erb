@@ -1,0 +1,12 @@
+<a data-toggle="modal" href="#create_lesson_modal" class="btn btn-glow btn-success new-btn">Create New Lesson</a>
+<div class="manage-index"> 
+ <ul>  
+    <% @lessons.each do |lesson| %>
+      <li>
+        <%= render "lessons/lesson", lesson: lesson  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "modals/create_lesson" %>

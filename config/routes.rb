@@ -28,6 +28,8 @@ CannaPages::Application.routes.draw do
   resources :sessions
   resources :articles
     get "articles/user_index/:id", to: "articles#user_index", as: :user_articles
+  resources :lessons
+    get "lessons/user_index/:id", to: "lessons#user_index", as: :user_lessons
   resources :article_comments
     get "article_comments/user_index/:id", to: "article_comments#user_index", as: :user_article_comments
   #Volumes  
