@@ -32,7 +32,7 @@ class DispensariesController < ApplicationController
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
 			dist = Dispensary.distance_between( session[:user_location], d ) 
-			if dist <= 5
+			if dist.class != String and dist <= 5
 				r.push( d )
 				d.distance = dist
 			end
