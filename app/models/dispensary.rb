@@ -82,7 +82,7 @@ class Dispensary < ActiveRecord::Base
 		distance = DistanceHelper.distance_between  user_location.lat, user_location.lng,
 																								dispensary.lat, dispensary.lng, 
 																								:mi
-		distance.round(1)
+		distance.class == String ? distance : distance.round(1)
 	end
 
 	def self.next_invalid
@@ -181,7 +181,7 @@ class Dispensary < ActiveRecord::Base
   end
   
   def formated_phone_number
-    "(#{phone_number[0..2]})-#{phone_number[3..6]}-#{phone_number[0..9]}"
+    "(#{phone_number[0..2]})-#{phone_number[3..5]}-#{phone_number[6..9]}"
   end
 
 	def review( uid, r_bud_tenders, r_selection, r_atmosphere )
