@@ -16,8 +16,7 @@ namespace :datamine do
 		def formatPhone( number )
 			if number
 				number = number.gsub(/[^0-9]/, '')
-				number = number[0..9]
-				number = "#{number[0..2]}-#{number[3..5]}-#{number[6..9]}"
+				number[0..9]
 			end
 		end
 
@@ -28,7 +27,9 @@ namespace :datamine do
 											'Dispensary/Medical Marijuana Center' => 'Dispensary', 'Smoke Shop' => 'Smoke Shop',
 											'Grow Consultants' => 'Grow Consultant' }
 
-		root_dir = "/home/CannaPages/db/xmlDumps/"
+		# root_dir = "/home/CannaPages/db/xmlDumps/"
+		root_dir = "/home/tyrel/code/ruby/rails/CannaPages/db/xmlDumps/"
+		
 		states_array = ['arizona','colorado','california','michigan','nevada']
 		states_array.each do |state|
 			puts "Starting #{state}"

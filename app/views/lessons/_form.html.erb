@@ -4,5 +4,6 @@
 <%= simple_form_for lesson do |f| %>
 	<%= f.input :title, :label => 'Title' %>
 	<%= f.input :body, :label => 'Content', input_html: {class: "tinymce", id: "lesson-content-#{content_id}"} %>
+	<%= f.input :order, :label => 'Order' %>
 	<%= f.button :submit, class: "btn-success" %>
 <% end %>

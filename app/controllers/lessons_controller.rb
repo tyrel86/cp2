@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
   end
   
   def update
-    lesson = Lesson.find( id: params[:id] ).first
+    lesson = Lesson.find( params[:id] )
     if lesson.update_attributes( params[:lesson] )
       redirect_to user_lessons_path( current_user ), notice: 'Lesson was successfully updated.'
     else

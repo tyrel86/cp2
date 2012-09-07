@@ -4,6 +4,7 @@ class UserProfilesController < ApplicationController
   def show
     @user = current_user
     @user_profile = @user.user_profile
+		@lessons = Lesson.all
     render :layout => 'cadets'
   end
 
