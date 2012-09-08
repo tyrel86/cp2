@@ -1,52 +1,23 @@
 <div id="roachy">
 	<%= image_tag "/images/site/roachy-large.jpg" %>
 	<h3>Hello I'm Roachy Clippits lesser known brother</h3>
+	<% inactive = false %>
+	<% index_val = 0 %>
 	<% lessons.each do |lesson| %>
-		<ul id="roachy-lesson	
-
-	<ul id="roachy-lesson-1" class="roachy-lesson roachy-active">
-		<h3>Subject: Roachy Basics</h3>
-		<p>Thinking from within this box I will guid you through the CannaPages journey</li>
-		You can dismis my lectures once you learn them
-		Thinking from within this box I will guid you through the CannaPages journey
-		Thinking from within this box I will guid you through the CannaPages journey
-		You can dismis my lectures once you learn them</p>
-		</p>Thinking from within this box I will guid you through the CannaPages journey
-		Thinking from within this box I will guid you through the CannaPages journey
-		Thinking from within this box I will guid you through the CannaPages journey</li>
-		You can dismis my lectures once you learn them</p>
-	</ul>
-	<ul id="roachy-lesson-2" class="roachy-lesson roachy-inactive">
-		<li><h3>Subject: Managing Comments and reviews</h3></li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>You can dismis my lectures once you learn them</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>You can dismis my lectures once you learn them</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-	</ul>
-	<ul id="roachy-lesson-3" class="roachy-lesson roachy-inactive">
-		<li><h3>Subject: Creating Articles</h3></li>
-		<li>You can dismis my lectures once you learn them</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>You can dismis my lectures once you learn them</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>You can dismis my lectures once you learn them</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-		<li>Thinking from within this box I will guid you through the CannaPages journey</li>
-	</ul>
+		<ul id="roachy-lesson-<%= index_val %>" class="roachy-lesson roachy-<%= inactive ? "in" : "" %>active">
+		<% inactive = true %>
+			<h3>Subject: <%= lesson.title %>
+			<%= raw lesson.body %>
+		</ul>
+		<% index_val += 1 %>
+	<% end %>
 	<ul id="roachy-index" class="roachy-lesson roachy-inactive">
 		<li><h3>Select a subject</h3></li>
-		<li id="roachy-index-link-1" class="roachy-index-link">Roachy Basics</li>
-		<li id="roachy-index-link-2" class="roachy-index-link">Managing Comments and reviews</li>
-		<li id="roachy-index-link-3" class="roachy-index-link">Creating Article</li>
-		<li id="roachy-index-link-1" class="roachy-index-link">Roachy Basics</li>
-		<li id="roachy-index-link-2" class="roachy-index-link">Managing Comments and reviews</li>
-		<li id="roachy-index-link-3" class="roachy-index-link">Creating Article</li>
-		<li id="roachy-index-link-1" class="roachy-index-link">Roachy Basics</li>
-		<li id="roachy-index-link-2" class="roachy-index-link">Managing Comments and reviews</li>
-		<li id="roachy-index-link-3" class="roachy-index-link">Creating Article</li>
+		<% index_val = 0 %>
+		<% lessons.each do |lesson| %>
+			<li id="roachy-index-link-<%= index_val %>" class="roachy-index-link"><%= lesson.title %></li>
+			<% index_val += 1 %>
+		<% end %>
 	</ul>
 	<ul id="roachy-links">
 		<li id="roachy-btn-previous">Previous</li>
