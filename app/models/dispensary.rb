@@ -71,10 +71,24 @@ class Dispensary < ActiveRecord::Base
 				'Kind Doctor'
 			when 5
 				'kind Land Lord'
+			when 6
+				'Smoke Shop'
+			when 7
+				'Grow Consultant'
 			else
 				:unclasified
 		end
   end
+
+	BUSINESS_TYPE_MAPPINGS = {
+		'Dispensary' => 1,
+		'Grow Store' => 2,
+		'Head Shop' => 3,
+		'Kind Doctor' => 4,
+		'kind Land Lord' => 5,
+		'Smoke Shop' => 6,
+		'Grow Consultant' => 7
+	}
 
 #######  Query Methods
 
@@ -96,9 +110,9 @@ class Dispensary < ActiveRecord::Base
 		end
 	end
   
-  def self.search( query )
-    where do
-      (name =~ "%#{query}%") | (city =~ "%#{query}%")  
+  def self.search( query, cat )
+    where do 
+			(name =~ "%#{query}%") | (city =~ "%#{query}%") | (zip_code =~ "%#{query}%")
     end
   end
   
@@ -213,7 +227,7 @@ class Dispensary < ActiveRecord::Base
   end
 
   def short_name
-    (name.size > 20) ? "#{name[0..19]}..." : name
+    (name.size > 32) ? "#{name[0..31]}..." : name
   end
 
   def city_state_zip

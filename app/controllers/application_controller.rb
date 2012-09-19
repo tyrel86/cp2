@@ -10,22 +10,7 @@ class ApplicationController < ActionController::Base
   private
 		def transform_category
 			params[:category] ||= :all
-			params[:category] = case params[:category]
-				when "All Categories"
-					:all
-				when "Dispensaries"
-					'Dispensary'
-				when "Grow Stores"
-					'Grow Store'
-				when "Head Shops"
-					'Head Shop'
-				when "Kind Doctors"
-					'Kind Doctor'
-				when "Kind Landlords"
-					'Kind Land Lord'
- 				else
-					:all
-			end
+			params[:category] = CatHelper.transformSingle( params[:category] )
 		end
 	
 		def update_user_loation

@@ -1,13 +1,13 @@
       <div id="cannacarouseltop" class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <div class="active item"><%= link_to( image_tag("/images/slider/carousel_critiques.jpg"),
+          <div class="item"><%= link_to( image_tag("/images/slider/carousel_critiques.jpg"),
 																								critiques_path ) %></div>
           <div class="item"><%= link_to( image_tag("/images/slider/carousel_dispatches.jpg"),
 																								current_volume_path ) %></div>
           <% cadets_link = ((current_user.user_name == "anonymous") ? "#create_user_modal" : user_profile_path( current_user )) %> 
 					<% link_data = ((current_user.user_name == "anonymous") ? :modal : "" ) %>
-					<div class="item"><%= link_to( image_tag("/images/slider/carousel_cadets.jpg"),
+					<div class="active item"><%= link_to( image_tag("/images/slider/carousel_cadets.jpg"),
 																	cadets_link, "data-toggle" => link_data ) %></div>
 
         </div>

@@ -10,25 +10,35 @@ class DispensariesController < ApplicationController
     render layout: 'cadets'
   end
 
-  def search
-    s = params[:search_term]
+	def search
+		s = params[:search_term] || ""
 		f = params[:search_from]
-    Search.create_or_inc( s, f, :listing ) 
-    @dispensaries = Dispensary.search( s ).page( params[:page] ).per( 10 )
-		unless params[:category] == :all
-			@dispensaries.select! { |d| d.business_type == params[:category] }
-		end 
-    @dispensaries.sort! { |a,b| a.average_rating <=> b.average_rating }
-    @dispensaries.reverse!
-		@dispensaries.each do |d|
-			dist = Dispensary.distance_between( session[:user_location], d )
-			d.distance = dist
+		Search.create_or_inc( s, f, :listing )
+		dispensary_array = Dispensary.search( s, params[:category] )
+		@dispensaries = dispensary_array.inject([]) do |r,d|
+			r ||= []
+			dist = Dispensary.distance_between( session[:user_location], d ) 
+			if dist.class != String and dist <= 5
+				r.push( d )
+				d.distance = dist
+			end
+			r
 		end
+		if params[:category] != :all
+			@dispensaries = @dispensaries.select do |d|
+				d.business_type == params[:category]
+			end
+		end
+		@dispensaries = Kaminari::PaginatableArray.new( @dispensaries ).page(params[:page]).per(10)
     @featured = @dispensaries.select{|d| d.featured == true }
-  end
- 
+		render "search"
+	end
+
 	def nearyou
-		dispensary_array = Dispensary.all
+		s = params[:search_term] || ""
+		f = params[:search_from]
+		Search.create_or_inc( s, f, :listing )
+		dispensary_array = Dispensary.search( s, params[:category] )
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
 			dist = Dispensary.distance_between( session[:user_location], d ) 
@@ -39,6 +49,11 @@ class DispensariesController < ApplicationController
 			r
 		end
 		@dispensaries = Kaminari::PaginatableArray.new( @dispensaries ).page(params[:page]).per(10)
+		if params[:category] != :all
+			@dispensaries.select do |d|
+				d.business_type == params[:category]
+			end
+		end
     @featured = @dispensaries.select{|d| d.featured == true }
 		render "search"
 	end

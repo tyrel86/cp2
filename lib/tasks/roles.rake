@@ -61,7 +61,7 @@ namespace :roles do
 		article_manage = Right.create( resource: "articles", operation: "MANAGE" )
 		  author.rights << article_manage
 
-		#Articles
+		#Roachy Lessons
 		lesson_create = Right.create( resource: "lessons", operation: "CREATE" )
 		  admin.rights << lesson_create
 		lesson_update = Right.create( resource: "lessons", operation: "UPDATE" )
@@ -70,6 +70,16 @@ namespace :roles do
 		  admin.rights << lesson_delete
 		lesson_manage = Right.create( resource: "lessons", operation: "MANAGE" )
 		  admin.rights << lesson_manage
+
+		#Ads
+		ad_create = Right.create( resource: "ads", operation: "CREATE" )
+		  base.rights << ad_create
+		ad_update = Right.create( resource: "ads", operation: "UPDATE" )
+		  base.rights << ad_update
+		ad_delete = Right.create( resource: "ads", operation: "DELETE" )
+		  base.rights << ad_delete
+		ad_manage = Right.create( resource: "ads", operation: "MANAGE" )
+		  base.rights << ad_manage
 
 		#Article Comments
 		article_comment_create = Right.create( resource: "article_comments", operation: "CREATE" )
@@ -188,12 +198,20 @@ namespace :roles do
 	task temp: :environment do
 	  #Define Roles keep for all uses
 		anonymous = Role.where( name: "Anonymous" )
-		base = Role.where( name: "Base" )
+		base = Role.where( name: "Base" ).first
 		author = Role.where( name: "Author" )
 		editor = Role.where( name: "Editor" )
 		moderator = Role.where( name: "Moderator" )
 		admin = Role.where( name: "Admin" )
 		#Define temp tasks bellow
+		ad_create = Right.create( resource: "ads", operation: "CREATE" )
+		  base.rights << ad_create
+		ad_update = Right.create( resource: "ads", operation: "UPDATE" )
+		  base.rights << ad_update
+		ad_delete = Right.create( resource: "ads", operation: "DELETE" )
+		  base.rights << ad_delete
+		ad_manage = Right.create( resource: "ads", operation: "MANAGE" )
+		  base.rights << ad_manage
 	end
 
   desc "Keep track of all users for production"

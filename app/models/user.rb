@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 	has_many :article_comments
 	has_many :critiques
 	has_many :dispensaries
+	has_many :ads
 	
 	#REGEX deffinitions
 	user_name_reg = /\A[a-zA-Z0-9\-\_\.]*\z/i

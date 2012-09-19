@@ -67,6 +67,9 @@
         <li class="">
           <%= link_to "Roachy", user_lessons_path( current_user ) if current_user.can?("create", "lessons") %>
         </li>
+        <li class="">
+          <%= link_to "Ads", user_ads_path( current_user ) if current_user.can?("create", "ads") || true %>
+        </li>
         <!--
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Daily Specials<b class="caret"></b></a>
