@@ -57,7 +57,7 @@ namespace :datamine do
 				unless dispensary.business_type == :unclasified
 					unless dispensary.save
 						#Make note of failur
-						File.open("/home/missing_listings.txt", 'w') { |file| file.write("#{dispensary.name} - #{phone_number}") }
+						File.open("/home/missing_listings.txt", 'w+') { |file| file.write("#{dispensary.name} - #{phone_number}") }
 					end
 				end
 
