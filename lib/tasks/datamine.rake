@@ -54,7 +54,12 @@ namespace :datamine do
 																		 zip_code: zip_code, phone_number: phone, business_type: type, glass_sale: false,
 																		 whole_sale: false, match_coupons: false )
 
-				dispensary.save unless dispensary.business_type == :unclasified
+				unless dispensary.business_type == :unclasified
+					unless dispensary.save
+						#Make note of failur
+						File.open("/home/missing_listings.txt", 'w') { |file| file.write("#{dispensary.name} - #{phone_number}") }
+					end
+				end
 
 			end
 		end
