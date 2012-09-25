@@ -74,13 +74,21 @@ class DispensariesController < ApplicationController
   end
 
   def update
-    d = current_user.dispensaries.where( id: params[:id] ).first
+		if current_user.roles.where( name: "admin" ).size > 0
+    	d = dispensaries.where( id: params[:id] ).first
+		else
+    	d = current_user.dispensaries.where( id: params[:id] ).first
+		end
     d.update_attributes( params[:dispensary] )
     redirect_to user_dispensaries_path( current_user )
   end
   
   def destroy
-    d = current_user.dispensaries.where( id: params[:id] ).first
+		if current_user.roles.where( name: "admin" ).size > 0
+    	d = dispensaries.where( id: params[:id] ).first
+		else
+    	d = current_user.dispensaries.where( id: params[:id] ).first
+		end
     d.destroy
     redirect_to user_dispensaries_path( current_user )
   end
