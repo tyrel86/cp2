@@ -1,0 +1,21 @@
+<a data-toggle="modal" href="#create_listing_modal" class="btn btn-glow btn-success new-btn">Create New Listing</a>
+<div class="manage-index"> 
+
+
+
+<%= form_tag user_dispensaries_admin_path, :method => :put, class: "form-search" do %>
+	<%= text_field_tag :search_term, "", :placeholder => "Name", :class => "input-medium search-query", :id => "cannaenginetext" %>
+	<button type="submit" class="btn-custom">FIND</button>
+<% end %>
+
+ <ul>  
+    <% @dispensaries.each do |listing| %>
+      <li>
+        <%= render "dispensaries/user_index_dispensary", listing: listing  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= paginate @dispensaries, :params => { controller: 'dispensaries', action: 'admin_index' } %>
+<%= render "modals/create_listing" %>

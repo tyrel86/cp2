@@ -22,6 +22,7 @@ class Right < ActiveRecord::Base
     "backend_show" => "MANAGE",
     "backend_search" => "MANAGE",
     "manage" => "MANAGE",
-    "home" => "HOME"
+    "home" => "HOME",
+		"admin_index" => "ADMIN"
   }
 end

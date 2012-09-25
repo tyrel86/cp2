@@ -10,6 +10,12 @@ class DispensariesController < ApplicationController
     render layout: 'cadets'
   end
 
+	def admin_index
+		@dispensaries = Dispensary.search( params[:search_term], :all )
+		@dispensaries = Kaminari::PaginatableArray.new( @dispensaries ).page(params[:page]).per(30)
+		render layout: 'cadets'
+	end
+
 	def search
 		s = params[:search_term] || ""
 		f = params[:search_from]

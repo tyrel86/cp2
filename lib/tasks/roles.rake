@@ -12,6 +12,10 @@ namespace :roles do
 		Right.destroy_all
 	end
 
+	task addto: :environment do
+		
+	end
+
 	desc "Populates roles and auth data from lib/tasks/roles.rake"
 	task populate: :environment do
 	  #Define Roles
@@ -116,6 +120,8 @@ namespace :roles do
 		  base.rights << dispensary_delete
 		dispensary_manage = Right.create( resource: "dispensaries", operation: "MANAGE" )
 		  base.rights << dispensary_manage
+		dispensary_admin = Right.create( resource: "dispensaries", operation: "ADMIN" )
+		  admin.rights << dispensary_admin
 
 		#Dispensary Comments
 		dispensary_comment_create = Right.create( resource: "dispensary_comments", operation: "CREATE" )
