@@ -75,7 +75,7 @@ class DispensariesController < ApplicationController
 
   def update
 		if current_user.roles.where( name: "admin" ).size > 0
-    	d = dispensaries.where( id: params[:id] ).first
+    	d = Dispensary.where( id: params[:id] ).first
 		else
     	d = current_user.dispensaries.where( id: params[:id] ).first
 		end
@@ -85,7 +85,7 @@ class DispensariesController < ApplicationController
   
   def destroy
 		if current_user.roles.where( name: "admin" ).size > 0
-    	d = dispensaries.where( id: params[:id] ).first
+    	d = Dispensary.where( id: params[:id] ).first
 		else
     	d = current_user.dispensaries.where( id: params[:id] ).first
 		end
