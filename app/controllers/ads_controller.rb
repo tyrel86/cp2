@@ -21,12 +21,13 @@ class AdsController < ApplicationController
   end
 
   def create
-    ad =  Article.new( params[:ad] )
+		debugger
+    ad =  Ad.create( params[:ad] )
     current_user.ads << ad
     if ad.user_id == current_user.id
-      redirect_to user_articles_path( current_user ), alert: 'Ad Created'
+      redirect_to user_ads_path( current_user ), alert: 'Ad Created'
     else
-      redirect_to user_articles_path( current_user ), alert: 'Ad Could not be created'
+      redirect_to user_ads_path( current_user ), alert: 'Ad Could not be created'
     end
   end
   

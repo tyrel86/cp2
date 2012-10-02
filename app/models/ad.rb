@@ -3,11 +3,13 @@ class Ad < ActiveRecord::Base
 
 	has_attached_file :image, :styles => { :side => "250x250>", :btob => "728x90>" }
 
+	belongs_to :user
+
 	def ad_type_id=(input)
     type = case input
-			when :side
+			when "side"
 				0
-			when :btob
+			when "btob"
 				1
 			else
 				0
@@ -16,14 +18,14 @@ class Ad < ActiveRecord::Base
   end
   
   def glass_sale
-    type = read_attribute(:gender)
+    input = read_attribute(:gender)
     case input
 			when 0
-				:side
+				"side"
 			when 1
-				:btob
+				"btob"
 			else
-				:side
+				"btob"
 		end
   end	
 

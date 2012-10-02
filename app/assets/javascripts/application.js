@@ -19,4 +19,5 @@
 //= require confirm-delete-modal
 //= require canna-links 
 //= require roachy
+//= require searchbar
 //= require tinymce-jquery

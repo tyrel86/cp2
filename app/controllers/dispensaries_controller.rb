@@ -17,6 +17,8 @@ class DispensariesController < ApplicationController
 	end
 
 	def search
+		params[:radius] ||= 5
+		params[:radius] = (params[:radius]).to_i
 		s = params[:search_term] || ""
 		f = params[:search_from]
 		Search.create_or_inc( s, f, :listing )
@@ -24,7 +26,7 @@ class DispensariesController < ApplicationController
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
 			dist = Dispensary.distance_between( session[:user_location], d ) 
-			if dist.class != String and dist <= 5
+			if dist.class != String and dist <= params[:radius]
 				r.push( d )
 				d.distance = dist
 			end
@@ -41,6 +43,8 @@ class DispensariesController < ApplicationController
 	end
 
 	def nearyou
+		params[:radius] ||= 5
+		params[:radius] = (params[:radius]).to_i
 		s = params[:search_term] || ""
 		f = params[:search_from]
 		Search.create_or_inc( s, f, :listing )
@@ -48,7 +52,7 @@ class DispensariesController < ApplicationController
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
 			dist = Dispensary.distance_between( session[:user_location], d ) 
-			if dist.class != String and dist <= 5
+			if dist.class != String and dist <= params[:radius]
 				r.push( d )
 				d.distance = dist
 			end

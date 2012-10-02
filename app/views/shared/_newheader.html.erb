@@ -3,7 +3,7 @@
 	<div class="row" id="tipytop">
 		<div class="span7 offset5">
 			<ul class="top-links">
-  			<li><%= login_or_backend %>
+  			<li><%= raw login_or_backend %>
 						<%= link_to "Advertise with us", "#" %>
 						<%= link_to "Submit Free Listing", "#" %></li>
 			</ul>
@@ -55,7 +55,14 @@
 					
 					<%= link_to( image_tag( "/images/icons/wiki-top.png", class: "canna-link" ), "#strain-wiki", "data-toggle"=> :modal ) %>
 					<%= link_to( image_tag( "/images/icons/saver-top.png", class: "canna-link" ), "#cannasaver", "data-toggle" => :modal ) %>
-
+					<% if params[:controller] == "dispensaries" %>
+						<% prvRadius = params[:radius] %>
+						<% prvRadius ||= "5" %>
+						<div id="radius-input">
+							<span>Within (mi)</span>
+							<input id="radius-change" name="radius" type="text" size="4" value=<%= prvRadius %> />
+						</div>
+					<% end %>
 				</div>
 			</div>
 

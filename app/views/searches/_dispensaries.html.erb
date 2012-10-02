@@ -13,6 +13,9 @@
 			<%= text_field_tag :search_from, "", :placeholder => params[:last_location], 
 													:class => "input-medium search-query", id: "cannaenginetext-small" %>
 			<%= hidden_field_tag :category, "All", id: "send-cat" %>
+						<% prvRadius = params[:radius] %>
+						<% prvRadius ||= "5" %>
+			<%= hidden_field_tag :radius, "All", id: "send-radius", value: prvRadius %>
 		</div>
 		<div class="span1">
 			<button type="submit" class="btn-custom" id="main-find-btn">
