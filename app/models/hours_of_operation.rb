@@ -6,7 +6,8 @@ class HoursOfOperation < ActiveRecord::Base
 	belongs_to :dispensary
 
 	def attr_as_formated_string( atr )
-		self.send( atr ).strftime( "%I:%M %p" )
+		string = self.send( atr ).strftime( "%I:%M %p" )
+		string ? string : "Not Set"
 	end
 
 end
