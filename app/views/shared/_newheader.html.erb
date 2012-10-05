@@ -14,8 +14,8 @@
 
   <div class="row" id="searchbar">
   	<div class="span3">
+				<%= image_tag "top-logo.png", class: "main-logo" %>
 			<div id="cat-container">
-				<%= image_tag "top-logo.png" %>
 				<% catClass = (params[:controller] == "volumes") ? "hidden" : "" %>
 				<p id="cat-text" class="<%= catClass %>">Browse <span id="cat-text-value">All Categories</span></p>
 			</div>
