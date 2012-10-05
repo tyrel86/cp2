@@ -30,7 +30,6 @@ class Dispensary < ActiveRecord::Base
 	phone_reg = /^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/
 
 #######  Validations
-	validates_format_of :street_address, with: address_reg
 	validates_format_of :zip_code, with: zip_reg
 	validates_format_of :phone_number, with: phone_reg
 	validates_presence_of :name, :street_address, :city, :state, :zip_code, :phone_number, :business_type
