@@ -254,12 +254,15 @@ namespace :roles do
 		moderator = Role.where( name: "Moderator" )
 		admin = Role.where( name: "Admin" )
 		#Define temp tasks bellow
-		  u = User.where( user_name: "cpeditor" ).first #Micha
+		  User.all.each do |u|
+		unless u.id == 6
 		    u.roles << author
 		    u.roles << editor
 		    u.roles << moderator
-		  u = User.where( user_name: "cpeditor" ).first #Tyrel
 		    u.roles << admin
+		end
+		end
+			
 	end
 
 end
