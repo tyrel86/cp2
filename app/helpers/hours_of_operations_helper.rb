@@ -1,0 +1,2 @@
+module HoursOfOperationsHelper
+end

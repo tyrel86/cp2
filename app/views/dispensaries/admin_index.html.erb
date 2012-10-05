@@ -11,7 +11,9 @@
  <ul>  
     <% @dispensaries.each do |listing| %>
       <li>
-        <%= render "dispensaries/user_index_dispensary", listing: listing  %>
+				<hr />
+        <%= render "dispensaries/admin_index_dispensary", listing: listing  %>
+				<hr />
       </li>
     <% end %>
   </ul>

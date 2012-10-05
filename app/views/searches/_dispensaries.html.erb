@@ -3,7 +3,7 @@
 																				id: "main-search-container" do %>
 		<div class="span4">
 			<%= text_field_tag :search_term, "", 
-											 placeholder: "Name or category (e.g. The Grow House, dispensary, etc)", 
+											 placeholder: "Filter names here or browse by category bellow", 
 											 :class => "input-medium search-query med-search", :id => "cannaenginetext-big" %>
 		</div>
 		<div class="spane1">
@@ -22,5 +22,9 @@
 				<%= image_tag "/images/icons/magglass.png" %>
 			</button>
 		</div>
+		<% prvRadius = params[:radius] %>
+		<% prvRadius ||= "5" %>
+		<span id="radius-span">Within (mi)</span>
+		<input id="radius-change" name="radius" type="text" size="4" value=<%= prvRadius %> />
 	<% end %>
 </div>

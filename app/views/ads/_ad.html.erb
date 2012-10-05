@@ -1,6 +1,11 @@
 <div class="row manage-single-review">
   <div class="span6">
     <h3><%= ad.name %></h3>
+		<p>Status <%= raw ad.status %></p>
+		<p>Expires: <%= raw ad.expiration_date %></p>
+		<p>Clicks: <%= ad.clicks || 0 %></p>
+		<p>Shows: <%= ad.shows || 0 %></p>
+		<%= image_tag ad.image.url( ad.ad_type_id.to_sym ) %>
   </div>
   <div class="span2 backendbtns">  
     <a data-toggle="modal" href="#editmodal<%= ad.id %>" class="btn btn-glow btn-success">Edit</a>

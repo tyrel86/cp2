@@ -11,13 +11,13 @@
     <div class="row">
 			<%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
 			<%= render "icons", dispensary: dispensary %>
-			<%= render "see_btn", dispensary: dispensary %>
+			<%= render( partial: "see_btn", :locals => { dispensary: dispensary, featured: false } ) %>
     </div>  
   <% end %>
   <div class="row">
 	<% unless dispensary.average_rating %>
 		<%= render "icons", dispensary: dispensary %>
-		<%= render "see_btn", dispensary: dispensary %>
+		<%= render( partial: "see_btn", :locals => { dispensary: dispensary, featured: false } ) %>
 	<% end %>
   </div>
 </div>

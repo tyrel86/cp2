@@ -1,14 +1,12 @@
 <div class="featured-listingbox row">
 	<div class="span8">
-			<div class="span3" id="featuredlisting-info">
+		<div class="span3" id="featuredlisting-info">
 			<h1><%= dispensary.short_name %></h1>
 			<h2><%= dispensary.phone_number %></h2>
 			<h2><%= dispensary.street_address %></h2>
 			<h2><%= dispensary.city_state_zip %></h2>
 		</div>
 		<%= render "shared/five_star_featured", on: dispensary.average_rating, dispensary: dispensary %>
-			<div class="span2" id="featured-thumb">
 			<%= image_tag dispensary.photo.url(:small) %>	
-		</div>
 	</div>
 </div>

@@ -1,5 +1,12 @@
 <%= render "shared/sub_news" %>
+ <div class="row">
+	<%= image_tag "dispatches_top.jpg"%>
+    </div>
 
+<div class="row">
+<div class="span8">
 <% @articles.each do |a| %>
-	<%= render "articles/single_for_index", article: a %>
+	<%= render "articles/article_exerpt", article: a %>
 <% end %>
+</div>
+</div>

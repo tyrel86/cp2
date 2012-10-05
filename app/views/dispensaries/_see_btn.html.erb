@@ -1,7 +1,15 @@
 <div class="span3">
+	<% if featured %>
+		<a href="/dispensaries/featured_show/<%= dispensary.id %>">
+			<button class="span2 btn btn-large btn-success listbtn">
+				<span>See Full Listing</span>
+			</button>
+		</a>
+	<% else %>
 	<a href="/dispensaries/<%= dispensary.id %>">
 		<button class="span2 btn btn-large btn-success listbtn">
 			<span>See Full Listing</span>
 		</button>
 	</a>
+	<% end %>
 </div>

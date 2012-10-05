@@ -1,11 +1,26 @@
 <div class="row manage-single-review">
   <div class="span6">
-    <h5><%= listing.name %></h5>
+    <h3><%= listing.name %></h3>
+		<p>Page Views <%= listing.clicks %></p>
+		<% if listing.request_featured %>
+			<p>Featured Status: <span class='label label-info'>Pending payment and aproval</span></p>
+		<% end %>
+		<% if listing.featured %>
+		<p>Featured Status: <%= raw listing.featured_status %></p>
+		<p>Featured Expiration: <%= listing.expiration %></p>
+		<p>Featured Search Shows <%= listing.featured_shows %></p>
+		<p>Featured Search Page Views <%= listing.featured_clicks %></p>
+		<% end %>
   </div>
   <div class="span2 backendbtns">  
     <a data-toggle="modal" href="#editmodal<%= listing.id %>" class="btn btn-glow btn-success">Edit</a>
+    <a data-toggle="modal" href="#edithoursmodal<%= listing.id %>" class="btn btn-glow btn-success">Set Business Hours</a>
+    <a data-toggle="modal" href="#editspecialsmodal<%= listing.id %>" class="btn btn-glow btn-success">Set Specials</a>
+		<%= link_to "Make Featured", request_featured_dispensary_path( listing ), {class: "btn btn-glow btn-success" } unless listing.request_featured || listing.featured %>
     <div class="btn btn-glow btn-success"><%= link_to 'Delete', listing, :method => :delete, :confirm => 'Are you sure?' %></div>
   </div>
 </div>
 
- <%= render "modals/edit_listing", listing: listing %>
+<%= render "modals/edit_listing", listing: listing %>
+<%= render "modals/edit_hours", dispensary: listing %>
+<%= render "modals/edit_specials", dispensary: listing %>

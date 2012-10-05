@@ -1,0 +1,39 @@
+<div id="single-dispensary" class="row">
+
+  <div class="span2" id="single-dispensary-inner-left">
+    <div class="row"><%= image_tag @dispensary.photo.url(:small) %></div>
+    <div class="row">
+      <ul class="nav nav-pills nav-stacked" id="navalign">
+          <li><%= link_to "View Map", @dispensary.map_link, target: "_blank" %></li>
+          <li><%= link_to "Live Menu", "#no-menu", "data-toggle"=> :modal %></li>
+          <li><%= link_to "Rate Dispensary", "#createmodal", "data-toggle"=> :modal %></li>
+          <li><%= link_to "Write Comment", "#createmodalcomment", "data-toggle"=> :modal %></li>
+      </ul>
+    </div>
+  </div>
+
+<div class="span3 listingtitle" id="single-dispensary-inner-center">
+  <div class="row">
+    <h2><%= @dispensary.name %></h2>
+    <br>
+    <h4><%= @dispensary.street_address %></h4>
+    <br>
+    <h3><%= @dispensary.formated_phone_number %></h3>
+  </div>
+  <div class="row">
+    <%= render "shared/five_star", on: @dispensary.average_rating, dispensary: @dispensary %>
+  </div>
+</div>
+
+<div class="span5"  id="single-dispensary-inner-right">
+    <h3 id="business-comments-header">Comments</h3>
+    <% @dispensary.dispensary_comments.reverse.each do |c| %>
+      <%= render "dispensary_comments/comment", comment: c %>
+    <% end %>
+    <%= "No comments have been writen for this listing as of yet... be the first" if @dispensary.dispensary_comments.size == 0 %>
+</div>
+
+</div>
+<%= render "modals/no_live_menu"%>
+<%= render "modals/create_user_dispensary_review", dispensary: @dispensary %>
+<%= render "modals/create_dispensary_comment", dispensary: @dispensary %>

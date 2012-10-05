@@ -40,7 +40,7 @@ class VolumesController < ApplicationController
     params[:volume][:article_ids].each do |article_id|
       volume.articles << Article.find( article_id ) unless article_id.empty?
     end
-    volume.photo = params[:volume][:photo]
+    volume.photo = params[:volume][:photo] unless params[:volume][:photo].nil?
     volume.save
     redirect_to manage_volumes_path
   end

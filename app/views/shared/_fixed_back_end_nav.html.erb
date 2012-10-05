@@ -33,6 +33,7 @@
               <b class="caret"></b>
             </a>
           <ul class="dropdown-menu">
+            <li><%= link_to "Feeds", admin_feeds_path if current_user.can?("create", "feeds") %></li>
             <li><%= link_to "Articles", user_articles_path( current_user ) if current_user.can?("create", "articles") %></li>
             <li><%= link_to "Critiques", user_critiques_path( current_user ) if current_user.can?("create", "critiques") %></li>
             <li><%= link_to "News Comments", user_article_comments_path( current_user ) %></li>
@@ -59,7 +60,8 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Listings<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "manage", user_dispensaries_path( current_user ) %></li>
-            <li><%= link_to "administer", user_dispensaries_admin_path( current_user ) %></li>
+            <li><%= link_to "administer", user_dispensaries_admin_path( current_user ) if @current_user.can?("admin_index", "dispensaries" ) %></li>
+            <li><%= link_to "manage featured", manage_featured_dispensaries_path if @current_user.can?( "manage_featured", "dispensaries" ) %></li>
           </ul>
         </li>
         <li class="">
@@ -68,8 +70,12 @@
         <li class="">
           <%= link_to "Roachy", user_lessons_path( current_user ) if current_user.can?("create", "lessons") %>
         </li>
-        <li class="">
-          <%= link_to "Ads", user_ads_path( current_user ) if current_user.can?("create", "ads") || true %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ads<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+						<li><%= link_to "manage", user_ads_path( current_user ) if current_user.can?("create", "ads") || true %></li>
+						<li><%= link_to "administer", admin_ads_path if current_user.can?("admin_index", "ads") || true %></li>
+          </ul>
         </li>
         <!--
         <li class="dropdown">

@@ -6,6 +6,11 @@
     <%= f.input :content, :label => 'Content', input_html: {id: content_id, class: "tinymce" } %>
     <%= f.input :critique_type, :collection => ["dispensary", "strain"] %>
 		<%= f.file_field :photo %>
+		<% if dispensary %>
+			<% dIdVal = dispensary.id %>
+		<% else %>
+			<% dIdVal = nil %>
+		<% end %>
+    	<%= f.input :dispensary_id, :label => 'Dispensary ID', :input_html => { :value => dIdVal } %>
     <%= f.button :submit, class: "btn-success" %>
-    <a href="#" class="btn" data-dismiss="modal">Close</a>
 <% end %>

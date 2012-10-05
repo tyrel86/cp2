@@ -65,6 +65,18 @@ namespace :roles do
 		article_manage = Right.create( resource: "articles", operation: "MANAGE" )
 		  author.rights << article_manage
 
+		#Feeds
+		feed_create = Right.create( resource: "feeds", operation: "CREATE" )
+		  editor.rights << feed_create
+		feed_read = Right.create( resource: "feeds", operation: "READ" )
+		  anonymous.rights << feed_read
+		feed_update = Right.create( resource: "feeds", operation: "UPDATE" )
+		  editor.rights << feed_update
+		feed_delete = Right.create( resource: "feeds", operation: "DELETE" )
+		  editor.rights << feed_delete
+		feed_manage = Right.create( resource: "feeds", operation: "MANAGE" )
+		  editor.rights << feed_manage
+
 		#Roachy Lessons
 		lesson_create = Right.create( resource: "lessons", operation: "CREATE" )
 		  admin.rights << lesson_create
@@ -84,6 +96,10 @@ namespace :roles do
 		  base.rights << ad_delete
 		ad_manage = Right.create( resource: "ads", operation: "MANAGE" )
 		  base.rights << ad_manage
+		ad_admin = Right.create( resource: "ads", operation: "ADMIN" )
+		  admin.rights << ad_admin
+		ad_read = Right.create( resource: "ads", operation: "READ" )
+		  anonymous.rights << ad_read
 
 		#Article Comments
 		article_comment_create = Right.create( resource: "article_comments", operation: "CREATE" )
@@ -122,6 +138,14 @@ namespace :roles do
 		  base.rights << dispensary_manage
 		dispensary_admin = Right.create( resource: "dispensaries", operation: "ADMIN" )
 		  admin.rights << dispensary_admin
+	
+		#Dispensary Hours
+		hours_update = Right.create( resource: "hours_of_operations", operation: "UPDATE" )
+		  base.rights << hours_update
+
+		#Dispensary Specials
+		specials_update = Right.create( resource: "daily_special_lists", operation: "UPDATE" )
+		  base.rights << specials_update
 
 		#Dispensary Comments
 		dispensary_comment_create = Right.create( resource: "dispensary_comments", operation: "CREATE" )

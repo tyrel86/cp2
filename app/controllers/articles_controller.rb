@@ -21,6 +21,8 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find( params[:id] )
+		@article.clicks += 1
+		@article.save
     @article_comments = @article.article_comments
     @current_user = current_user
   end
@@ -44,7 +46,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article =  Article.new( params[:article] )
+    article = Article.new( params[:article] )
+		article.source = "http://www.cannapages.com"
     current_user.articles << article
     if article.user_id == current_user.id
       redirect_to user_articles_path( current_user ), alert: 'Article Created'

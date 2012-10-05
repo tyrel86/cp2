@@ -1,0 +1,16 @@
+<a data-toggle="modal" href="#create_feed_modal" class="btn btn-glow btn-success new-btn">Create New Feed</a>
+<%= link_to "Fetch Articles Manualy", feeds_pull_path, class: "btn btn-glow btn-success new-btn" %>
+<div class="manage-index"> 
+<hr />
+<h4>RSS Feed Managment Pannell: <strong><%= Article.all.size %></strong> Articles currently in the database</h4>
+<hr />
+ <ul>  
+    <% @feeds.each do |feed| %>
+      <li>
+        <%= render "feeds/feed", feed: feed  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "modals/create_feed" %>

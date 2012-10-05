@@ -1,0 +1,9 @@
+<div id="editmodal<%= feed.id %>" class="modal hide fade" style="display: none;">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          <h3>Edit Feed</h3>
+      </div>
+      <div class="modal-body">
+          <%= render "feeds/form", feed: feed %>
+      </div>
+</div>

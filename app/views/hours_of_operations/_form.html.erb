@@ -1,0 +1,19 @@
+<%= simple_form_for hours_of_operation, :defaults => { :input_html => { :class => 'timePicker' } } do |f| %>
+	<%= f.input :mo_start, :label => 'Monday Start Time', as: :string %>
+	<%= f.input :mo_end, :label => 'Monday End Time', as: :string %>
+	<%= f.input :tu_start, :label => 'Tuesday Start Time', as: :string  %>
+	<%= f.input :tu_end, :label => 'Tuesday End Time', as: :string  %>
+	<%= f.input :we_start, :label => 'Wednesday Start Time', as: :string  %>
+	<%= f.input :we_end, :label => 'Wednesday End Time', as: :string  %>
+	<%= f.input :th_start, :label => 'Thurdsay Start Time', as: :string  %>
+	<%= f.input :th_end, :label => 'Thursday End Time', as: :string  %>
+	<%= f.input :fr_start, :label => 'Friday Start Time', as: :string  %>
+	<%= f.input :fr_end, :label => 'Friday End Time', as: :string  %>
+	<%= f.input :sa_start, :label => 'Saturday Start Time', as: :string  %>
+	<%= f.input :sa_end, :label => 'Saturday End Time', as: :string  %>
+	<%= f.input :su_start, :label => 'Sunday Start Time', as: :string  %>
+	<%= f.input :su_end, :label => 'Sunday End Time', as: :string  %>
+	<%= f.hidden_field :dispensary_id, value: hours_of_operation.dispensary.id %>
+	<%= f.button :submit, class: "btn-success" %>
+	<%= link_to "Close", "#", class: :btn, "data-dismiss" => "modal" %>
+<% end %>

@@ -11,6 +11,12 @@ class CritiquesController < ApplicationController
     @critiques ||= []
 		@critiques.reverse!
   end
+
+	def index_for_listing
+		@dispensary = Dispensary.find( params[:id] )
+		@critiques = @dispensary.critiques
+		render "index"
+	end
   
 	def search
     s = params[:search_term]
@@ -41,14 +47,21 @@ class CritiquesController < ApplicationController
   end
   
   def create
+		dispensary_id = params[:critique][:dispensary_id]
+		params[:critique].remove!(:dispensary_id)	
     c = Critique.create( params[:critique] )
+		c.dispensary_id = dispensary_id
     current_user.critiques << c
     redirect_to user_critiques_path( current_user )
   end
 
   def update
+		dispensary_id = params[:critique][:dispensary_id]
+		params[:critique].remove!(:dispensary_id)	
     critique = current_user.critiques.where( id: params[:id] ).first
     if critique.update_attributes( params[:critique] )
+			critique.dispensary_id = dispensary_id
+			critique.save
       redirect_to user_critiques_path( current_user ), notice: 'Article was successfully updated.'
     else
       redirect_to user_critiques_path( current_user ), alert: 'Invalid paramiters for article'

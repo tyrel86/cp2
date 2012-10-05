@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916072532) do
+ActiveRecord::Schema.define(:version => 20121004051634) do
 
   create_table "ad_types", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20120916072532) do
     t.datetime "image_updated_at"
     t.boolean  "confirmed"
     t.integer  "user_id"
+    t.integer  "clicks"
+    t.integer  "shows"
+    t.date     "expiration"
   end
 
   create_table "article_comments", :force => true do |t|
@@ -51,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20120916072532) do
     t.boolean  "editorial"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "source"
+    t.integer  "clicks"
   end
 
   create_table "assingments", :force => true do |t|
@@ -72,6 +77,21 @@ ActiveRecord::Schema.define(:version => 20120916072532) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "dispensary_id"
+  end
+
+  create_table "daily_special_lists", :force => true do |t|
+    t.string   "mo"
+    t.string   "tu"
+    t.string   "we"
+    t.string   "th"
+    t.string   "fr"
+    t.string   "sa"
+    t.string   "su"
+    t.string   "week"
+    t.string   "dispensary_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "dispensaries", :force => true do |t|
@@ -101,6 +121,12 @@ ActiveRecord::Schema.define(:version => 20120916072532) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "business_type"
+    t.integer  "clicks"
+    t.integer  "featured_clicks"
+    t.integer  "featured_shows"
+    t.integer  "shows"
+    t.boolean  "request_featured"
+    t.date     "expiration"
   end
 
   create_table "dispensary_comments", :force => true do |t|
@@ -120,11 +146,39 @@ ActiveRecord::Schema.define(:version => 20120916072532) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "feeds", :force => true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "status"
+  end
+
   create_table "grants", :force => true do |t|
     t.integer  "right_id"
     t.integer  "role_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "hours_of_operations", :force => true do |t|
+    t.time     "mo_start"
+    t.time     "mo_end"
+    t.time     "tu_start"
+    t.time     "tu_end"
+    t.time     "we_start"
+    t.time     "we_end"
+    t.time     "th_start"
+    t.time     "th_end"
+    t.time     "fr_start"
+    t.time     "fr_end"
+    t.time     "sa_start"
+    t.time     "sa_end"
+    t.time     "su_start"
+    t.time     "su_end"
+    t.integer  "dispensary_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "lessons", :force => true do |t|
@@ -202,6 +256,8 @@ ActiveRecord::Schema.define(:version => 20120916072532) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "favorite_strains"
+    t.string   "phone_number"
+    t.string   "address"
   end
 
   create_table "user_strain_reviews", :force => true do |t|

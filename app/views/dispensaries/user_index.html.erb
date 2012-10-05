@@ -3,6 +3,7 @@
  <ul>  
     <% @dispensaries.each do |listing| %>
       <li>
+				<hr />
         <%= render "dispensaries/user_index_dispensary", listing: listing  %>
       </li>
     <% end %>

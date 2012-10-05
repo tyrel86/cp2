@@ -21,3 +21,5 @@
 //= require roachy
 //= require searchbar
 //= require tinymce-jquery
+//= require timepicker
+//= require enable-ui

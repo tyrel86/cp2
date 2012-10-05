@@ -1,6 +1,18 @@
+<div class="manage-index"> 
 <h1>Editing user_profile</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @user_profile do |f| %>
+	<%= f.input :first_name, :label => 'First name' %>
+	<%= f.input :last_name, :label => 'Last name' %>
+	<%= f.input :phone_number, :label => 'Phone Number' %>
+	<%= f.input :address, :label => 'Address' %>
+	<%= f.input :birth_day, :as => :date, :start_year => Date.today.year - 90,
+																												:end_year => Date.today.year - 12,
+																												:order => [:month, :day, :year] %>
+	<%= f.input :gender, :collection => [:male, :female] %>
+	</div>
+	<%= f.button :submit, class: "btn-success" %>
+	<a href="#" class="btn" data-dismiss="modal">Close</a>
+<% end %>
 
-<%= link_to 'Show', @user_profile %> |
-<%= link_to 'Back', user_profiles_path %>
+</div>

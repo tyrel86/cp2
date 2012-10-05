@@ -1,13 +1,34 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :check_authorization, :update_user_loation, :transform_category, :set_search_partial
+  before_filter :set_current_user, :check_authorization, :update_user_loation, :transform_category, :set_search_partial
 
 	def set_search_partial
 		@search_partial = "searches/#{params[:controller]}"
 	end
 
+	def set_current_user
+		@current_user = current_user
+		@current_user_profile = current_user.user_profile
+	end
+
   private
+
+		def has_contact_info?
+			up = @current_user.user_profile
+			(! up.first_name.nil? ) and (! up.last_name.nil? ) and (! up.phone_number.nil? ) and (! up.address.nil? )
+		end
+
+		def require_contact_info
+			unless has_contact_info?
+				redirect_to edit_user_profile_path( @current_user_profile ), 
+							alert: "You must complete your contact data before we can acsept ads or listings from you sory for the inconvience"
+				false
+			else
+				true
+			end
+		end
+
 		def transform_category
 			params[:category] ||= :all
 			params[:category] = CatHelper.transformSingle( params[:category] )

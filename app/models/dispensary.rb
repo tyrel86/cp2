@@ -12,10 +12,13 @@ class Dispensary < ActiveRecord::Base
 
 ######   Relations
 	has_many :dispensary_comments
+	has_many :critiques
 	has_one :dispensary_review
+	has_one :hours_of_operation
+	has_one :daily_special_list
 	has_many :user_dispensary_reviews
   belongs_to :user
-	has_attached_file :photo, :styles => { :large => "300x300#", :small => "150x150#" }
+	has_attached_file :photo, :styles => { :large => "250x225#", :small => "150x150#" }
 	
 #######    Filters and call backs	
 	before_save :get_lat_lng_from_address
@@ -115,10 +118,9 @@ class Dispensary < ActiveRecord::Base
 			(name =~ "%#{query}%") | (city =~ "%#{query}%") | (zip_code =~ "%#{query}%")
     end
   end
-  
-  def self.featured( zip_code )
-    possible_listings = self.search( zip_code )
-    possible_listings.where( featured: true )
+
+  def self.get_featured( city, cat, amount )
+    possible_listings = self.search( city, cat ).where( featured: true ).order( 'dispensaries.featured_shows ASC' ).limit( amount )
   end
   
   
@@ -193,7 +195,20 @@ class Dispensary < ActiveRecord::Base
   def safe_photo_url
     photo_url || "http://placekitten.com/150/150"  
   end
-  
+
+	def featured_status
+		if expiration < Date.today
+			return "<span class='label label-warning'>Expired</span>"
+		end
+		if featured
+			"<span class='label label-success'>Live</span>"
+		elsif requrest_featured
+			"<span class='label label-info'>Pending payment and aproval</span>"
+		else
+			"<span class='label label-info'>Not Featured</span>"
+		end
+	end
+ 
   def formated_phone_number
     "(#{phone_number[0..2]})-#{phone_number[3..5]}-#{phone_number[6..9]}"
   end

@@ -1,0 +1,20 @@
+<div class="manage-index"> 
+<h1>Pending</h1>
+<hr />
+ <ul>  
+    <% @pending_dispensaries.each do |listing| %>
+      <li>
+        <%= render "dispensaries/user_admin_dispensary", listing: listing  %>
+      </li>
+    <% end %>
+  </ul>
+<h1>Featured</h1>
+<hr />
+ <ul>  
+    <% @dispensaries.each do |listing| %>
+      <li>
+        <%= render "dispensaries/user_admin_dispensary", listing: listing  %>
+      </li>
+    <% end %>
+  </ul>
+</div>

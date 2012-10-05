@@ -1,38 +1,48 @@
 <div id="single-dispensary" class="row">
+    <div class="row" id="listing-show-top">
+			<div class="span4">
+				<%= image_tag @dispensary.photo.url(:large), class: "main-image" %>
+			</div>
+			<div class="span4 listing-show-basic-info">
+				<ul>
+					<li><h3><%= @dispensary.name %></h3></li>
+					<li><%= @dispensary.street_address %>
+					<li><%= "#{@dispensary.city}, #{@dispensary.state} #{@dispensary.zip_code}" %>
+					<li><%= @dispensary.formated_phone_number %>
+					<%= render "shared/five_star_for_show", on: @dispensary.average_rating, dispensary: @dispensary %>
+				</ul>
+				<div class="row">
+					<%= render "icons_for_show", dispensary: @dispensary %>
+				</div>
+				</ul>
+			</div>
+			<div class="span4">
+				<%= image_tag @dispensary.photo.url(:large) %>
+			</div>
+		</div>
+		<div class="row" id="listing-show-bottom">
+			<div class="span3">
+				<ul class="listing-show-side-links">
+					<li>CannaWisdom</li>
+					<li>Map</li>
+					<li>Rate</li>
+					<li>Comment</li>
+				</ul>
+				
+				<h4>Business Hours</h4>
+				<ul class="listing-show-hours">
+					<% hours = @dispensary.hours_of_operation %>
+					<li class="light-blue">Monday <%= "#{hours.attr_as_formated_string( "mo_start" )} - #{hours.attr_as_formated_string( "mo_end" )}" %> </li>
+					<li>Tuesday </li>
+					<li class="light-blue">Wednesday </li>
+					<li>Thursday </li>
+					<li class="light-blue">Friday </li>
+					<li>Saturday </li>
+					<li class="light-blue">Sunday </li>
+				</ul>
 
-  <div class="span2" id="single-dispensary-inner-left">
-    <div class="row"><%= image_tag @dispensary.photo.url(:small) %></div>
-    <div class="row">
-      <ul class="nav nav-pills nav-stacked" id="navalign">
-          <li><%= link_to "View Map", @dispensary.map_link, target: "_blank" %></li>
-          <li><%= link_to "Live Menu", "#no-menu", "data-toggle"=> :modal %></li>
-          <li><%= link_to "Rate Dispensary", "#createmodal", "data-toggle"=> :modal %></li>
-          <li><%= link_to "Write Comment", "#createmodalcomment", "data-toggle"=> :modal %></li>
-      </ul>
-    </div>
-  </div>
-
-<div class="span3 listingtitle" id="single-dispensary-inner-center">
-  <div class="row">
-    <h2><%= @dispensary.name %></h2>
-    <br>
-    <h4><%= @dispensary.street_address %></h4>
-    <br>
-    <h3><%= @dispensary.formated_phone_number %></h3>
-  </div>
-  <div class="row">
-    <%= render "shared/five_star", on: @dispensary.average_rating, dispensary: @dispensary %>
-  </div>
-</div>
-
-<div class="span5"  id="single-dispensary-inner-right">
-    <h3 id="business-comments-header">Comments</h3>
-    <% @dispensary.dispensary_comments.reverse.each do |c| %>
-      <%= render "dispensary_comments/comment", comment: c %>
-    <% end %>
-    <%= "No comments have been writen for this listing as of yet... be the first" if @dispensary.dispensary_comments.size == 0 %>
-</div>
-
+			</div>
+		</div>
 </div>
 <%= render "modals/no_live_menu"%>
 <%= render "modals/create_user_dispensary_review", dispensary: @dispensary %>

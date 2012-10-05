@@ -13,7 +13,7 @@ class UserLocation
 	end
 
 	def self.new_from_location( address )
-		geo = Geokit::Geocoders::YahooGeocoder.geocode address
+		geo = Geokit::Geocoders::GoogleGeocoder.geocode address
 		self.new_with_geo( geo )
 	end
 

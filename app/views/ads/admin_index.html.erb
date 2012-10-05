@@ -1,0 +1,9 @@
+<div class="manage-index"> 
+ <ul>  
+    <% @ads.each do |ad| %>
+      <li>
+        <%= render "ads/admin_ad", ad: ad  %>
+      </li>
+    <% end %>
+  </ul>
+</div>

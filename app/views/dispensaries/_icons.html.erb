@@ -1,6 +1,6 @@
 <div class="span3 listingicons">
-	<%= image_tag "menuicons-01.png" %>
-	<%= image_tag "menuicons-02.png" %>
-	<%= image_tag "menuicons-03.png" %>
-	<%= image_tag "menuicons-04.png" %> 
+	<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
+	<% image_tag "menuicons-02.png" %>
+	<% image_tag "menuicons-03.png" %>
+	<% image_tag "menuicons-04.png" %> 
 </div>

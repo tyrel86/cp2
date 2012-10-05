@@ -1,15 +1,10 @@
-<div class="row mbwrapper2">
+<div class="row mbwrapper2 sub-news">
 	<div class= header>
 		<div class="subnav">
 			<ul class="nav nav-pills">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Main site<b class="caret"></b></a>
-					<%= render "shared/sub_sub_nav.html.erb" %>
-				</li>
 				<li><%= link_to "Dispatches", volume_path( Volume.the_current ) %></li>
 				<li><%= link_to "Dispatches Archives", volumes_path %></li>
 				<li><%= link_to "Articles", articles_path %></li>
-				<li><%= link_to "RSS",  "#" %></li>
 			</ul>
 		</div>
 	</div>

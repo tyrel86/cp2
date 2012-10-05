@@ -1,0 +1,6 @@
+<%= simple_form_for feed do |f| %>
+	<%= f.input :name, :label => 'Name' %>
+	<%= f.input :uri, :label => 'Full path to RSS feed ex http://www.news.com/feed' %>
+	<%= f.button :submit, class: "btn-success" %>
+	<%= link_to "Close", "#", class: :btn, "data-dismiss" => "modal" %>
+<% end %>

@@ -1,5 +1,5 @@
 class UserProfile < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :birth_day, :gender, :favorite_strains
+  attr_accessible :first_name, :last_name, :birth_day, :gender, :favorite_strains, :phone_number, :address
 
   before_validation :populate_with_defaults
   def populate_with_defaults

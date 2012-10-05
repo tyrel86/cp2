@@ -1,12 +1,7 @@
 <%= render "shared/sub_news" %>
 
  <div class="row">
-        <div class="span2">
-            <div class="cbnewstopicon"><%= image_tag "dispatches.png" %></div>
-        </div>
-        <div class="span7 offset1">
-            <div class="cbdispatchtext"><%= image_tag "dispatchestext-01.png" %></div>
-        </div>
+	<%= image_tag "dispatches_top.jpg"%>
     </div>
     <div class="row">
         <div class="span2">
@@ -16,7 +11,7 @@
             <div class=cbnewstextsubone><h4><%= @volume.created_at.to_date %></h4></div>
         </div>
     </div>
-    
+<hr />    
     <div class="row">
         <div class="span3">
             <div class="cbnewstextleft">
@@ -27,13 +22,11 @@
         </div>
         <div class="span6">
             <div class="cbnewstextmiddle" style="font-family: sans-serif">
-                <center>
-                  <%= image_tag @volume.photo.url, width: "300", height: "300" %>
+                 <center><%= image_tag @volume.photo.url, width: "300", height: "300" %></center>
                 <br>
                   <% @col_array[1].each do |a| %>
                     <%= render "articles/article_exerpt", article: a %>
                   <% end %> 
-                </center>
             </div>
         </div>
         <div class="span3">

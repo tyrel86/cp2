@@ -1,5 +1,11 @@
 <div class="article-exerpt-container">
   <%= link_to article.title, article, class: :article_exerpt_header %>
-  <p>By: <%= UserProfile.find( article.user_id ).full_name %></p>
-  <p><%=raw article.exerpt %></p>
+	<br />
+	<br />
+	<p><%=raw article.exerpt( 90 ) %></p>
+	<br />
+	<% if article.user_id %>
+		<span class='label label-success'>CannaPages Exclusive</span>
+	<% end %>
+	<br />
 </div>

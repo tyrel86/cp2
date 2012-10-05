@@ -14,6 +14,10 @@ gem "paperclip", "~> 3.0"
 gem 'kaminari'
 gem 'tinymce-rails'
 gem 'libxml-ruby'
+gem 'feedzirra'
+gem 'whenever', :require => false
+gem 'tod'
+gem 'savon'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

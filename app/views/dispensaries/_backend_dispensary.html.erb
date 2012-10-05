@@ -1,9 +1,11 @@
 <div class="row manage-single-review">
   <div class="span6">
     <h3><%= dispensary.name %></h3>
+		<p>Featured Status<%= dispensary.featured_status %></p>
   </div>
   <div class="span2 backendbtns">  
     <a data-toggle="modal" href="#editmodal<%= dispensary.id %>" class="btn btn-glow btn-success">Edit</a>
+		<%= link_to "Make Featured", request_featured_path( dispensary ) %>
     <div class="btn btn-glow btn-success"><%= link_to 'Delete', dispensary, :method => :delete %></div>
   </div>
 </div>

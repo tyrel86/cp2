@@ -1,5 +1,6 @@
 <% if @user_profile.respond_to? :first_name %>
     <div class="span3">
+			<div id="profile-wrap">
         <div id="profileimage">
           <%= gravatar_image_tag(@user.email) %>
         </div>
@@ -16,6 +17,7 @@
             <a data-toggle="modal" href="#editmodal-user-profile" class="btn btn-glow btn-success">Edit Profile</a>
           </ul>
         </div>
+			</div>
       </div>
 
 		<div class="span7" id="profilerecent">

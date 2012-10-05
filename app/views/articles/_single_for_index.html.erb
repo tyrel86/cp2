@@ -1,4 +1,6 @@
-<div class="span8">
+<div class="row">
+<div class="span8">	
   <%= link_to article.title, article, class: "article-title" %>
-  <p><%=raw article.exerpt %></p>
+  <p><%= raw article.exerpt( 90 ) %></p>
+</div>
 </div>
