@@ -92,6 +92,15 @@ class Dispensary < ActiveRecord::Base
 		'Grow Consultant' => 7
 	}
 
+  def about
+    about = read_attribute(:about)
+		about ? about : nil_about
+	end
+
+	def nil_about
+		"#{name} is a #{business_type} located in #{city}, #{state}"
+	end
+
 #######  Query Methods
 
 	def self.distance_between( user_location, dispensary )
@@ -279,5 +288,25 @@ class Dispensary < ActiveRecord::Base
     match_coupons = read_attribute(:match_coupons)
     match_coupons ? "yes" : "no"
   end
+
+	def deals?
+		daily? or weekly?
+	end
+
+	def daily?
+		daily_special_list.today
+	end
+
+	def weekly?
+		daily_special_list.week
+	end
+
+	def daily
+		daily? ? daily? : "Sorry none today"
+	end
+
+	def weekly
+		weekly? ? weekly? : "Sorry none this week"
+	end
 
 end

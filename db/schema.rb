@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004051634) do
+ActiveRecord::Schema.define(:version => 20121005203300) do
 
   create_table "ad_types", :force => true do |t|
     t.string   "name"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20121004051634) do
     t.integer  "shows"
     t.boolean  "request_featured"
     t.date     "expiration"
+    t.text     "about"
   end
 
   create_table "dispensary_comments", :force => true do |t|

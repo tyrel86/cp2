@@ -5,6 +5,7 @@ class DispensariesController < ApplicationController
     @dispensary = Dispensary.find(params[:id])
 		@dispensary.clicks += 1
 		@dispensary.save
+		@ads = Ad.get_ads( 2, :side )
   end
 
 	def featured_show

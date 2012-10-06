@@ -11,17 +11,16 @@
 					<li><%= @dispensary.formated_phone_number %>
 					<%= render "shared/five_star_for_show", on: @dispensary.average_rating, dispensary: @dispensary %>
 				</ul>
-				<div class="row">
-					<%= render "icons_for_show", dispensary: @dispensary %>
-				</div>
+				<%= render "icons_for_show", dispensary: @dispensary %>
 				</ul>
 			</div>
 			<div class="span4">
-				<%= image_tag @dispensary.photo.url(:large) %>
+				<%= image_tag "creamocrop.png" %>
 			</div>
 		</div>
 		<div class="row" id="listing-show-bottom">
-			<div class="span3">
+			
+			<div class="span2">
 				<ul class="listing-show-side-links">
 					<li>CannaWisdom</li>
 					<li>Map</li>
@@ -33,15 +32,81 @@
 				<ul class="listing-show-hours">
 					<% hours = @dispensary.hours_of_operation %>
 					<li class="light-blue">Monday <%= "#{hours.attr_as_formated_string( "mo_start" )} - #{hours.attr_as_formated_string( "mo_end" )}" %> </li>
-					<li>Tuesday </li>
-					<li class="light-blue">Wednesday </li>
-					<li>Thursday </li>
-					<li class="light-blue">Friday </li>
-					<li>Saturday </li>
-					<li class="light-blue">Sunday </li>
+					<li>Tuesday <%= "#{hours.attr_as_formated_string( "tu_start" )} - #{hours.attr_as_formated_string( "tu_end" )}" %> </li>
+					<li class="light-blue">Wednesday <%= "#{hours.attr_as_formated_string( "we_start" )} - #{hours.attr_as_formated_string( "we_end" )}" %> </li>
+					<li>Thursday <%= "#{hours.attr_as_formated_string( "th_start" )} - #{hours.attr_as_formated_string( "th_end" )}" %> </li>
+					<li class="light-blue">Friday <%= "#{hours.attr_as_formated_string( "fr_start" )} - #{hours.attr_as_formated_string( "fr_end" )}" %> </li>
+					<li>Saturday <%= "#{hours.attr_as_formated_string( "sa_start" )} - #{hours.attr_as_formated_string( "sa_end" )}" %> </li>
+					<li class="light-blue">Sunday <%= "#{hours.attr_as_formated_string( "su_start" )} - #{hours.attr_as_formated_string( "su_end" )}" %> </li>
 				</ul>
+			</div>
+			
+			<div class="span6">
+
+				<div class="row listing-show-info-box-row">
+					<div class="span3">
+						<div class="listing-show-info-box">
+							<p><%= @dispensary.about %>
+						</div>
+					</div>
+					<div class="span3">
+						<div class="listing-show-info-box">
+							<p><%= CannaWisdom.first_time_patiants( @dispensary ) %>
+						</div>
+					</div>
+				</div>
+
+				<% if @dispensary.deals? %>
+				<div class="row listing-show-info-box-row">
+					<div class="span3">
+						<div class="listing-show-info-box">
+							<p><%= @dispensary.daily %>
+						</div>
+					</div>
+					<div class="span3">
+						<div class="listing-show-info-box">
+							<p><%= @dispensary.weekly %>
+						</div>
+					</div>
+				</div>
+				<% end %>
+
+				<% comments =  @dispensary.dispensary_comments %>
+				<% unless comments.empty? %>
+				<div class="row listing-show-info-box-row">
+					<div class="span6">
+						<% comments.each do |comment| %>
+						<div class="listing-show-info-box">
+							<p class="listing-comment">
+								<%= gravatar_image_tag comment.user.email %>
+								<%= comment.body %>
+							</p>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<% end %>
+
+			<div class="row listing-show-info-box-row">
+				<div class="span6 listing-leave-comment">
+					<%= simple_form_for DispensaryComment.new do |f| %>
+					<%= f.input :body, label: false, :input_html => { :cols => 15, :rows => 3, style: "width:960px;" } %>
+						<%= f.hidden_field :dispensary_id, value: @dispensary.id %>
+						<center><%= f.button :submit, "Submit" %></center>
+					<% end %>
+				</div>
+			</div>
+
 
 			</div>
+
+				
+			<div class="span4 listing-show-ads">
+				<% @ads.each do |ad| %>	
+				<div class="home-add-right"><%= link_to( image_tag( ad.image(:side) ), ad_path(ad) ) %></div>
+				<% end %>
+			</div>
+
 		</div>
 </div>
 <%= render "modals/no_live_menu"%>
