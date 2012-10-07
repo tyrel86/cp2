@@ -6,7 +6,7 @@
 	    </div>
 	    <div class="span5">
 	      <h3><%= critique.title %></h3>
-        <p><%=raw critique.exerpt( 90 ) %></p>
+        <p><%= raw HTML_Truncator.truncate( critique.content, 90  ) %></p>
       </div>
     </div>
   </div>

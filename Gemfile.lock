@@ -96,6 +96,8 @@ GEM
     gyoku (0.4.6)
       builder (>= 2.1.2)
     hike (1.2.1)
+    html_truncator (0.3.0)
+      nokogiri (~> 1.4)
     httpi (1.1.1)
       rack
     i18n (0.6.0)
@@ -265,6 +267,7 @@ DEPENDENCIES
   gravatar_image_tag
   guard-rspec
   guard-spork
+  html_truncator
   jquery-rails
   jquery-rails-cdn
   kaminari

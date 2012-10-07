@@ -18,6 +18,7 @@ gem 'feedzirra'
 gem 'whenever', :require => false
 gem 'tod'
 gem 'savon'
+gem 'html_truncator'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
