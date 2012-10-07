@@ -1,10 +1,9 @@
 <%= render "shared/sub_critiques" %>
-
-<div class="row">
+<div class="row main-new-image">
 	<%= image_tag "cc-mainlogo.jpg" %>
 </div>
 
 	
-	<% @critiques.each do |c| %>
-    <%= render "critiques/critique_exerpt", critique: c %>
-  <% end %>
+<% @critiques.each do |c| %>
+	<%= render "critiques/critique_exerpt", critique: c %>
+<% end %>

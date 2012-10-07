@@ -22,5 +22,9 @@ module ApplicationHelper
     v = Volume.the_current
     (v ? volume_path( v ) : "#")
   end
+
+	def google_map_in_new_tap( query, text )
+		"<a href='https://maps.google.com/maps?q=#{query}' target='_blank'>#{text}</a>"
+	end
   
 end

@@ -8,7 +8,7 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 <link href="/assets/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
         <title>CannaPages</title>
@@ -30,9 +30,9 @@
 					<%= render "shared/flash", flash: flash %>
 					<%= yield %>
 				</div>
-					<%= render "shared/footer" %>
 			</div>
 		</div>
+					<%= render "shared/footer" %>
 	</div>
 			
   <!-- modals -->

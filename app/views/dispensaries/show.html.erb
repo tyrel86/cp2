@@ -1,3 +1,5 @@
+<%= render "icons_for_show", dispensary: @dispensary %>
+
 <div id="single-dispensary" class="row">
     <div class="row" id="listing-show-top">
 			<div class="span4">
@@ -10,8 +12,7 @@
 					<li><%= "#{@dispensary.city}, #{@dispensary.state} #{@dispensary.zip_code}" %>
 					<li><%= @dispensary.formated_phone_number %>
 					<%= render "shared/five_star_for_show", on: @dispensary.average_rating, dispensary: @dispensary %>
-				</ul>
-				<%= render "icons_for_show", dispensary: @dispensary %>
+					<li class="listing-show-links-header"><span><%= raw google_map_in_new_tap( @dispensary.full_address, "Get Directions" ) %></span> - <span><a data-toggle="modal" href="#<%= (!@current_user.user_name == "anonymous") ? "modalcreate" : "must_be_logged_in" %>">Rate Business</a></span></li>
 				</ul>
 			</div>
 			<div class="span4">
@@ -22,10 +23,15 @@
 			
 			<div class="span2">
 				<ul class="listing-show-side-links">
-					<li>CannaWisdom</li>
-					<li>Map</li>
-					<li>Rate</li>
-					<li>Comment</li>
+					<li class="canna-wisdom">CannaWisdom</li>
+					<li><%= raw google_map_in_new_tap( @dispensary.full_address, "Map" ) %></li>
+					<% unless @current_user.user_name == "anonymous" %>
+						<li><a data-toggle="modal" href="#createmodal">Rate</a></li>
+						<li><a data-toggle="modal" href="#createmodalcomment">Comment</a></li>
+					<% else %>
+						<li><a data-toggle="modal" href="#must_be_logged_in">Rate</a></li>
+						<li><a data-toggle="modal" href="#must_be_logged_in">Comment</a></li>
+					<% end %>
 				</ul>
 				
 				<h4>Business Hours</h4>
@@ -46,12 +52,18 @@
 				<div class="row listing-show-info-box-row">
 					<div class="span3">
 						<div class="listing-show-info-box">
-							<p><%= @dispensary.about %>
+							<p>
+								<h4 class="green">About <%= @dispensary.name %>:</h4>
+								<%= @dispensary.about %>
+							</p>
 						</div>
 					</div>
 					<div class="span3">
 						<div class="listing-show-info-box">
-							<p><%= CannaWisdom.first_time_patiants( @dispensary ) %>
+							</p>
+								<h4 class="green">First Time Patients:</h4>
+								<%= CannaWisdom.first_time_patiants( @dispensary ) %>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -60,12 +72,18 @@
 				<div class="row listing-show-info-box-row">
 					<div class="span3">
 						<div class="listing-show-info-box">
-							<p><%= @dispensary.daily %>
+							</p>
+								<h4 class="red"><%= Date.today.strftime( "%A" ).upcase %> SPECIAL!</h4>
+								<%= @dispensary.daily %>
+							</p>
 						</div>
 					</div>
 					<div class="span3">
 						<div class="listing-show-info-box">
-							<p><%= @dispensary.weekly %>
+							</p>
+								<h4 class="red">WEEKLY SPECIAL!</h4>
+								<%= @dispensary.weekly %>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -76,9 +94,10 @@
 				<div class="row listing-show-info-box-row">
 					<div class="span6">
 						<% comments.each do |comment| %>
-						<div class="listing-show-info-box">
+						<% user = comment.user %>
+						<div class="listing-show-info-box comment">
 							<p class="listing-comment">
-								<%= gravatar_image_tag comment.user.email %>
+								<%= gravatar_image_tag user.email %>
 								<%= comment.body %>
 							</p>
 						</div>
@@ -86,16 +105,25 @@
 					</div>
 				</div>
 				<% end %>
-
+			
+			<% unless @current_user.user_name == "anonymous" %>
 			<div class="row listing-show-info-box-row">
 				<div class="span6 listing-leave-comment">
+					<h4>Leave a comment as <%= @current_user.user_name %></h4>
 					<%= simple_form_for DispensaryComment.new do |f| %>
 					<%= f.input :body, label: false, :input_html => { :cols => 15, :rows => 3, style: "width:960px;" } %>
 						<%= f.hidden_field :dispensary_id, value: @dispensary.id %>
-						<center><%= f.button :submit, "Submit" %></center>
+						<%= f.button :submit, "Submit" %>
 					<% end %>
 				</div>
 			</div>
+			<% else %>
+			<div class="row listing-show-info-box-row">
+				<div class="span6 listing-leave-comment">
+				<p>You are not logged in right now. Make an account to rate and comment on dispensaries and enjoy many soon to come services</p>
+				</div>
+			</div>
+			<% end %>
 
 
 			</div>
@@ -112,3 +140,4 @@
 <%= render "modals/no_live_menu"%>
 <%= render "modals/create_user_dispensary_review", dispensary: @dispensary %>
 <%= render "modals/create_dispensary_comment", dispensary: @dispensary %>
+<%= render "modals/must_be_logged_in" %>

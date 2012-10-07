@@ -6,7 +6,7 @@ class Dispensary < ActiveRecord::Base
 ##### Acsessors getters and protection for attributes
 
   attr_accessible :name, :street_address, :city, :state, :zip_code, :phone_number, :glass_sale, 
-                           :whole_sale, :match_coupons, :photo, :business_type
+                           :whole_sale, :match_coupons, :photo, :business_type, :twitter, :facebook
 
 	attr_accessor :distance
 
@@ -307,6 +307,19 @@ class Dispensary < ActiveRecord::Base
 
 	def weekly
 		weekly? ? weekly? : "Sorry none this week"
+	end
+
+	def has_social_links?
+		return true if (twitter and (not twitter.empty?)) or (facebook and (not facebook.empty?))
+		false
+	end
+
+	def has_twitter?
+		(twitter and (not twitter.empty?)) ? true : false
+	end
+
+	def has_facebook?
+		(facebook and (not facebook.empty?)) ? true : false
 	end
 
 end

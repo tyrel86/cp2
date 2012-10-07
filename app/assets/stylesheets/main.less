@@ -1221,9 +1221,9 @@ old.spin div:hover{
 
 .footerfill {
   background-color: #006012;
-	height: 70px;
+	height: 170px;
 	margin-right: 0;
-	width: 102%;
+	width: 100%;
 	border-radius: 0px 0px 7px 7px; 
 	-moz-border-radius: 0px 0px 7px 7px; 
 	-webkit-border-radius: 0px 0px 7px 7px; 
@@ -2016,18 +2016,30 @@ textarea {
 #listing-show-bottom {
 	border-top: 1px solid #006012;
 	border-left: 1px solid #006012;
-	padding-top: 5px;
+	padding-top: 17px;
 	ul {
 		margin-bottom: 2em;
 	}
-	ul.listing-show-side-links {
+	
+	.listing-links-styles {
 		color: #006012;
 		font-weight: bold;
 		font-size: 1em;
+	}
+
+	ul.listing-show-side-links {
+		.listing-links-styles
+		a {
+			.listing-links-styles
+		}
 		li {
 			line-height: 1.4em;
+			a {
+				.listing-links-styles
+			}
 		}
 	}
+
 	ul.listing-show-hours {
 		color: black;
 		font-size: .6em;
@@ -2038,9 +2050,9 @@ textarea {
 }
 
 #listing-show-social {
-	position: relative;
-	top: 7px;
-	left: 184px;
+	position: absolute;
+	top: 187px;
+	left: 548px;
 	img {
 		top: 7px;
 		position: relative;
@@ -2048,32 +2060,39 @@ textarea {
 }
 
 #listing-show-icons {
-	position: relative;
-	top: 48px;
-	left: -91px;
+	position: absolute;
+	top: 187px;
+	left: 244px;
 }
 
 .listing-show-info-box {
-	p {
 		background-color: #EBF3EC;
 		padding: 10px;
-	}
-}
-
-.listing-show-info-box {
-	p {
-		background-color: #EBF3EC;
-		padding: 10px;
-		min-height: 84px;
+		min-height: 100px;
 		img {
 			margin-right: 15px;
 			float: left;
 		}
-	}
+		h4 {
+			font-size: 16px;
+			line-height: 22px;
+		}
+		h4.green {
+			color: #006012;
+		}
+		h4.red {
+			color: #FE0F0F;
+		}
+		&.comment {
+			margin-bottom: 10px;
+		}
 }
 
 .listing-comment {
 	margin-bottom: 10px;
+	img {
+		border: 2px solid #006012;
+	}
 }
 
 .listing-leave-comment {
@@ -2095,4 +2114,56 @@ textarea {
 	position: relative;
 	top: -11px;
 	left: -34px;
+}
+
+.listing-show-links-header {
+	a {
+		color: black;
+	}
+}
+
+li.canna-wisdom {
+	background-color: #006012;
+	color: white;
+	width: 120px;
+}
+
+.main-new-image {
+	position: relative;
+	left: 28px;
+}
+
+/* Footer */
+.footer-cat-background {
+	background-color: #1B4D1A;
+	margin-top: 35px;
+	height: 20px;
+	position: relative;
+	top: 20px;
+	border-top: 2px solid #143913;
+	border-bottom: 2px solid #143913;
+	table {
+		color: white;
+		margin: auto;
+		position: relative;
+		top: 2px;
+		font-size: 10pt;
+		td {
+			padding-right: 38px;
+		}
+		tr {
+			height: 24px;
+			&.header {
+				height: 27px;
+				font-size: 12pt;
+			}
+		}
+	}
+}
+
+.social-media-links {
+	width: 130px;
+	position: relative;
+	top: -100px;
+	left: 946px;
 }

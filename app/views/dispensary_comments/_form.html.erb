@@ -1,5 +1,6 @@
 <%= simple_form_for comment do |f| %>
     <%= f.input :body, :label => 'Comment' %>
+		<% dispensary ||= false %>
 		<% if dispensary %>
     	<%= f.hidden_field :dispensary_id, value: dispensary.id %>
 		<% else %>

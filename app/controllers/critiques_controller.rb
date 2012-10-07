@@ -30,20 +30,24 @@ class CritiquesController < ApplicationController
     @critiques = Critique.where( critique_type: false )
     @critiques ||= []
 		@critiques.reverse!
+		render 'index'
   end
   
   def index_dispensaries
     @critiques = Critique.where( critique_type: true )
     @critiques ||= []    
 		@critiques.reverse!
+		render 'index'
   end
 
   def dispensary_index
     @critiques = Critique.where( critique_type: true )  
+		render 'index'
   end
   
   def strain_index
     @critiques = Critique.where( critique_type: false )  
+		render 'index'
   end
   
   def create

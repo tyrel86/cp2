@@ -1,12 +1,16 @@
-<div id="listing-show-icons">
-<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
-<% image_tag "menuicons-02.png" %>
-<% image_tag "menuicons-03.png" %>
-<% image_tag "menuicons-04.png" %>
-</div>
+<div id="fb-root"></div>
 
+<% if dispensary.has_twitter? %>
 <div id="listing-show-social">
 	<span>Follow Us!</span>
-	<%= image_tag "face.png" %>
-	<%= image_tag "twit.png" %>
+	<%= link_to( image_tag("twit.png"), "https://twitter.com/intent/user?screen_name=#{ dispensary.twitter }" ) %>
 </div>
+<% end %>
+
+<div id="listing-show-icons">
+	<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
+	<% image_tag "menuicons-02.png" %>
+	<% image_tag "menuicons-03.png" %>
+	<% image_tag "menuicons-04.png" %>
+</div>
+
