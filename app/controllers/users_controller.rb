@@ -12,11 +12,11 @@ class UsersController < ApplicationController
     if @user.save
       @user.roles << Role.where( name: "anonymous" ).first
       @user.roles << Role.where( name: "base" ).first
-      @user.user_profile = UserProfile.new( birth_date: Date.new )
+      @user.user_profile = UserProfile.new( birth_day: Date.new )
       session[:user_id] = @user.id
       redirect_to user_profile_path( current_user ), notice: "Thank you for signing up!"
     else
-      render "new"
+      render "new", layout: "empty"
     end
   end
 end
