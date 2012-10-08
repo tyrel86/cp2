@@ -1,5 +1,11 @@
 CannaPages::Application.routes.draw do
 
+  get "advertise_with_us/create_user"
+
+  get "advertise_with_us/create_profile"
+
+  get "advertise_with_us/create_account"
+
 #Base application routes
   root :to => 'dispensaries#search'  
   get 'logout', to: 'sessions#destroy', as: 'logout'

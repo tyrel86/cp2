@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.roles << Role.where( name: "anonymous" ).first
       @user.roles << Role.where( name: "base" ).first
-      @user.build_user_profile
+      @user.user_profile = UserProfile.new( birth_date: Date.new )
       session[:user_id] = @user.id
       redirect_to user_profile_path( current_user ), notice: "Thank you for signing up!"
     else

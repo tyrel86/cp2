@@ -26,7 +26,7 @@ class DispensariesController < ApplicationController
 	end
 
 	def search
-		params[:radius] ||= 5
+		params[:radius] ||= 10
 		params[:radius] = (params[:radius]).to_i
 		s = params[:search_term] || ""
 		f = params[:search_from]
