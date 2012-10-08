@@ -29,9 +29,9 @@ class User < ActiveRecord::Base
 	#Global
 		validates :user_name, :password, :password_confirmation, :email, presence: true
 	#User name
-		#validates_uniqueness_of :user_name
+		validates_uniqueness_of :user_name
 		#validates_format_of :user_name, with: user_name_reg
-		#validates :user_name, :length => { :in => 5..15 }
+		validates :user_name, :length => { :in => 5..15 }
 	#Email
 		validates_uniqueness_of :email
 		validates_format_of :email, with: email_reg
