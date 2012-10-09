@@ -19,6 +19,7 @@ gem 'whenever', :require => false
 gem 'tod'
 gem 'savon'
 gem 'html_truncator'
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

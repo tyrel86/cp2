@@ -12,6 +12,8 @@ class DispensariesController < ApplicationController
 		@dispensary = Dispensary.where(featured: true).find(params[:id])
 		@dispensary.featured_clicks += 1
 		@dispensary.save
+		@ads = Ad.get_ads( 2, :side )
+		render "show"
 	end
 
   def user_index

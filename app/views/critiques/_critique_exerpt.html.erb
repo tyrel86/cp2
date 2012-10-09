@@ -1,5 +1,5 @@
 	<div class="span10 critiques-container">
 		<%= image_tag critique.photo(:large) %>
-		<h3><%= critique.title %></h3>
+		<h3><%= link_to critique.title, critique_path( critique ) %></h3>
 		<p><%= raw HTML_Truncator.truncate( critique.content, 90  ) %></p>
   </div>

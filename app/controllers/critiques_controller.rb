@@ -1,5 +1,9 @@
 class CritiquesController < ApplicationController
 
+	def show
+		@critique = Critique.find( params[:id] )
+	end
+
   def user_index
     @user = current_user
     @critiques = @user.critiques

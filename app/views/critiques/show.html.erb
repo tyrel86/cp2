@@ -1,0 +1,7 @@
+<div class="critiques-container-show">
+	<center><h3><%= @critique.title %></h3></center>
+	<p>
+		<%= image_tag @critique.photo(:large) %>
+		<%= raw @critique.content %>
+	</p>
+</div>
