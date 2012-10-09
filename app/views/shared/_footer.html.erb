@@ -1,3 +1,10 @@
+<% if current_user? %>
+	<% backend_link = link_to( "Application Interface" , user_profile_path( current_user )) %>
+<% else %>
+	<% backend_link = link_to( "Application Interface", "#create_user_modal", 
+														"data-toggle" => :modal ) %>
+<% end %>
+
 <div class="footerfill" id="footer">
 	<div class="footer-cat-background">
 	<div />
@@ -11,32 +18,35 @@
 		</tr>
 		<tr>
 			<td>About Cannapages</td>
-			<td>Listings Search Engine</td>
-			<td>ADILAS/CanaMerchant</td>
+			<td><%= link_to "Listings Search Engine", dispensary_search_path %></td>
+			<td><%= link_to "ADILAS/CanaMerchant", "https://www.adilas.biz/" %></td>
 			<td>Business Resources</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>Contact Us</td>
-			<td>News</td>
-			<td>Cronic Magazine</td>
+			<td><%= link_to "News", current_volume_path %></td>
+			<td><%= link_to "Cronic Magazine", "http://cronicmag.com/" %></td>
 			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>Advertise with Us</td>
-			<td>Exclusive Editorials</td>
-			<td>First Rank</td>
+			<td><%= link_to "Exclusive Editorials", critiques_path %></td>
+			<td><%= link_to "First Rank", "http://firstrank.biz/" %></td>
 			<td></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>Get FREE listing</td>
-			<td>Application Interface</td>
-			<td>Sigil Development</td>
+			<td><%= backend_link %></td>
+			<td><%= link_to "Sigil Development", "htpp://sigildev.com" %></td>
 			<td></td>
 			<td></td>
 		</tr>
 	</table>
 </div>
-<div class="social-media-links"><%= image_tag "fb-icon-footer.png" %><%= image_tag "twit-icon-footer.png" %></div>
+<div class="social-media-links">
+	<%= link_to( image_tag( "fb-icon-footer.png" ), "https://www.facebook.com/cannapages.colorado" ) %>
+	<%= link_to( image_tag( "twit-icon-footer.png" ), "https://twitter.com/Cannapages" ) %>
+</div>

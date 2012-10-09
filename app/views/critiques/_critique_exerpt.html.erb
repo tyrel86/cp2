@@ -1,13 +1,5 @@
-<div class="row">
-	<div class="span9 critiques-container">
-	  <div class="row">
-	    <div class="span4">
-	      <%= image_tag critique.photo(:large) %>
-	    </div>
-	    <div class="span5">
-	      <h3><%= critique.title %></h3>
-        <p><%= raw HTML_Truncator.truncate( critique.content, 90  ) %></p>
-      </div>
-    </div>
+	<div class="span10 critiques-container">
+		<%= image_tag critique.photo(:large) %>
+		<h3><%= critique.title %></h3>
+		<p><%= raw HTML_Truncator.truncate( critique.content, 90  ) %></p>
   </div>
-</div>
