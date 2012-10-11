@@ -27,7 +27,9 @@
 				</div>
 			</div>
 			<div class="row">
-				<%= link_to( image_tag( @btob.image(:btob), id: "btobad" ), @btob.url ) %>
+				<% unless @btob.empty? or @btob.nil? %>
+					<%= link_to( image_tag( @btob.image(:btob), id: "btobad" ), @btob.url ) %>
+				<% end %>
 			</div>
   </div>
 </div>
