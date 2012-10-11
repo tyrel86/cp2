@@ -2,7 +2,15 @@
 	<%= image_tag "cc-mainlogo.jpg" %>
 </div>
 
-	
-<% @critiques.each do |c| %>
-	<%= render "critiques/critique_exerpt", critique: c %>
-<% end %>
+<div class="row">
+	<div class="span8">
+		<% @critiques.each do |c| %>
+			<%= render "critiques/critique_exerpt", critique: c %>
+		<% end %>
+	</div>
+	<div class="span4">
+		<% @ads.each do |ad| %>
+			<div class="home-add-right"><%= link_to( image_tag( ad.image(:side) ), ad_path(ad) ) %></div>
+		<% end %>
+	</div>
+</div>

@@ -2,7 +2,7 @@ class Volume < ActiveRecord::Base
   attr_accessible :current, :photo
   
   has_many :articles
-	has_attached_file :photo, :styles => { :large => "300x300#", :small => "150x150#" }
+	has_attached_file :photo, :styles => { :large => "400x300#", :small => "200x150#" }
 
   def self.the_current
     where( current: true ).first
@@ -24,6 +24,10 @@ class Volume < ActiveRecord::Base
       eval "col#{rotator.val}.push a"
       rotator.incriment
     end
+		if col2.size >= col3.size
+			col2.push col2.last
+			col2.pop
+		end
     [col1,col2,col3]
   end
 

@@ -14,6 +14,8 @@ class CritiquesController < ApplicationController
     @critiques = Critique.all
     @critiques ||= []
 		@critiques.reverse!
+		#Ads
+		@ads = Ad.get_ads( 4, :side )
   end
 
 	def index_for_listing

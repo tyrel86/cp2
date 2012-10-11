@@ -26,10 +26,8 @@
   <%= render 'article_comments/comment', comment: ac %>
 <% end %>
 
-<p><b>Leave a comment</b></p>
-<%= gravatar_image_tag(current_user.email) %>
 <%= simple_form_for ArticleComment.new do |f| %>
-<%= f.input :body, label: "Whats on your mind?", :input_html => { :cols => 100, :rows => 10, style: "width:960px;" } %>
+<%= f.input :body, label: "Leave a comment", :input_html => { :cols => 100, :rows => 10, style: "width:960px;" } %>
   <%= f.hidden_field :article_id, value: @article.id %>
   <%= f.button :submit %>
 <% end %>

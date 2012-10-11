@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
 		if num_of_words < words_to_limit_to
 			content
 		else
-			content_array[0...words_to_limit_to].join + "..."
+			content_array[0...words_to_limit_to].join(' ') + "..."
 		end
   end
 
