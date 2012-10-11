@@ -5,3 +5,9 @@
 		<%= raw @critique.content %>
 	</p>
 </div>
+<div class="critiques-container-show">
+	<% unless @critique.dispensary.nil? %>
+		<% d = @critique.dispensary %>
+		<p><%= link_to "Visit #{d.name}'s listing page", d %></p>
+	<% end %>
+</div>

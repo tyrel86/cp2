@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_current_user, :check_authorization, :update_user_loation, :transform_category, :set_search_partial
+  before_filter :set_current_user, :check_authorization, :update_user_loation, :transform_category, :set_search_partial, :get_a_btob_ad
+
+	def get_a_btob_ad
+		@btob = Ad.get_ads(1,:btob).first
+	end
 
 	def set_search_partial
 		@search_partial = "searches/#{params[:controller]}"

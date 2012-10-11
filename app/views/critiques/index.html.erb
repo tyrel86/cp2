@@ -1,16 +1,16 @@
 <div class="row main-new-image">
-	<%= image_tag "cc-mainlogo.jpg" %>
-</div>
 
-<div class="row">
 	<div class="span8">
+		<%= image_tag "cc-mainlogo.jpg" %>
 		<% @critiques.each do |c| %>
 			<%= render "critiques/critique_exerpt", critique: c %>
 		<% end %>
 	</div>
+
 	<div class="span4">
 		<% @ads.each do |ad| %>
-			<div class="home-add-right"><%= link_to( image_tag( ad.image(:side) ), ad_path(ad) ) %></div>
+			<div class="home-add-right"><%= link_to( image_tag( ad.image(:side), class: "side-ad" ), ad_path(ad) ) %></div>
 		<% end %>
 	</div>
+
 </div>

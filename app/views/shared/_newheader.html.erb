@@ -14,7 +14,7 @@
 
   <div class="row" id="searchbar">
   	<div class="span3">
-				<%= image_tag "top-logo.png", class: "main-logo" %>
+				<%= link_to( image_tag("top-logo.png", class: "main-logo"), root_path ) %>
 			<% if params[:controller] == "dispensaries" %>
 			<div id="cat-container">
 				<% catClass = (params[:controller] == "volumes") ? "hidden" : "" %>
