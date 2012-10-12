@@ -50,7 +50,7 @@ class DispensariesController < ApplicationController
 		end
 		@dispensaries = Kaminari::PaginatableArray.new( @dispensaries ).page(params[:page]).per(10)
 		@dispensaries.sort! { |a, b|  a.distance <=> b.distance }
-    @featured = Dispensary.get_featured( session[:user_location].city, params[:category], 5 )
+    @featured = Dispensary.get_featured( session[:user_location].city, params[:category], 1 )
 		@featured.each do |f|
 			f.featured_shows += 1
 			f.save

@@ -6,9 +6,9 @@
   <div class="span12 archive">
     <% @volumes.each do |v| %>
     <% next if v.articles.empty? %>
-    <div class="row">
+    <div class="row volume-index-container">
       <div class="span6">
-      <%= link_to "Volume #{v.id}", v %>
+      <%= link_to "Volume #{v.id}, #{v.created_at.to_date}", v, class: "volume-index-header" %>
       <ul>
         <% v.articles.each do |a| %>
           <li><%= link_to a.title, a %></li>
@@ -16,7 +16,6 @@
       </ul>
       </div>
       <div class="span6">
-        <%= "Created : #{v.created_at.to_date}" %><br />
         <%= image_tag v.photo.url(:small) %>
       </div>
     </div>

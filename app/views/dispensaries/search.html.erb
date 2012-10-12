@@ -1,3 +1,5 @@
+
+<% if params[:search_term].nil? and params[:search_from].nil? and (params[:radius] == 10) and (params[:category] == :all) %>
 <div class="row">
 	<div class="span8">
 		<%= render "shared/banner" %>
@@ -6,6 +8,7 @@
 		<%= render "shared/flash_vid", url: "/media/roor-giveaway.swf" %>
 	</div>
 </div>
+<% end %>
 
 <div class="row">  
 	<div id="search-results-container" class="span8">
