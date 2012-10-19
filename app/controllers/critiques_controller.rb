@@ -29,6 +29,7 @@ class CritiquesController < ApplicationController
 		f = params[:search_from]
     Search.create_or_inc( s, f, :critique ) 
 		@critiques = Critique.search( s )
+		@critiques || = []
 		render "index"
 	end
 

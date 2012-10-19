@@ -10,6 +10,7 @@ gem "squeel"
 gem 'jquery-rails-cdn'
 gem 'simple_form'
 gem 'unicorn'
+gem 'thin'
 gem "paperclip", "~> 3.0"
 gem 'kaminari'
 gem 'tinymce-rails'
