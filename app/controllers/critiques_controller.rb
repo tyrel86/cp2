@@ -30,6 +30,8 @@ class CritiquesController < ApplicationController
     Search.create_or_inc( s, f, :critique ) 
 		@critiques = Critique.search( s )
 		@critiques ||= []
+		@ads = Ad.get_ads( 4, :side )
+		
 		render "index"
 	end
 
@@ -83,5 +85,4 @@ class CritiquesController < ApplicationController
     current_user.critiques.find( params[:id] ).destroy
     redirect_to user_critiques_path( current_user ), alert: 'Article Destroyd'
   end
-  
 end

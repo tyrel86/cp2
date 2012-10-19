@@ -1,6 +1,6 @@
 <% catClass = (params[:controller] == "volumes") ? "hidden" : "" %>
-<div class="dropdown <%= catClass %>">
-<%= link_to( image_tag( "/images/icons/browse-top.png", id: "cat-select" ),
+<div class="dropdown <%= catClass %> main-cat-select">
+<%= link_to( image_tag( "/images/icons/arrow-right.png", id: "cat-select" ),
 												"#", class: "dropdown-toggle" ) %>
 	<ul class="dropdown-menu cat-select-menu" role="menu" aria-labelledby="dLabel">
 		<li class="cat-select-btn"><p>All Categories</p></li>

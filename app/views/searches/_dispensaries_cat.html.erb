@@ -1,9 +1,11 @@
-<div class="dropdown">
-<%= link_to( image_tag( "/images/icons/browse-top.png", id: "cat-select" ),
+
+<%= image_tag( "behind-arrow.png", id: "behind-arrow" ) %>
+<div class="dropdown main-category-select">
+<%= link_to( image_tag( "arrow-right.png", id: "cat-select" ),
 												"#", class: "dropdown-toggle" ) %>
 	<ul class="dropdown-menu cat-select-menu" role="menu" aria-labelledby="dLabel">
 		<li class="cat-select-btn"><p>All Categories</p></li>
-		<li class="cat-select-btn"><p>Dispensaires</p></li>
+		<li class="cat-select-btn"><p>Dispensaries</p></li>
 		<li class="cat-select-btn"><p>Grow Stores</p></li>
 		<li class="cat-select-btn"><p>Head Shops</p></li>
 		<li class="cat-select-btn"><p>Kind Doctors</p></li>

@@ -18,9 +18,9 @@
 			<%= hidden_field_tag :radius, "All", id: "send-radius", value: prvRadius %>
 		</div>
 		<div class="span1">
-			<button type="submit" class="btn-custom" id="main-find-btn">
-				<%= image_tag "/images/icons/magglass.png" %>
-			</button>
+			<!-- <button type="submit" class="btn-custom" id="main-find-btn"> -->
+			<!-- </button> -->
+				<%= image_tag "/images/icons/magglass.png", class: "search-icon canna-link" %>
 		</div>
 		<% prvRadius = params[:radius] %>
 		<% prvRadius ||= "5" %>
