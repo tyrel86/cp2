@@ -53,6 +53,8 @@ class DispensariesController < ApplicationController
     @featured = Dispensary.get_featured( session[:user_location].city, params[:category], 1 )
 		@featured.each do |f|
 			f.featured_shows += 1
+			dist = Dispensary.distance_between( session[:user_location], f ) 
+			f.distance = dist
 			f.save
 		end
 		#Ads
