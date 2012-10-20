@@ -5,14 +5,18 @@
 		<% name = ( dispensary.name.size > 30 ) ? dispensary.name[0..29] + "..." : dispensary.name %>
 		<h5><%= link_to ("#{index}. #{name}"), dispensary %></h5>
 		<p>Category: <%= dispensary.business_type %></p>
-		<p><%= dispensary.distance %> miles from <%= params[:last_location] %></p>
+		<p class="constrained"><%= dispensary.distance %> miles from <%= params[:last_location] %></p>
 		<div class="listing-index-icons">
 			<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
 		</div>
 	</div>
 	<div class="info-right">
 		<%= render "rating", dispensary: dispensary %>
-		<p><%= dispensary.street_address %></p>
+		<% unless dispensary.street_address[0..2] == "###" %> 
+			<p><%= dispensary.street_address %></p>
+		<% else %>
+			<%= dispensary.street_address[3..dispensary.street_address.length] %>
+		<% end %>
 		<p><%= "#{dispensary.city}, #{dispensary.state} #{dispensary.zip_code}" %>
 	</div>
 			<% if dispensary.dispensary_comments.any? %>

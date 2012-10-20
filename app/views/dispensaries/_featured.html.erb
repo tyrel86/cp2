@@ -5,7 +5,7 @@
 		<% name = ( dispensary.name.size > 19 ) ? dispensary.name[0..18] + "..." : dispensary.name %>
 		<h5><%= link_to ("#{name}"), dispensary %></h5>
 		<p>Category: <%= dispensary.business_type %></p>
-		<p><%= dispensary.distance %> miles from <br /> <%= params[:last_location] %></p>
+		<p class="constrained"><%= dispensary.distance %> miles from <br /> <%= params[:last_location] %></p>
 		<div class="listing-index-icons">
 			<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
 		</div>

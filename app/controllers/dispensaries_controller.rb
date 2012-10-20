@@ -41,7 +41,7 @@ class DispensariesController < ApplicationController
 				r.push( d )
 				d.distance = dist
 			end
-			r
+			r.sort! { |a,b| a.distance <=> b.distance }
 		end
 		if params[:category] != :all
 			@dispensaries = @dispensaries.select do |d|

@@ -123,7 +123,9 @@ class Dispensary < ActiveRecord::Base
   
   def self.search( query, cat )
     where do 
-			(name =~ "%#{query}%") | (city =~ "%#{query}%") | (zip_code =~ "%#{query}%")
+			(name =~ "%#{query}%") | (city =~ "%#{query}%") | (zip_code =~ "%#{query}%") | (state =~ "%#{query}%") | (street_address =~ "%#{query}%")
+
+
     end
   end
 
