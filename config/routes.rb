@@ -1,5 +1,7 @@
 CannaPages::Application.routes.draw do
 
+	match "/colorado", :to => redirect("/")
+
   get "advertise_with_us/create_user"
 
   get "advertise_with_us/create_profile"
