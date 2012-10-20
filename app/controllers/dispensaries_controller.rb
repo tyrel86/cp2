@@ -57,8 +57,11 @@ class DispensariesController < ApplicationController
 		end
 		#Ads
 		@ads = Ad.get_ads( 4, :side )
-
-		render "search"
+		unless @dispensaries.empty?
+			render "search"
+		else
+			render "shared/empty_query"
+		end
 	end
 
   def create

@@ -10,7 +10,11 @@ class ArticlesController < ApplicationController
 		f = params[:search_from]
     Search.create_or_inc( s, f, :listing ) 
 		@articles = Article.search( s )
-		render "index"
+		unless @articles.empty?
+			render "index"
+		else
+			render "shared/empty_query"
+		end
 	end
   
   def user_index
