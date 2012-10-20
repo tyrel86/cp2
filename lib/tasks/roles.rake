@@ -184,8 +184,8 @@ namespace :roles do
       editor.rights << volume_manage
       
     #Sessions
-    session_delete = Right.create( resource: "volumes", operation: "DELETE" ) 
-      base.rights << session_delete
+    session_delete = Right.create( resource: "sessions", operation: "DELETE" ) 
+      anonymous.rights << session_delete
     session_create = Right.create( resource: "sessions", operation: "CREATE" )
       anonymous.rights << session_create
       

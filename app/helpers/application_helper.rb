@@ -10,6 +10,8 @@ module ApplicationHelper
   def login_or_backend
     if current_user?
       out = link_to "Logged in as #{current_user.user_name}", user_profile_path( current_user ), class: "login-link"
+			out += " | "
+			out += link_to "Logout", logout_path
     else
       out = link_to "Login", "#editmodal-login", "data-toggle" => "modal"
 			out += " | "

@@ -1,4 +1,4 @@
-  <div class="alert alert-info" style="margin-bottom:242px;">
+  <div class="alert alert-info">
     <a class="close" data-dismiss="alert" href="#">×</a>
 		<div class="row">
 			<div class="span3">
@@ -6,7 +6,22 @@
 			</div>
 			<div class="span7">
 				<h4 class="alert-heading">Roachy's Notice</h4>
-				<p>Sorry your current search came up blank. We are working to get more and more content and listings. In the mean time please try broader search terms. Have a wonderfull day!</p>
+				<p>Sorry your current search came up blank. We are working to get more and more content and listings. If you just logged in we might not have been able to get your location because of security settings. If that so all you have to do is type in your address hit the search button and see listings in your area. In the mean time please try broader search terms. Have a wonderfull day! In the mean time I found you an exclusive editorial to read. In the mean time please try broader search terms. Have a wonderfull day!</p>
 			</div>
 		</div>
   </div>
+	<% @critique = Critique.all.sample %>
+
+<div class="critiques-container-show">
+	<center><h3><%= @critique.title %></h3></center>
+	<p>
+		<%= image_tag @critique.photo(:large) %>
+		<%= raw @critique.content %>
+	</p>
+</div>
+<div class="critiques-container-show">
+	<% unless @critique.dispensary.nil? %>
+		<% d = @critique.dispensary %>
+		<p><%= link_to "Visit #{d.name}'s listing page", d %></p>
+	<% end %>
+</div>

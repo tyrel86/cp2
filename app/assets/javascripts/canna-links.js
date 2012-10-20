@@ -30,7 +30,7 @@ $(document).ready( function() {
 		var checkReg = /click/
 		var oldSrc = this.src
 		if(! checkReg.test(oldSrc) ) {
-			var newSrc = oldSrc.slice( 0, ( oldSrc.length - 4 ) ) + "-click.png"
+			var newSrc = oldSrc.slice( 0, ( oldSrc.length - 4 ) ) + "-hover.png"
 			this.src = newSrc
 		}
 	}
@@ -47,7 +47,7 @@ $(document).ready( function() {
 	
 
 	$('.canna-link').hover( linkOn, linkOff )
-  $('#cat-select').hover( linkOn, linkOff )
+  $('#cat-select').hover( linkMouseDown, linkMouseUp )
 	
 	function changeCategory(){
 		var value = this.children[0].innerHTML
