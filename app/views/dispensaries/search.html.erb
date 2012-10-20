@@ -14,11 +14,15 @@
 	<div id="search-results-container" class="span8">
 		<% unless @featured.nil? %>
 			<% @featured.each do |f| %>
-				<%= render( "dispensaries/featured", dispensary: f ) %>
+				<%= render( "dispensaries/featured", dispensary: f, blue_class: nil, featured: true ) %>
 			<% end %>
 		<% end %>
+		<% blue_class = false %>
+		<% index = 1 %>
 		<% @dispensaries.each do |d| %>
-			<%= render "dispensaries/dispensary", dispensary: d %>
+			<%= render "dispensaries/dispensary", dispensary: d, blue_class: blue_class, index: index %>
+			<% blue_class = ( blue_class ? false : true ) %>
+			<% index += 1 %>
 		<% end %>
 	</div>
 	<div class="span4">

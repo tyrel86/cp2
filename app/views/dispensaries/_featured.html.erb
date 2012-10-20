@@ -1,12 +1,24 @@
-<div class="featured-listingbox row">
-	<div class="span8">
-		<div class="span3" id="featuredlisting-info">
-			<h1><%= dispensary.short_name %></h1>
-			<h2><%= dispensary.phone_number %></h2>
-			<h2><%= dispensary.street_address %></h2>
-			<h2><%= dispensary.city_state_zip %></h2>
+<div class="listing-index row featured">
+	<%= link_to( image_tag( dispensary.photo.url(:large), class: "photo" ),  dispensary, class: "listing-index-link") %>
+	<div class="info-left">
+		<%= image_tag "/images/icons/reglistingbug.png" %>
+		<% name = ( dispensary.name.size > 19 ) ? dispensary.name[0..18] + "..." : dispensary.name %>
+		<h5><%= link_to ("#{name}"), dispensary %></h5>
+		<p>Category: <%= dispensary.business_type %></p>
+		<p><%= dispensary.distance %> miles from <%= params[:last_location] %></p>
+		<div class="listing-index-icons">
+			<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
 		</div>
-		<%= render "shared/five_star_featured", on: dispensary.average_rating, dispensary: dispensary %>
-			<%= image_tag dispensary.photo.url(:small) %>	
+	</div>
+	<div class="info-right">
+		<%= render "rating", dispensary: dispensary %>
+		<p><%= dispensary.street_address %></p>
+		<p><%= "#{dispensary.city}, #{dispensary.state} #{dispensary.zip_code}" %>
+		<div class="daily">
+			<%= image_tag "tack.png" %>
+			<h4 class="header"><%= Date.today.strftime( "%A" ).upcase %> SPECIAL!</h4>
+			<p><%= dispensary.daily %></p>
+		</div>
 	</div>
 </div>
+

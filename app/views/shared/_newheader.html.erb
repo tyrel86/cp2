@@ -4,8 +4,12 @@
 		<div class="full-width">
 			<ul class="top-links">
   			<li>
-						<%= link_to "Advertise with us", "#" %>
-						<%= link_to "Submit Free Listing", "#" %>
+						<% unless current_user? %>
+						<%= link_to( "Advertise with us", "#create_user_ad_modal", 
+																		"data-toggle" => :modal ) %>
+						<%= link_to( "Submit Free Listing", "#create_user_listing_modal", 
+																		"data-toggle" => :modal ) %>
+						<% end %>
 						<%= raw login_or_backend %>
 				</li>
 			</ul>

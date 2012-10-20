@@ -36,7 +36,10 @@ $(document).ready( function() {
 	$('#radius-input').keyup( function(e) { 
 		if(e.keyCode == 13) { 
 			$('#cannaenginetext-big').focus();
-			$("#main-find-btn").click(); 
+			$(".main-find-btn").click(); 
 		} 
 	});
+	$('.main-find-btn').click( function() {
+		$('form.form-search').submit()
+	})
 })

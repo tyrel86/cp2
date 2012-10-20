@@ -36,14 +36,20 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>Advertise with Us</td>
+			<td>Advertise with Us
+						<%= link_to( "Advertise with Us", "#create_user_ad_modal", 
+																		"data-toggle" => :modal ) %>
+			</td>
 			<td><%= link_to "Exclusive Editorials", critiques_path %></td>
 			<td><%= link_to "First Rank", "http://firstrank.biz/" %></td>
 			<td></td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>Get FREE listing</td>
+			<td>
+						<%= link_to( "Get A FREE Listing", "#create_user_ad_modal", 
+																		"data-toggle" => :modal ) %>
+			</td>
 			<td><%= backend_link %></td>
 			<td><%= link_to "Sigil Development", "http://sigildev.com" %></td>
 			<td></td>

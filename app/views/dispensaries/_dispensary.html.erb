@@ -1,25 +1,26 @@
-<div class="listingbox row">
-  <div class="span8">
-    <div class="row">
-	    <div class="span2" id="listinglocation"><h5><%= dispensary.city_state_zip %></h5></div>
-	    <div class="span1 offset4" id="listdistance"><h5>Apx <%= dispensary.distance %> miles</h5></div>
-    </div>
-    <div class="row">
-			<h1 class="listingname"><%= dispensary.short_name %></h1>
-    </div>
-   <% if dispensary.average_rating %>
-    <div class="row">
-			<%= render "shared/five_star", on: dispensary.average_rating, dispensary: dispensary %>
-			<%= render "icons", dispensary: dispensary %>
-			<%= render( partial: "see_btn", :locals => { dispensary: dispensary, featured: false } ) %>
-    </div>  
-  <% end %>
-  <div class="row">
-	<% unless dispensary.average_rating %>
-		<%= render "icons", dispensary: dispensary %>
-		<%= render( partial: "see_btn", :locals => { dispensary: dispensary, featured: false } ) %>
-	<% end %>
-  </div>
-</div>
+<div class="listing-index row <%= blue_class ? "light-blue" : nil %>">
+	<%= link_to( image_tag( dispensary.photo.url(:small), class: "photo" ),  dispensary, class: "listing-index-link") %>
+	<div class="info-left">
+		<%= image_tag "/images/icons/reglistingbug.png" %>
+		<% name = ( dispensary.name.size > 30 ) ? dispensary.name[0..29] + "..." : dispensary.name %>
+		<h5><%= link_to ("#{index}. #{name}"), dispensary %></h5>
+		<p>Category: <%= dispensary.business_type %></p>
+		<p><%= dispensary.distance %> miles from <%= params[:last_location] %></p>
+		<div class="listing-index-icons">
+			<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>
+		</div>
+	</div>
+	<div class="info-right">
+		<%= render "rating", dispensary: dispensary %>
+		<p><%= dispensary.street_address %></p>
+		<p><%= "#{dispensary.city}, #{dispensary.state} #{dispensary.zip_code}" %>
+	</div>
+			<% if dispensary.dispensary_comments.any? %>
+			<p class="listing-index-comment">
+				<% last_comment = dispensary.dispensary_comments.last %>
+				<%= gravatar_image_tag last_comment.user.email, class: "avatar" %>
+				<span class="inner-comment"><%= last_comment.body %></span>
+			</p>
+			<% end %>
 </div>
 
