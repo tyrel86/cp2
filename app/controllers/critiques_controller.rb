@@ -21,6 +21,7 @@ class CritiquesController < ApplicationController
 	def index_for_listing
 		@dispensary = Dispensary.find( params[:id] )
 		@critiques = @dispensary.critiques
+		@ads = Ad.get_ads( 2, :side )
 		render "index"
 	end
   

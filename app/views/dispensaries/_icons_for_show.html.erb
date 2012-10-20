@@ -1,11 +1,14 @@
 <div id="fb-root"></div>
-
-<% if dispensary.has_twitter? %>
-<div id="listing-show-social">
-	<span>Follow Us!</span>
-	<%= link_to( image_tag("twit.png"), "https://twitter.com/intent/user?screen_name=#{ dispensary.twitter }" ) %>
-</div>
-<% end %>
+	<% if dispensary.has_social_links? %>
+	<div class="social-container">
+		<% if dispensary.has_twitter? %>
+			<%= link_to( image_tag("twit.png"), "https://twitter.com/intent/user?screen_name=#{ dispensary.twitter }", class: "twitt" ) %>
+		<% end %>
+		<% if dispensary.has_facebook? %>
+			<%= link_to( image_tag("face.png"), "#{ dispensary.facebook }", class: "face" ) %>
+		<% end %>
+	</div>
+	<% end %>
 
 <div id="listing-show-icons">
 	<%= link_to( image_tag( "menuicons-01.png" ), critiques_for_listing_path( dispensary )) unless dispensary.critiques.empty? %>

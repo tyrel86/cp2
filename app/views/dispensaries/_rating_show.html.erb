@@ -1,0 +1,8 @@
+<div class="ratings">
+	<% dispensary.average_rating.times do %>
+		<%= image_tag "rate-full.png" %>
+	<% end %>	
+	<% (5 - dispensary.average_rating).times do %>
+		<%= image_tag "rate-empty.png" %>
+	<% end %>	
+</div>

@@ -7,16 +7,19 @@
 			</div>
 			<div class="span4 listing-show-basic-info">
 				<ul>
-					<li><h3><%= @dispensary.name %></h3></li>
+					<% name = ( @dispensary.name.size > 30 ) ? @dispensary.name[0..29] + "..." : @dispensary.name %>
+					<li><h3><%= name %></h3></li>
 					<li><%= @dispensary.street_address %>
 					<li><%= "#{@dispensary.city}, #{@dispensary.state} #{@dispensary.zip_code}" %>
 					<li><%= @dispensary.formated_phone_number %>
-					<%= render "shared/five_star_for_show", on: @dispensary.average_rating, dispensary: @dispensary %>
-					<li class="listing-show-links-header"><span><%= raw google_map_in_new_tap( @dispensary.full_address, "Get Directions" ) %></span> - <span><a data-toggle="modal" href="#<%= (!@current_user.user_name == "anonymous") ? "modalcreate" : "must_be_logged_in" %>">Rate Business</a></span></li>
+					<%= render "rating_show", dispensary: @dispensary %>
+					<li class="listing-show-links-header"><span><%= raw google_map_in_new_tap( @dispensary.full_address, "Get Directions" ) %></span> - <span><a data-toggle="modal" href="#<%= (!(@current_user.user_name == "anonymous")) ? "createmodal" : "must_be_logged_in" %>">Rate Business</a></span></li>
 				</ul>
 			</div>
 			<div class="span4">
+			<% if @dispensary.average_rating >= 4 %>
 				<%= image_tag "creamocrop.png" %>
+			<% end %>
 			</div>
 		</div>
 		<div class="row" id="listing-show-bottom">
