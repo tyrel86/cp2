@@ -2,10 +2,12 @@ CannaPages::Application.routes.draw do
 
   match "/colorado" => redirect("/")
   match "/colorado/:anything" => redirect("/")
+  match "/colorado/:anything/:anything" => redirect("/")
+  match "/arizona" => redirect("/")
+  match "/arizona/:anything" => redirect("/")
+  match "/arizona/:anything/:anything" => redirect("/")
   get "advertise_with_us/create_user"
-
   get "advertise_with_us/create_profile"
-
   get "advertise_with_us/create_account"
 
 #Base application routes
