@@ -1,7 +1,7 @@
 CannaPages::Application.routes.draw do
 
-	match "/colorado", :to => redirect("/")
-
+  match "/colorado" => 'dispensaries#search'  
+  match "/colorado/:anything" => 'dispensaries#search'  
   get "advertise_with_us/create_user"
 
   get "advertise_with_us/create_profile"
