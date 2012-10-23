@@ -67,4 +67,7 @@ CannaPages::Application.configure do
 
 	#Image majic and paperclip configuration
 	Paperclip.options[:command_path] = "/usr/bin"
+
+	#Geo kit configuration
+	Geokit::Geocoders::google = 'AIzaSyC3dzaH4zphh8iwBPLIbM6AliDX87Q7-Ps'
 end
