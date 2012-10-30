@@ -18,6 +18,7 @@
 
   <div class="row" id="searchbar">
 		<div class="searchbar-container">
+  	<div class="span3">
 				<%= link_to( image_tag("top-logo.png", class: "main-logo"), root_path ) %>
 			<% if params[:controller] == "dispensaries" %>
 			<div id="cat-container">
@@ -26,14 +27,16 @@
 				<p id="cat-text" class="<%= catClass %>">Searching <span id="cat-text-value">All Categories</span></p>
 			</div>
 			<% end %>
+		</div>
+		<div class="span9">
 			
 			<%= render @search_partial %>      
 
-			<div id="search-bottom">
+			<div class="row" id="search-bottom">
 					<div class="span3">
 						<%= render "searches/#{params[:controller]}_cat" %>
 					</div>
-				<div id="header-links">
+				<div class="span5" id="header-links">
 
 					<% if params[:controller] == "dispensaries" %>
 						<%= link_to( image_tag( "/images/icons/engine-top-clicked.png", class: "canna-link-active" ), root_path ) %>
@@ -64,6 +67,7 @@
 					<% link_to( image_tag( "/images/icons/saver-top.png", class: "canna-link" ), "#cannasaver", "data-toggle" => :modal ) %>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </div>
