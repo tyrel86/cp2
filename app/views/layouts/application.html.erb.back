@@ -8,12 +8,11 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<html xmlns:fb="http://ogp.me/ns/fb#">
+<html>
 <head>
 <link href="/assets/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
         <title>CannaPages</title>
-				<%= favicon_link_tag %> 
-       <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
         <%= stylesheet_link_tag    "cadets", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -22,28 +21,24 @@
     <![endif]-->
 </head>
 <body>
-	<div id="body1">
-	<div class="container-fluid">
-			<%= render "shared/newheader" %>
+	<div class="container">
 		<div id="inner-container">
+			<%= render "shared/newheader" %>
 			<div id="content">
 				<div class="row" id="home-content">
 					<%= render "shared/flash", flash: flash %>
 					<%= yield %>
 				</div>
+					<%= render "shared/footer" %>
 			</div>
 		</div>
-					<%= render "shared/footer" %>
 	</div>
 			
   <!-- modals -->
   <%= render "modals/login" %>
   <%= render "modals/create_user" %>
-  <%= render "modals/create_user_listing" %>
-  <%= render "modals/create_user_ad" %>
   <%= render "modals/cadets_helper" %>
   <%= render "modals/strain_wiki_placeholder" %>
   <%= render "modals/cannasaver_placeholder" %>  
-	</div>
   </body>
 </html>
