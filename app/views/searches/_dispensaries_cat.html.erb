@@ -1,8 +1,7 @@
 
 <%= image_tag( "/images/behind-arrow.png", id: "behind-arrow" ) %>
 <div class="dropdown main-category-select">
-<%= link_to( image_tag( "/images/arrow-right.png", id: "cat-select" ),
-												"#", class: "dropdown-toggle" ) %>
+<a href="#" class="dropdown-toggle" /><div id="cat-button"></div></a>
 	<ul class="dropdown-menu cat-select-menu" role="menu" aria-labelledby="dLabel">
 		<li class="cat-select-btn"><p>All Categories</p></li>
 		<li class="cat-select-btn"><p>Dispensaries</p></li>

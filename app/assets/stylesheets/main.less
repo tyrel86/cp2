@@ -13,9 +13,10 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	color: white;
 	font-weight: bold;
 	font-size: 8pt;
-	position: relative;
+	position: absolute;
 	top: 43px;
-	left: 75px;
+	left: 717px;
+	width: 100px;
 }
 
 
@@ -46,19 +47,18 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 }
 
 #cat-container {
-	position: relative;
 	width: 500px;
 }
 
 img.main-logo {
 	position: absolute;
-	top: -8px;
-	left: 131px;
+	top: -29px;
+	left: 95px;
 }
 #cat-text {
 	position: absolute;
-	left: 339px;
-  top: 91px;
+	left: 407px;
+  top: 82px;
 	color: white;
 	font-weight: bold;
 	font-size: 10pt;
@@ -593,9 +593,9 @@ to { background-color: #129100; -moz-box-shadow: 0 0 9px #333; }
 	border-radius: 5px;
 }
 #main-search-container {
-	height: 100%;
-	padding-top: 36px;
   position:	absolute;
+	top: 27px;
+	left: 295px;
 }
 #near-text {
 	color: white;
@@ -613,8 +613,8 @@ to { background-color: #129100; -moz-box-shadow: 0 0 9px #333; }
 }
 .main-category-select {
 	position: absolute;
-	top: 104px;
-	left: 389px;
+	top: 72px;
+	left: 354px;
 }
 #search-bottom {
 
@@ -1778,12 +1778,16 @@ a:hover{
 	background-repeat: repeat-x;
 	background-color: #006012;
 	margin-top: 0em;
-	padding-left: 374px;
 	height: 158px;
 	background-image:url('/images/site/extended_top_bg.png');
 	background-repeat: no-repeat;
 	background-position: center;
-	padding-left: 93px;
+	position: relative;
+}
+
+.searchbar-container {
+	width: 1000px;
+	margin: auto;
 }
 	
 .cannalogo {
@@ -2312,8 +2316,8 @@ li.canna-wisdom {
 
 #behind-arrow {
 	position: absolute;
-	top: 95px;
-	left: 380px;
+	top: 62px;
+	left: 344px;
 }
 
 .dropdown-menu { 
@@ -2435,17 +2439,16 @@ background-color: #EFF2F7;
 
 }
 #radius-change {
-position: relative;
-top: -17px;
-left: 160px;
-position: relative;
+position: absolute;
+top: 3px;
+left: 718px;
 height: 25px;
 width: 35px;
 }
 
 .main-find-btn {
 position: absolute;
-top: 27px;
+top: -9px;
 left: 631px;
 }
 
@@ -2461,4 +2464,24 @@ left: 631px;
 
 .roachy-empty-search {
 	width:108px;	
+}
+
+#cat-button {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url('/assets/aarow-new.png') bottom;
+	text-indent: -99999px;
+}
+
+#cat-button:hover {
+	background-position: 0 0;
+}
+
+.main-links-container {
+	width: 232px;
+	position: absolute;
+	top: 98px;
+	left: 621px;
+	margin: 0 auto;
 }
