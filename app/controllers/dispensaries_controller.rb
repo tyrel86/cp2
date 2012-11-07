@@ -58,13 +58,14 @@ class DispensariesController < ApplicationController
 		end
 		@dispensaries = Kaminari::PaginatableArray.new( @dispensaries ).page(params[:page]).per(10)
 		@dispensaries.sort! { |a, b|  a.distance <=> b.distance }
-    @featured = Dispensary.get_featured( session[:user_location].city, params[:category], 1 )
+    @featured = Dispensary.get_featured( session[:user_location].city, params[:category], 3 )
 		@featured.each do |f|
 			f.featured_shows += 1
-			dist = Dispensary.distance_between( session[:user_location], f ) 
+			dist = Dispensary.distance_between( session[:user_location], f )
 			f.distance = dist
 			f.save
 		end
+		@featured.shuffle!
 		#Ads
 		@ads = Ad.get_ads( 2, :side )
 		@bigAd = Ad.get_ads( 1, :bside ).first

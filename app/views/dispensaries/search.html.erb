@@ -13,9 +13,7 @@
 <div class="row">  
 	<div id="search-results-container" class="span8">
 		<% unless @featured.nil? %>
-			<% @featured.each do |f| %>
-				<%= render( "dispensaries/featured", dispensary: f, blue_class: nil, featured: true ) %>
-			<% end %>
+			<%= render( "dispensaries/featured", dispensary: @featured.first, blue_class: nil, featured: true ) %>
 		<% end %>
 		<% blue_class = false %>
 		<% index = 1 %>
@@ -27,8 +25,14 @@
 	</div>
 	<div class="span4">
 		<div class="home-add-right"><%= link_to( image_tag( @ads.first.image(:side), class: "side-ad" ), ad_path(@ads.first) ) %></div>
+		<% if @featured.size > 1 %>
+			<%= render "dispensaries/side", f: @featured.all[1] %>
+		<% end %>
 		<% if @bigAd %>
 			<div class="home-add-right"><%= link_to( image_tag( @bigAd.image(:bside), class: "side-ad" ), ad_path(@bigAd) ) %></div>
+		<% end %>
+		<% if @featured.size > 2 %>
+			<%= render "dispensaries/side", f: @featured.all[2] %>
 		<% end %>
 		<div class="home-add-right"><%= link_to( image_tag( @ads.last.image(:side), class: "side-ad" ), ad_path(@ads.last) ) %></div>
 	</div>

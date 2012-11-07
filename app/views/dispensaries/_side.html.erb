@@ -1,0 +1,8 @@
+<% name = (f.name.size > 21 ? f.name[0..20] + "..." : f.name) %>
+<div id="featured-side">
+	<h3><%= link_to name, featured_dispensary_show_path(f) %></h3>
+	<p><%= f.street_address %></p>
+	<p><%= f.formated_phone_number %></p>
+	<p><%= "#{f.city}, #{f.state} #{f.zip_code}" %></p>
+	<p class="side-special"><%= f.weekly.size > 80 ? f.weekly[0..75] + "..." : f.weekly %></p>
+</div>
