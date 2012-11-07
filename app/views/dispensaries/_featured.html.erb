@@ -1,9 +1,9 @@
 <div class="listing-index row featured">
-	<%= link_to( image_tag( dispensary.photo.url(:large), class: "photo" ),  dispensary, class: "listing-index-link") %>
+	<%= link_to( image_tag( dispensary.photo.url(:large), class: "photo" ), featured_dispensary_show_path( dispensary ), class: "listing-index-link") %>
 	<div class="info-left">
 		<%= image_tag "/images/icons/reglistingbug.png", class: "featured-top-icon" %>
 		<% name = ( dispensary.name.size > 19 ) ? dispensary.name[0..18] + "..." : dispensary.name %>
-		<h5><%= link_to ("#{name}"), dispensary %></h5>
+		<h5><%= link_to ("#{name}"), featured_dispensary_show_path( dispensary ) %></h5>
 		<p>Category: <%= dispensary.business_type %></p>
 		<p class="constrained"><%= dispensary.distance %> miles from <br /> <%= params[:last_location] %></p>
 		<div class="listing-index-icons">

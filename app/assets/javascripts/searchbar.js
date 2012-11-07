@@ -42,4 +42,9 @@ $(document).ready( function() {
 	$('.main-find-btn').click( function() {
 		$('form.form-search').submit()
 	})
+	$(".search-query").keyup(function(e) {
+		if(e.keyCode == 13) {
+			$("form.form-search").submit();
+		}
+	});
 })

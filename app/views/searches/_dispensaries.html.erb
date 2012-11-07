@@ -20,11 +20,11 @@
 		<div class="span1">
 			<!-- <button type="submit" class="btn-custom" id="main-find-btn"> -->
 			<!-- </button> -->
-				<%= image_tag "/images/icons/magglass.png", class: "search-icon canna-link", class: "main-find-btn" %>
+				<%= image_tag "/images/icons/magglass.png", class: "search-icon canna-link main-find-btn" %>
 		</div>
 		<% prvRadius = params[:radius] %>
 		<% prvRadius ||= "5" %>
 		<span id="radius-span">Within (mi)</span>
-		<input id="radius-change" name="radius" type="text" size="4" value=<%= prvRadius %> />
+		<input class="search-query" id="radius-change" name="radius" type="text" size="4" value=<%= prvRadius %> />
 	<% end %>
 </div>

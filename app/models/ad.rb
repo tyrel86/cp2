@@ -1,7 +1,7 @@
 class Ad < ActiveRecord::Base
   attr_accessible :ad_type_id, :href, :name, :image
 
-	has_attached_file :image, :styles => { :side => "250x250>", :btob => "728x90>" }
+	has_attached_file :image, :styles => { :side => "250x250>", :bside => "250x600>", :btob => "728x90>" }
 
 	belongs_to :user
 
@@ -24,7 +24,7 @@ class Ad < ActiveRecord::Base
 	end
 
 	def self.get_ads( amount, type )
-		type = ({ side: 0, btob: 1})[type]
+		type = ({ side: 0, btob: 1, bside: 2})[type]
 		ads = Ad.where( confirmed: true, ad_type_id: type ).order( 'ads.shows ASC' ).limit( amount )
 		ads.each do |ad|
 			ad.shows += 1
@@ -39,6 +39,8 @@ class Ad < ActiveRecord::Base
 				0
 			when "btob"
 				1
+			when "bside"
+				2
 			else
 				0
 		end
@@ -52,6 +54,8 @@ class Ad < ActiveRecord::Base
 				"side"
 			when 1
 				"btob"
+			when 2
+				"bside"
 			else
 				"btob"
 		end

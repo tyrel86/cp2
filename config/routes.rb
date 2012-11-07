@@ -1,13 +1,5 @@
 CannaPages::Application.routes.draw do
 
-  match "/colorado" => redirect("/")
-  match "/colorado/:anything" => redirect("/")
-  match "/colorado/:anything/:anything" => redirect("/")
-  match "/colorado/:anything/:anything/:anything" => redirect("/")
-  match "/arizona" => redirect("/")
-  match "/arizona/:anything" => redirect("/")
-  match "/arizona/:anything/:anything" => redirect("/")
-  match "/arizona/:anything/:anything/:anything" => redirect("/")
   get "advertise_with_us/create_user"
   get "advertise_with_us/create_profile"
   get "advertise_with_us/create_account"
@@ -91,5 +83,12 @@ CannaPages::Application.routes.draw do
 	put "search/critiques" => "critiques#search", as: "critique_search"
 
 	match "strains/index" => "strains#index"
+
+
+	#Legacy routes
+	match "/:state/businesses/:uri_name" => "dispensaries#show"
+	match "/:state/businesses/:uri_name/:action" => "dispensaries#show"
+	#Universal fall back to root
+	match '*a', :to => 'dispensaries#search'
 
 end

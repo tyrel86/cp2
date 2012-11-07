@@ -2,9 +2,17 @@ class DispensariesController < ApplicationController
   before_filter :authorize, only: [:user_index, :create, :update, :destroy]
 
   def show
-    @dispensary = Dispensary.find(params[:id])
-		@dispensary.clicks += 1
-		@dispensary.save
+		if params[:uri_name]
+			name = params[:uri_name].split("-").join(" ").titleize
+			@dispensary = Dispensary.where( name: name ).first
+			redirect_to "/" unless @dispensary
+		else
+    	@dispensary = Dispensary.find(params[:id])
+		end
+		if @dispensary
+			@dispensary.clicks += 1
+			@dispensary.save
+		end
 		@ads = Ad.get_ads( 2, :side )
   end
 
@@ -58,7 +66,8 @@ class DispensariesController < ApplicationController
 			f.save
 		end
 		#Ads
-		@ads = Ad.get_ads( 4, :side )
+		@ads = Ad.get_ads( 2, :side )
+		@bigAd = Ad.get_ads( 1, :bside ).first
 		unless @dispensaries.empty?
 			render "search"
 		else

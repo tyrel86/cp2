@@ -4,7 +4,7 @@
 <%= simple_form_for ad, :html => { :multipart => true } do |f| %>
 	<%= f.input :name, :label => 'Name' %>
 	<%= f.input :href, :label => 'Link' %>
-  <%= f.input :ad_type_id, :collection => ["side","btob"] %>
+  <%= f.input :ad_type_id, :collection => ["side","btob","bside"] %>
 	<%= f.file_field :image %>
 	<%= f.button :submit, class: "btn-success" %>
 	<%= link_to "Close", "#", class: :btn, "data-dismiss" => "modal" %>
