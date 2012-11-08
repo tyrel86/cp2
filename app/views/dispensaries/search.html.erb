@@ -12,7 +12,7 @@
 
 <div class="row">  
 	<div id="search-results-container" class="span8">
-		<% unless @featured.nil? %>
+		<% unless @featured.first.nil? %>
 			<%= render( "dispensaries/featured", dispensary: @featured.first, blue_class: nil, featured: true ) %>
 		<% end %>
 		<% blue_class = false %>
