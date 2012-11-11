@@ -19,6 +19,7 @@
 //= require confirm-delete-modal
 //= require canna-links 
 //= require roachy
+//= require signup
 //= require searchbar
 //= require tinymce-jquery
 //= require timepicker
