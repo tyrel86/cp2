@@ -16,9 +16,13 @@
     <a data-toggle="modal" href="#editmodal<%= listing.id %>" class="btn btn-glow btn-success">Edit</a>
 		<%= link_to "Make Featured", request_featured_dispensary_path( listing ), {class: "btn btn-glow btn-success" } unless listing.request_featured || listing.featured %>
     <div class="btn btn-glow btn-success"><%= link_to 'Delete', listing, :method => :delete, :confirm => 'Are you sure?' %></div>
-<a data-toggle="modal" href="#create_critique_modal<%= listing.id %>" class="btn btn-glow btn-success new-btn">Critique</a>
+		<a data-toggle="modal" href="#create_critique_modal<%= listing.id %>" class="btn btn-glow btn-success new-btn">Critique</a>
+    <a data-toggle="modal" href="#edithoursmodal<%= listing.id %>" class="btn btn-glow btn-success">Set Business Hours</a>
+    <a data-toggle="modal" href="#editspecialsmodal<%= listing.id %>" class="btn btn-glow btn-success">Set Specials</a>
   </div>
 </div>
 
- <%= render "modals/edit_listing", listing: listing %>
- <%= render partial: "modals/create_critique_for_dispensary", locals: { critique: Critique.new, dispensary: listing }  %>
+<%= render "modals/edit_listing", listing: listing %>
+<%= render partial: "modals/create_critique_for_dispensary", locals: { critique: Critique.new, dispensary: listing }  %>
+<%= render "modals/admin_edit_hours", dispensary: listing %>
+<%= render "modals/admin_edit_specials", dispensary: listing %>

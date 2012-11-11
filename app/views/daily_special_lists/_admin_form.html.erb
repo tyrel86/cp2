@@ -1,0 +1,13 @@
+<%= simple_form_for daily_special_list, url: "/daily_special_list/1/admin"  do |f| %>
+	<%= f.input :mo, :label => 'Monday Special' %>
+	<%= f.input :tu, :label => 'Tuesday Spceial' %>
+	<%= f.input :we, :label => 'Wednsday Special' %>
+	<%= f.input :th, :label => 'Thurday Special' %>
+	<%= f.input :fr, :label => 'Friday Special' %>
+	<%= f.input :sa, :label => 'Saturday Special' %>
+	<%= f.input :su, :label => 'Sunday Special' %>
+	<%= f.input :week, :label => 'Weekly Special' %>
+	<%= f.hidden_field :dispensary_id, value: daily_special_list.dispensary.id %>
+	<%= f.button :submit, class: "btn-success" %>
+	<%= link_to "Close", "#", class: :btn, "data-dismiss" => "modal" %>
+<% end %>

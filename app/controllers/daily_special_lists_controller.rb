@@ -9,4 +9,13 @@ class DailySpecialListsController < ApplicationController
 			redirect_to user_dispensaries_path( @current_user ), alert: "Specials update failed"
 		end	
   end
+  def admin_update
+		ds = Dispensary.where( id: params[:daily_special_list][:dispensary_id] ).first.daily_special_list
+		params[:daily_special_list].remove!(:dispensary_id)
+		if ds.update_attributes( params[:daily_special_list] )
+			redirect_to user_dispensaries_admin_path( @current_user ), alert: "Specials have been set"
+		else
+			redirect_to user_dispensaries_admin_path( @current_user ), alert: "Specials update failed"
+		end	
+  end
 end

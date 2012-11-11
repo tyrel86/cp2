@@ -55,8 +55,9 @@ CannaPages::Application.routes.draw do
   resources :articles
 
 	resources :hours_of_operations, only: [:update]
-
+	match "/hours_of_operation/:id/admin" => "hours_of_operations#admin_update"
 	resources :daily_special_lists, only: [:update]
+	match "/daily_special_list/:id/admin" => "daily_special_lists#admin_update"
 
 	resources :feeds, except: [:show]
 	get "feeds/user_index", to: "feeds#user_index", as: :admin_feeds

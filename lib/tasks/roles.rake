@@ -142,10 +142,15 @@ namespace :roles do
 		#Dispensary Hours
 		hours_update = Right.create( resource: "hours_of_operations", operation: "UPDATE" )
 		  base.rights << hours_update
+		hours_update = Right.create( resource: "hours_of_operations", operation: "ADMIN" )
+		  admin.rights << hours_update
+		
 
 		#Dispensary Specials
 		specials_update = Right.create( resource: "daily_special_lists", operation: "UPDATE" )
 		  base.rights << specials_update
+		specials_update = Right.create( resource: "daily_special_lists", operation: "ADMIN" )
+		  admin.rights << specials_update
 
 		#Dispensary Comments
 		dispensary_comment_create = Right.create( resource: "dispensary_comments", operation: "CREATE" )
