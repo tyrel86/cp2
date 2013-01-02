@@ -181,7 +181,7 @@ class Dispensary < ActiveRecord::Base
 		old_d = self.id.nil? ? nil? : Dispensary.find( self.id )
 		if( ( old_d.nil? ) or ( self.lat.nil? ) or ( lng.nil? ) or ( self.street_address != old_d.street_address ) or \
 			( self.city != old_d.city ) or ( self.state != old_d.state) or ( self.zip_code != old_d.zip_code ) )
-			geo = Geokit::Geocoders::YahooGeocoder.geocode self.full_address
+			geo = Geokit::Geocoders::GoogleGeocoder.geocode self.full_address
 			self.lat = geo.lat
 			self.lng = geo.lng
 		end
