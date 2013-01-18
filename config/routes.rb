@@ -1,5 +1,6 @@
 CannaPages::Application.routes.draw do
-
+	get "birthday" => "pages#birthday"
+	match "rsvp" => "pages#rsvp"
   get "advertise_with_us/create_user"
   get "advertise_with_us/create_profile"
   get "advertise_with_us/create_account"

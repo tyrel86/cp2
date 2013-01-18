@@ -89,7 +89,7 @@ class ApplicationController < ActionController::Base
     helper_method :anonymous
     
     def check_authorization
-      unless current_user.can?( action_name, controller_name )
+      unless current_user.can?( action_name, controller_name ) || controller_name = "pages"
         redirect_to root_path,
                            flash: { error: "What you trying to pull homes you cant do that!" }
       end

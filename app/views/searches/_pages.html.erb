@@ -1,0 +1,30 @@
+<div class="row">
+	<%= form_tag dispensary_search_path, method: :put, class: "form-search", 
+																				id: "main-search-container" do %>
+		<div class="span4">
+			<%= text_field_tag :search_term, "", 
+											 placeholder: "Search by name here or choose a category below", 
+											 :class => "input-medium search-query med-search", :id => "cannaenginetext-big" %>
+		</div>
+		<div class="spane1">
+			<span id="near-text">near</span>
+		</div>
+		<div class="span2">
+			<%= text_field_tag :search_from, "", :placeholder => params[:last_location], 
+													:class => "input-medium search-query", id: "cannaenginetext-small" %>
+			<%= hidden_field_tag :category, "All", id: "send-cat" %>
+						<% prvRadius = params[:radius] %>
+						<% prvRadius ||= "5" %>
+			<%= hidden_field_tag :radius, "All", id: "send-radius", value: prvRadius %>
+		</div>
+		<div class="span1">
+			<!-- <button type="submit" class="btn-custom" id="main-find-btn"> -->
+			<!-- </button> -->
+				<%= image_tag "/images/icons/magglass.png", class: "search-icon canna-link main-find-btn" %>
+		</div>
+		<% prvRadius = params[:radius] %>
+		<% prvRadius ||= "5" %>
+		<span id="radius-span">Within (mi)</span>
+		<input class="search-query" id="radius-change" name="radius" type="text" size="4" value=<%= prvRadius %> />
+	<% end %>
+</div>

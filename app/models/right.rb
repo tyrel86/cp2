@@ -27,6 +27,7 @@ class Right < ActiveRecord::Base
     "backend_search" => "MANAGE",
     "manage" => "MANAGE",
     "home" => "HOME",
+		"birthday" => "BIRTHDAY",
 		"admin_index" => "ADMIN",
 		"confirm" => "ADMIN",
 		"admin_destroy" => "ADMIN",

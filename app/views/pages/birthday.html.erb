@@ -1,0 +1,41 @@
+<div class="span6">
+	<%= image_tag "/assets/bday.jpg" %>
+</div>
+
+<div class="span6">
+<h2>Cannapages.com 3 Year Birthday Spectacular</h2>
+<p>With Herbal Synergy Labs</p>
+<p>Hosted by the MMJ Meet & Greet.</p>
+<br/>
+<p>Private event! All red-card holding patients welcome.<p>
+<p>Amendment 64 abiders 21+ are welcome, but need to RSVP below or by emailing RSVP@cannapages.com</p>
+<p>(sorry no exceptions). See you there!</p>
+<br/>
+<h3>Band Lineup:</h3>
+<p>Whiskey Tango www.facebook.com/whiskeytangobluegrass</p>
+<p>Buggsy Mogues www.facebook.com/BuggsyMoguesMusic</p>
+<p>Wonderlic www.facebook.com/wonderlicjam</p>
+<br/>
+<p>Visit www.mmjmeetandgreet.com for more info</p>
+<p>Facebook event page: http://www.facebook.com/events/303906436397161/?suggestsessionid=1000004927518111357320343</p>
+<br/>
+<p>Legendary medicated birthday cake by Bakked Edibles! www.bakked.com</p>
+<br />
+<h3>Media Partners:</h3>
+<p>Culture Magazine</p>
+<p>Cronic Magazine</p>
+<p>THC Magazine</p>
+<p>The Daily Doobie</p>
+<p>No Excuses Entertainment/iBake TV</p>
+<p>The Weed Blog</p>
+<p>Overgrow the Radio</p>
+<p>iCannabis Radio</p>
+<br/>
+<h3>Please PSVP if you will be atending</h3>
+<%= simple_form_for Rsvp.new, url: "/rsvp" do |f| %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :email %>
+	<%= f.submit "Sign Up" %>
+<% end %>
+</div>
