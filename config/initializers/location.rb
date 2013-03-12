@@ -2,7 +2,7 @@ class UserLocation
 
 	attr_accessor :lat, :lng, :city, :state, :zip_code, :street_address
 
-  def initialize(lat, lng, city, state, zip_code, street_address)
+  def initialize(lat, lng, city = "", state = "", zip_code = "", street_address = "")
     @lat, @lng, @city, @state, @zip_code, @street_address = 
 		lat, lng, city, state, zip_code, street_address
   end

@@ -41,10 +41,11 @@ class DispensariesController < ApplicationController
 		s = params[:search_term] || ""
 		f = params[:search_from]
 		Search.create_or_inc( s, f, :listing )
+		user_location = UserLocation.new( 39.737567, -104.984718, "Denver", "CO" )
 		dispensary_array = Dispensary.search( s, params[:category] )
 		@dispensaries = dispensary_array.inject([]) do |r,d|
 			r ||= []
-			dist = Dispensary.distance_between( session[:user_location], d ) 
+			dist = Dispensary.distance_between( user_location, d ) 
 			if dist.class != String and dist <= params[:radius]
 				r.push( d )
 				d.distance = dist
