@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
     helper_method :loged_in?
 
     def authorize
-      redirect_to new_session_path, alert: "You need to be logged in to do that" if current_user.nil?
+      # redirect_to new_session_path, alert: "You need to be logged in to do that" if current_user.nil?
     end
     helper_method :authorize
     
