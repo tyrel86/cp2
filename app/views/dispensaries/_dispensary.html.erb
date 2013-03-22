@@ -19,12 +19,5 @@
 		<% end %>
 		<p><%= "#{dispensary.city}, #{dispensary.state} #{dispensary.zip_code}" %>
 	</div>
-			<% if dispensary.dispensary_comments.any? %>
-			<p class="listing-index-comment">
-				<% last_comment = dispensary.dispensary_comments.last %>
-				<%= gravatar_image_tag last_comment.user.email, class: "avatar" %>
-				<span class="inner-comment"><%= last_comment.body %></span>
-			</p>
-			<% end %>
 </div>
 
