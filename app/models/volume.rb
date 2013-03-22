@@ -1,7 +1,7 @@
 class Volume < ActiveRecord::Base
   attr_accessible :current, :photo
   
-  has_many :articles
+	embed
 	has_attached_file :photo, :styles => { :large => "400x300#", :small => "200x150#" }
 
   def self.the_current
