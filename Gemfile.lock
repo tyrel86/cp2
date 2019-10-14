@@ -86,7 +86,7 @@ GEM
       rake (>= 0.9.2)
       rdoc (~> 3.8)
       sax-machine (~> 0.0.20)
-    ffi (1.1.5)
+    ffi (1.11.1)
     geokit (1.6.5)
       multi_json
     gravatar_image_tag (1.1.3)
