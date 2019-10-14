@@ -115,7 +115,7 @@ GEM
       thor (~> 0.14)
     jquery-rails-cdn (0.2.1)
       jquery-rails
-    json (1.7.5)
+    json (1.8.6)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
